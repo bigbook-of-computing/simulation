@@ -2089,9 +2089,9 @@ V_0 = e^{-rT} \mathbb{E}_{\mathbb{Q}} \left[h(S_T)\right].
 <p>More generally, if the payoff depends on the entire path <span class="arithmatex">\(\{S_t\}_{0\le t\le T}\)</span>, we compute the expected value of <span class="arithmatex">\(h(\{S_t\})\)</span> under <span class="arithmatex">\(\mathbb{Q}\)</span> and discount it by <span class="arithmatex">\(e^{-rT}\)</span>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Why the Risk-Free Rate as Drift?</p>
+<p>Under the risk-neutral measure, the expected return of any tradable asset must equal the risk-free rate <span class="arithmatex">\(r\)</span> to prevent arbitrage. If <span class="arithmatex">\(S_t\)</span> had expected return <span class="arithmatex">\(\mu &gt; r\)</span>, one could borrow at rate <span class="arithmatex">\(r\)</span>, invest in <span class="arithmatex">\(S_t\)</span>, and lock in riskless profit. The change from physical measure <span class="arithmatex">\(\mathbb{P}\)</span> (drift <span class="arithmatex">\(\mu\)</span>) to risk-neutral measure <span class="arithmatex">\(\mathbb{Q}\)</span> (drift <span class="arithmatex">\(r\)</span>) is achieved via Girsanov's theorem, which adjusts the Brownian motion by the market price of risk.</p>
 </div>
-<h2 id="under-the-risk-neutral-measure-the-expected-return-of-any-tradable-asset-must-equal-the-risk-free-rate-r-to-prevent-arbitrage-if-s_t-had-expected-return-mu-r-one-could-borrow-at-rate-r-invest-in-s_t-and-lock-in-riskless-profit-the-change-from-physical-measure-mathbbp-drift-mu-to-risk-neutral-measure-mathbbq-drift-r-is-achieved-via-girsanovs-theorem-which-adjusts-the-brownian-motion-by-the-market-price-of-risk"><div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Under the risk-neutral measure, the expected return of any tradable asset must equal the risk-free rate $r$ to prevent arbitrage. If $S_t$ had expected return $\mu &gt; r$, one could borrow at rate $r$, invest in $S_t$, and lock in riskless profit. The change from physical measure $\mathbb{P}$ (drift $\mu$) to risk-neutral measure $\mathbb{Q}$ (drift $r$) is achieved via Girsanov&#39;s theorem, which adjusts the Brownian motion by the market price of risk.
-</span></code></pre></div></h2>
+<hr />
 <h3 id="montecarlo-pricing-under-the-riskneutral-measure"><strong>Monte‑Carlo pricing under the risk‑neutral measure</strong></h3>
 <p>Monte‑Carlo simulation estimates the risk‑neutral expectation by generating many independent realizations of the underlying asset path and averaging their payoffs. The basic steps are:</p>
 <ol>
@@ -2110,15 +2110,15 @@ V_0 = e^{-rT} \mathbb{E}_{\mathbb{Q}} \left[h(S_T)\right].
 <p>As in physical Monte‑Carlo simulations, the estimator's standard error decreases as <span class="arithmatex">\(1/\sqrt{M}\)</span>. Doubling precision requires quadrupling the number of paths. The flexibility of this method is immense: you can incorporate multiple assets, correlated Brownian motions, stochastic volatilities or jumps. The only requirement is that you can simulate the underlying process under the risk‑neutral measure.</p>
 <div class="admonition example">
 <p class="admonition-title">Pricing a European Call with Monte Carlo</p>
+<p>Consider <span class="arithmatex">\(S_0 = 100\)</span>, <span class="arithmatex">\(K = 105\)</span>, <span class="arithmatex">\(r = 0.05\)</span>, <span class="arithmatex">\(\sigma = 0.20\)</span>, <span class="arithmatex">\(T = 1\)</span> year. With <span class="arithmatex">\(M = 10{,}000\)</span> paths:</p>
+<ol>
+<li>For each path <span class="arithmatex">\(m\)</span>: generate <span class="arithmatex">\(Z \sim N(0,1)\)</span>, compute <span class="arithmatex">\(S_T^{(m)} = 100 \exp[(0.05 - 0.5 \times 0.2^2) + 0.2 Z]\)</span></li>
+<li>Payoff: <span class="arithmatex">\(h_m = \max(S_T^{(m)} - 105, 0)\)</span></li>
+<li>Estimate: <span class="arithmatex">\(\hat{V}_0 = e^{-0.05} \times \frac{1}{10000}\sum h_m \approx 8.02\)</span></li>
+</ol>
+<p>The Black-Scholes formula gives <span class="arithmatex">\(V_0 = 8.02\)</span>. Standard error <span class="arithmatex">\(\approx 0.15\)</span>, so the estimate is accurate within <span class="arithmatex">\(\pm 0.30\)</span> at 95% confidence.</p>
 </div>
-<h2 id="consider-s_0-100-k-105-r-005-sigma-020-t-1-year-with-m-10000-paths-1-for-each-path-m-generate-z-sim-n01-compute-s_tm-100-exp005-05-times-022-02-z-2-payoff-h_m-maxs_tm-105-0-3-estimate-hatv_0-e-005-times-frac110000sum-h_m-approx-802-the-black-scholes-formula-gives-v_0-802-standard-error-approx-015-so-the-estimate-is-accurate-within-pm-030-at-95-confidence"><div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Consider $S_0 = 100$, $K = 105$, $r = 0.05$, $\sigma = 0.20$, $T = 1$ year. With $M = 10{,}000$ paths:
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>1. For each path $m$: generate $Z \sim N(0,1)$, compute $S_T^{(m)} = 100 \exp[(0.05 - 0.5 \times 0.2^2) + 0.2 Z]$
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>2. Payoff: $h_m = \max(S_T^{(m)} - 105, 0)$
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>3. Estimate: $\hat{V}_0 = e^{-0.05} \times \frac{1}{10000}\sum h_m \approx 8.02$
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>The Black-Scholes formula gives $V_0 = 8.02$. Standard error $\approx 0.15$, so the estimate is accurate within $\pm 0.30$ at 95% confidence.
-</span></code></pre></div></h2>
+<hr />
 <h3 id="why-montecarlo-advantages-and-limitations"><strong>Why Monte‑Carlo? Advantages and limitations</strong></h3>
 <p><strong>Advantages:</strong></p>
 <ul>
@@ -2134,15 +2134,14 @@ V_0 = e^{-rT} \mathbb{E}_{\mathbb{Q}} \left[h(S_T)\right].
 </ul>
 <details class="question">
 <summary>When Should You Use Monte Carlo Instead of Black-Scholes?</summary>
+<p>Use Monte Carlo when:
+- The option is path-dependent (Asian, barrier, lookback) with no closed-form solution
+- Multiple correlated assets are involved (basket options)
+- Complex early exercise features exist (American with path dependence)
+- You need to model stochastic volatility or jumps</p>
+<p>Stick with analytical formulas when they exist (European vanilla) for speed and precision. For American options on single assets, binomial trees or finite difference methods are often more efficient than Monte Carlo.</p>
 </details>
-<h2 id="use-monte-carlo-when-the-option-is-path-dependent-asian-barrier-lookback-with-no-closed-form-solution-multiple-correlated-assets-are-involved-basket-options-complex-early-exercise-features-exist-american-with-path-dependence-you-need-to-model-stochastic-volatility-or-jumps-stick-with-analytical-formulas-when-they-exist-european-vanilla-for-speed-and-precision-for-american-options-on-single-assets-binomial-trees-or-finite-difference-methods-are-often-more-efficient-than-monte-carlo"><div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Use Monte Carlo when:
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>- The option is path-dependent (Asian, barrier, lookback) with no closed-form solution
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>- Multiple correlated assets are involved (basket options)
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>- Complex early exercise features exist (American with path dependence)
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>- You need to model stochastic volatility or jumps
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Stick with analytical formulas when they exist (European vanilla) for speed and precision. For American options on single assets, binomial trees or finite difference methods are often more efficient than Monte Carlo.
-</span></code></pre></div></h2>
+<hr />
 <h3 id="connecting-back-to-physics-and-beyond"><strong>Connecting back to physics and beyond</strong></h3>
 <p>There is a deep conceptual link between the Monte‑Carlo methods used to sample the Boltzmann distribution in statistical mechanics and those used to compute risk‑neutral expectations in finance:</p>
 <ul>
@@ -2242,41 +2241,41 @@ S_{t_{k+1}}^{(i)} = S_{t_k}^{(i)} \exp\left[\left(r - \tfrac{\sigma_i^2}{2}\righ
 <h3 id="algorithmic-pseudocode"><strong>Algorithmic pseudocode</strong></h3>
 <p>Putting it all together, a typical Monte‑Carlo routine for a single‑asset exotic might look like:</p>
 <p><strong>Pseudo-code for Monte Carlo Option Pricing:</strong></p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">## Monte Carlo pricing for path-dependent options</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">monte_carlo_option_price</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">payoff_func</span><span class="p">):</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="sd">    S0: initial asset price</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="sd">    r: risk-free rate</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="sd">    sigma: volatility</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="sd">    T: time to maturity</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="sd">    N: number of time steps</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="sd">    M: number of simulation paths</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="sd">    payoff_func: function computing payoff from path</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="n">dt</span> <span class="o">=</span> <span class="n">T</span> <span class="o">/</span> <span class="n">N</span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    <span class="n">drift</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    <span class="n">diffusion</span> <span class="o">=</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    <span class="n">payoffs</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>        <span class="c1"># Simulate one path</span>
-</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>        <span class="n">S</span> <span class="o">=</span> <span class="n">S0</span>
-</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>        <span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="n">S</span><span class="p">]</span>
-</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>            <span class="n">Z</span> <span class="o">=</span> <span class="n">random_normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>            <span class="n">S</span> <span class="o">=</span> <span class="n">S</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="n">drift</span> <span class="o">+</span> <span class="n">diffusion</span> <span class="o">*</span> <span class="n">Z</span><span class="p">)</span>
-</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>            <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
-</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>
-</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>        <span class="c1"># Compute payoff for this path</span>
-</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>        <span class="n">h_m</span> <span class="o">=</span> <span class="n">payoff_func</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>        <span class="n">payoffs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">h_m</span><span class="p">)</span>
-</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>
-</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>    <span class="c1"># Estimate option price</span>
-</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>    <span class="n">V_hat</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span> <span class="o">*</span> <span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">mean</span><span class="p">(</span><span class="n">payoffs</span><span class="p">)</span>
-</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>    <span class="n">std_error</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span> <span class="o">*</span> <span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">std</span><span class="p">(</span><span class="n">payoffs</span><span class="p">)</span> <span class="o">/</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
-</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>
-</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>    <span class="k">return</span> <span class="n">V_hat</span><span class="p">,</span> <span class="n">std_error</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">## Monte Carlo pricing for path-dependent options</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">monte_carlo_option_price</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">payoff_func</span><span class="p">):</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="sd">    S0: initial asset price</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="sd">    r: risk-free rate</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="sd">    sigma: volatility</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="sd">    T: time to maturity</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="sd">    N: number of time steps</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="sd">    M: number of simulation paths</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="sd">    payoff_func: function computing payoff from path</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="n">dt</span> <span class="o">=</span> <span class="n">T</span> <span class="o">/</span> <span class="n">N</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="n">drift</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="n">diffusion</span> <span class="o">=</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="n">payoffs</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        <span class="c1"># Simulate one path</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>        <span class="n">S</span> <span class="o">=</span> <span class="n">S0</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>        <span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="n">S</span><span class="p">]</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>            <span class="n">Z</span> <span class="o">=</span> <span class="n">random_normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>            <span class="n">S</span> <span class="o">=</span> <span class="n">S</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="n">drift</span> <span class="o">+</span> <span class="n">diffusion</span> <span class="o">*</span> <span class="n">Z</span><span class="p">)</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>            <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>        <span class="c1"># Compute payoff for this path</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>        <span class="n">h_m</span> <span class="o">=</span> <span class="n">payoff_func</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>        <span class="n">payoffs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">h_m</span><span class="p">)</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>    <span class="c1"># Estimate option price</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>    <span class="n">V_hat</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span> <span class="o">*</span> <span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">mean</span><span class="p">(</span><span class="n">payoffs</span><span class="p">)</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>    <span class="n">std_error</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span> <span class="o">*</span> <span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">std</span><span class="p">(</span><span class="n">payoffs</span><span class="p">)</span> <span class="o">/</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>    <span class="k">return</span> <span class="n">V_hat</span><span class="p">,</span> <span class="n">std_error</span>
 </span></code></pre></div>
 <p>For multi‑asset options, the inner loop generates correlated <span class="arithmatex">\(Y_k\)</span> and updates each asset price accordingly.</p>
 <hr />
@@ -2394,23 +2393,23 @@ S_{t_{k+1}}^{(i)} = S_{t_k}^{(i)} \exp\left[\left(r - \tfrac{\sigma_i^2}{2}\righ
 <p>For each time step <span class="arithmatex">\(k=1,\dots,N\)</span>:</p>
 </li>
 </ol>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a> - Generate a standard normal random number $Z_k$ (or a vector for multiple assets).
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a> - Update $S$ via the exact GBM discretization:
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>   $$
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>   S \leftarrow S \times \exp\left[(r - \tfrac{\sigma^2}{2})\Delta t + \sigma \sqrt{\Delta t} Z_k\right].
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>   $$
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a> - Update path statistics:
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>   - **Asian**: accumulate the sum, $\text{sum} \leftarrow \text{sum} + S$.
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>   - **Lookback**: update maximum and minimum, $\text{max} \leftarrow \max(\text{max}, S)$, $\text{min} \leftarrow \min(\text{min}, S)$.
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>   - **Barrier**: if the barrier is breached, set a flag and break out of the loop (for knock‑out options) or record the crossing (for knock‑in options).
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a> - Generate a standard normal random number $Z_k$ (or a vector for multiple assets).
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a> - Update $S$ via the exact GBM discretization:
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>   $$
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>   S \leftarrow S \times \exp\left[(r - \tfrac{\sigma^2}{2})\Delta t + \sigma \sqrt{\Delta t} Z_k\right].
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>   $$
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a> - Update path statistics:
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>   - **Asian**: accumulate the sum, $\text{sum} \leftarrow \text{sum} + S$.
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>   - **Lookback**: update maximum and minimum, $\text{max} \leftarrow \max(\text{max}, S)$, $\text{min} \leftarrow \min(\text{min}, S)$.
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>   - **Barrier**: if the barrier is breached, set a flag and break out of the loop (for knock‑out options) or record the crossing (for knock‑in options).
 </span></code></pre></div>
    - After the final step, compute the payoff:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a> - Arithmetic Asian call: $h_m = \max\left(\tfrac{\text{sum}}{N+1} - K, 0\right)$.
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a> - Lookback call: $h_m = \max(\text{max} - K, 0)$.
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a> - Up‑and‑out call: $h_m = \max(S - K, 0)$ if no barrier breach; else $0$.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a> - Arithmetic Asian call: $h_m = \max\left(\tfrac{\text{sum}}{N+1} - K, 0\right)$.
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a> - Lookback call: $h_m = \max(\text{max} - K, 0)$.
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a> - Up‑and‑out call: $h_m = \max(S - K, 0)$ if no barrier breach; else $0$.
 </span></code></pre></div>
    - Discount the payoff by <span class="arithmatex">\(e^{-rT}\)</span> and store it.</p>
 <ol>

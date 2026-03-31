@@ -2141,16 +2141,12 @@ $$
 the trace of the ordered product of link variables around a closed loop <span class="arithmatex">\(\gamma\)</span>.</p>
 <div class="admonition example">
 <p class="admonition-title">Computing a <span class="arithmatex">\(2\times 2\)</span> Wilson Loop</p>
-</div>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Consider a simple $2 \times 2$ plaquette in the $xy$-plane starting at site $(0,0,0,0)$:
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>$$
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>W(2,2) = \frac{1}{3}\mathrm{Tr}\Bigl[ U_x(0,0) U_x(1,0) U_y(2,0) U_y(2,1) U_x^\dagger(1,2) U_x^\dagger(0,2) U_y^\dagger(0,1) U_y^\dagger(0,0) \Bigr]
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>$$
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>This involves 8 link multiplications around the rectangle. For large $R,T$, numerical stability requires careful ordering and sometimes logarithmic computation of traces.
-</span></code></pre></div>
-For a large rectangular loop of spatial extent <span class="arithmatex">\(R\)</span> and temporal extent <span class="arithmatex">\(T\)</span>, the expectation value behaves as:
+<p>Consider a simple <span class="arithmatex">\(2 \times 2\)</span> plaquette in the <span class="arithmatex">\(xy\)</span>-plane starting at site <span class="arithmatex">\((0,0,0,0)\)</span>:</p>
+<div class="arithmatex">\[
+W(2,2) = \frac{1}{3}\mathrm{Tr}\Bigl[ U_x(0,0) U_x(1,0) U_y(2,0) U_y(2,1) U_x^\dagger(1,2) U_x^\dagger(0,2) U_y^\dagger(0,1) U_y^\dagger(0,0) \Bigr]
+\]</div>
+<p>This involves 8 link multiplications around the rectangle. For large <span class="arithmatex">\(R,T\)</span>, numerical stability requires careful ordering and sometimes logarithmic computation of traces.</p>
+<p>For a large rectangular loop of spatial extent <span class="arithmatex">\(R\)</span> and temporal extent <span class="arithmatex">\(T\)</span>, the expectation value behaves as:
 $$
 \langle W(R,T) \rangle \propto \exp\left[-V(R) T\right]
 $$
@@ -2169,11 +2165,12 @@ where <span class="arithmatex">\(V(R)\)</span> is the static quark–antiquark p
 </li>
 </ul>
 <p>Monte Carlo simulations on the lattice confirm the area law behavior—one of the most striking <strong>non-perturbative validations</strong> of quark confinement.</p>
+</div>
 <details class="question">
 <summary>Why Does the Area Law Imply Confinement?</summary>
+<p>If <span class="arithmatex">\(\langle W(R,T) \rangle \sim e^{-\sigma RT}\)</span>, the "energy" to separate quarks by distance <span class="arithmatex">\(R\)</span> is <span class="arithmatex">\(E(R) = \sigma R\)</span>. This linear potential means infinite energy is required to separate quarks to infinity—they remain confined. In contrast, a perimeter law <span class="arithmatex">\(e^{-bP}\)</span> yields a saturating potential, allowing free quarks at large distances.</p>
 </details>
-<h2 id="if-langle-wrt-rangle-sim-e-sigma-rt-the-energy-to-separate-quarks-by-distance-r-is-er-sigma-r-this-linear-potential-means-infinite-energy-is-required-to-separate-quarks-to-infinitythey-remain-confined-in-contrast-a-perimeter-law-e-bp-yields-a-saturating-potential-allowing-free-quarks-at-large-distances"><div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>If $\langle W(R,T) \rangle \sim e^{-\sigma RT}$, the &quot;energy&quot; to separate quarks by distance $R$ is $E(R) = \sigma R$. This linear potential means infinite energy is required to separate quarks to infinity—they remain confined. In contrast, a perimeter law $e^{-bP}$ yields a saturating potential, allowing free quarks at large distances.
-</span></code></pre></div></h2>
+<hr />
 <h3 id="the-monte-carlo-challenge"><strong>The Monte Carlo challenge</strong></h3>
 <p>Discretizing QCD transforms an infinite-dimensional path integral into a <strong>finite (but enormous)</strong> integral:</p>
 <ul>
@@ -2185,13 +2182,12 @@ where <span class="arithmatex">\(V(R)\)</span> is the static quark–antiquark p
 <p><strong>Solution</strong>: Interpret the Boltzmann weight <span class="arithmatex">\(\exp[-S_W]\)</span> as a <strong>probability density</strong>, and apply <strong>Markov Chain Monte Carlo (MCMC)</strong>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Exponential Complexity of Gauge Fields</p>
-</div>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>On a $32^4$ lattice with $SU(3)$ gauge theory, there are $4 \times 32^4 = 4{,}194{,}304$ link variables, each an $8$-parameter matrix. The configuration space has dimension $\sim 33$ million—far beyond direct integration. MCMC allows us to sample this vast space efficiently by focusing on high-probability regions weighted by $\exp[-S_W]$.
-</span></code></pre></div>
-Requirements:
+<p>On a <span class="arithmatex">\(32^4\)</span> lattice with <span class="arithmatex">\(SU(3)\)</span> gauge theory, there are <span class="arithmatex">\(4 \times 32^4 = 4{,}194{,}304\)</span> link variables, each an <span class="arithmatex">\(8\)</span>-parameter matrix. The configuration space has dimension <span class="arithmatex">\(\sim 33\)</span> million—far beyond direct integration. MCMC allows us to sample this vast space efficiently by focusing on high-probability regions weighted by <span class="arithmatex">\(\exp[-S_W]\)</span>.</p>
+<p>Requirements:
 - Respect <strong>gauge invariance</strong>
 - Satisfy <strong>detailed balance</strong>
 - Be <strong>ergodic</strong> in a continuous group manifold</p>
+</div>
 <hr />
 <h3 id="summary-the-nonperturbative-universe"><strong>Summary: The Non‑Perturbative Universe</strong></h3>
 <p>Lattice gauge theory provides a bridge between quantum field theory and statistical mechanics. By discretizing space-time and replacing the path integral with a statistical ensemble of configurations, we gain a <strong>numerical handle on strongly coupled gauge theories</strong>.</p>
@@ -2360,27 +2356,27 @@ S_\text{loc}(U_\mu(n)) = -\frac{\beta_\text{gauge}}{2N} \mathrm{Re} \, \mathrm{T
 \]</div>
 <p>This decomposition reduces the global Boltzmann factor to a local factor for the link being updated and a constant factor from all other links. In a Metropolis update we propose a new matrix <span class="arithmatex">\(U'_\mu(n)\)</span> and compute the change <span class="arithmatex">\(\Delta S = S_\text{loc}(U'_\mu(n)) - S_\text{loc}(U_\mu(n))\)</span>; the proposal is accepted with probability <span class="arithmatex">\(\min(1, e^{-\Delta S})\)</span>.</p>
 <p><strong>Pseudo-code for SU(N) Metropolis Update:</strong></p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">## Metropolis update for a single link variable U_mu(n)</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">metropolis_link_update</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">beta_gauge</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">):</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="c1"># Compute staple sum Sigma_mu(n)</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">Sigma</span> <span class="o">=</span> <span class="n">compute_staple</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="c1"># Current local action</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">S_old</span> <span class="o">=</span> <span class="o">-</span><span class="n">beta_gauge</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="n">Re</span><span class="p">(</span><span class="n">Tr</span><span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="n">mu</span><span class="p">,</span><span class="n">n</span><span class="p">]</span> <span class="o">@</span> <span class="n">Sigma</span><span class="p">))</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="c1"># Propose new link: U&#39; = delta_U * U[mu,n]</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="n">delta_U</span> <span class="o">=</span> <span class="n">random_SU_N_near_identity</span><span class="p">(</span><span class="n">epsilon</span><span class="p">)</span>  <span class="c1"># small random matrix</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="n">U_prime</span> <span class="o">=</span> <span class="n">delta_U</span> <span class="o">@</span> <span class="n">U</span><span class="p">[</span><span class="n">mu</span><span class="p">,</span><span class="n">n</span><span class="p">]</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    <span class="c1"># New local action</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    <span class="n">S_new</span> <span class="o">=</span> <span class="o">-</span><span class="n">beta_gauge</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="n">Re</span><span class="p">(</span><span class="n">Tr</span><span class="p">(</span><span class="n">U_prime</span> <span class="o">@</span> <span class="n">Sigma</span><span class="p">))</span>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    <span class="c1"># Metropolis acceptance</span>
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>    <span class="n">Delta_S</span> <span class="o">=</span> <span class="n">S_new</span> <span class="o">-</span> <span class="n">S_old</span>
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>    <span class="k">if</span> <span class="n">random_uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Delta_S</span><span class="p">):</span>
-</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>        <span class="n">U</span><span class="p">[</span><span class="n">mu</span><span class="p">,</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">U_prime</span>  <span class="c1"># accept</span>
-</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>    <span class="c1"># else reject and keep U[mu,n] unchanged</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">## Metropolis update for a single link variable U_mu(n)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">metropolis_link_update</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">beta_gauge</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">):</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="c1"># Compute staple sum Sigma_mu(n)</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">Sigma</span> <span class="o">=</span> <span class="n">compute_staple</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="c1"># Current local action</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="n">S_old</span> <span class="o">=</span> <span class="o">-</span><span class="n">beta_gauge</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="n">Re</span><span class="p">(</span><span class="n">Tr</span><span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="n">mu</span><span class="p">,</span><span class="n">n</span><span class="p">]</span> <span class="o">@</span> <span class="n">Sigma</span><span class="p">))</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="c1"># Propose new link: U&#39; = delta_U * U[mu,n]</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">delta_U</span> <span class="o">=</span> <span class="n">random_SU_N_near_identity</span><span class="p">(</span><span class="n">epsilon</span><span class="p">)</span>  <span class="c1"># small random matrix</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">U_prime</span> <span class="o">=</span> <span class="n">delta_U</span> <span class="o">@</span> <span class="n">U</span><span class="p">[</span><span class="n">mu</span><span class="p">,</span><span class="n">n</span><span class="p">]</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="c1"># New local action</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="n">S_new</span> <span class="o">=</span> <span class="o">-</span><span class="n">beta_gauge</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="n">Re</span><span class="p">(</span><span class="n">Tr</span><span class="p">(</span><span class="n">U_prime</span> <span class="o">@</span> <span class="n">Sigma</span><span class="p">))</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="c1"># Metropolis acceptance</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="n">Delta_S</span> <span class="o">=</span> <span class="n">S_new</span> <span class="o">-</span> <span class="n">S_old</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    <span class="k">if</span> <span class="n">random_uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Delta_S</span><span class="p">):</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>        <span class="n">U</span><span class="p">[</span><span class="n">mu</span><span class="p">,</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">U_prime</span>  <span class="c1"># accept</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    <span class="c1"># else reject and keep U[mu,n] unchanged</span>
 </span></code></pre></div>
 <hr />
 <h3 id="choosing-proposals-random-group-elements-close-to-the-identity"><strong>Choosing proposals: random group elements close to the identity</strong></h3>

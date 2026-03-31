@@ -2256,15 +2256,15 @@ This structure ensures that the position update uses information available at ti
 <p>The choice of the time step <span class="arithmatex">\(\Delta t\)</span> is a practical consideration balancing speed and accuracy. A time step that is too large will lead to <strong>numerical instability and energy drift</strong> because it fails to resolve the fastest oscillations in the system, such as high-frequency bond stretching vibrations. A common rule of thumb suggests that <span class="arithmatex">\(\Delta t\)</span> should be at least 50 times smaller than the period of the fastest oscillation.</p>
 <div class="admonition tip">
 <p class="admonition-title">Choosing the Right Time Step</p>
+<p>The time step <span class="arithmatex">\(\Delta t\)</span> must resolve the fastest motion in your system. Practical guidelines:</p>
+<ul>
+<li><strong>Bonded systems</strong> (e.g., water molecules): <span class="arithmatex">\(\Delta t \approx 1\)</span> fs (femtosecond) to capture O-H bond vibrations (~10 fs period)</li>
+<li><strong>Constraint algorithms</strong> (e.g., SHAKE/RATTLE): Allow <span class="arithmatex">\(\Delta t \approx 2\)</span> fs by freezing fastest bonds</li>
+<li><strong>Soft potentials</strong> (e.g., coarse-grained models): Can use <span class="arithmatex">\(\Delta t \approx 10-50\)</span> fs</li>
+</ul>
+<p><strong>Test</strong>: Run short NVE simulation and monitor total energy drift. Acceptable drift: <span class="arithmatex">\(\Delta E/E &lt; 10^{-4}\)</span> over 1 ns. If energy drifts significantly, halve <span class="arithmatex">\(\Delta t\)</span> and retest.</p>
 </div>
-<h2 id="the-time-step-delta-t-must-resolve-the-fastest-motion-in-your-system-practical-guidelines-bonded-systems-eg-water-molecules-delta-t-approx-1-fs-femtosecond-to-capture-o-h-bond-vibrations-10-fs-period-constraint-algorithms-eg-shakerattle-allow-delta-t-approx-2-fs-by-freezing-fastest-bonds-soft-potentials-eg-coarse-grained-models-can-use-delta-t-approx-10-50-fs-test-run-short-nve-simulation-and-monitor-total-energy-drift-acceptable-drift-delta-ee-10-4-over-1-ns-if-energy-drifts-significantly-halve-delta-t-and-retest"><div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>The time step $\Delta t$ must resolve the fastest motion in your system. Practical guidelines:
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>- **Bonded systems** (e.g., water molecules): $\Delta t \approx 1$ fs (femtosecond) to capture O-H bond vibrations (~10 fs period)
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>- **Constraint algorithms** (e.g., SHAKE/RATTLE): Allow $\Delta t \approx 2$ fs by freezing fastest bonds
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>- **Soft potentials** (e.g., coarse-grained models): Can use $\Delta t \approx 10-50$ fs
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>**Test**: Run short NVE simulation and monitor total energy drift. Acceptable drift: $\Delta E/E &lt; 10^{-4}$ over 1 ns. If energy drifts significantly, halve $\Delta t$ and retest.
-</span></code></pre></div></h2>
+<hr />
 <h3 id="summary"><strong>Summary</strong></h3>
 <p>The Velocity–Verlet algorithm is the fundamental engine of Molecular Dynamics, providing accurate, stable, and time-reversible integration of the equations of motion. It is the correct starting point for building sophisticated simulations of liquids, proteins, and materials.</p>
 <hr />
@@ -2286,17 +2286,14 @@ This structure ensures that the position update uses information available at ti
 <p>The MIC imposes a necessary constraint: to correctly capture all nearest-neighbor interactions, the interaction cutoff radius <span class="arithmatex">\(r_c\)</span> (discussed below) must be no greater than half the box length, <span class="arithmatex">\(r_c \le L/2\)</span>. If this condition is violated, a particle could interact simultaneously with the same image particle through two different boundaries, leading to non-physical, double interactions.</p>
 <div class="admonition example">
 <p class="admonition-title">Minimum Image Convention in Practice</p>
+<p>Consider a cubic box with <span class="arithmatex">\(L = 10\)</span> Å and two particles at positions:
+- Particle A: <span class="arithmatex">\(\mathbf{r}_A = (1.0, 5.0, 5.0)\)</span> Å
+- Particle B: <span class="arithmatex">\(\mathbf{r}_B = (9.5, 5.0, 5.0)\)</span> Å</p>
+<p><strong>Naive distance</strong>: <span class="arithmatex">\(|\mathbf{r}_A - \mathbf{r}_B| = 8.5\)</span> Å (along x-axis)</p>
+<p><strong>MIC distance</strong>: The nearest image of B is actually at <span class="arithmatex">\((-0.5, 5.0, 5.0)\)</span> through periodic wrapping, giving true distance <span class="arithmatex">\(|1.0 - (-0.5)| = 1.5\)</span> Å.</p>
+<p>This 6× reduction dramatically affects force calculations! Always apply MIC before computing <span class="arithmatex">\(r_{ij}\)</span> for forces.</p>
 </div>
-<h2 id="consider-a-cubic-box-with-l-10-a-and-two-particles-at-positions-particle-a-mathbfr_a-10-50-50-a-particle-b-mathbfr_b-95-50-50-a-naive-distance-mathbfr_a-mathbfr_b-85-a-along-x-axis-mic-distance-the-nearest-image-of-b-is-actually-at-05-50-50-through-periodic-wrapping-giving-true-distance-10-05-15-a-this-6-reduction-dramatically-affects-force-calculations-always-apply-mic-before-computing-r_ij-for-forces"><div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Consider a cubic box with $L = 10$ Å and two particles at positions:
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>- Particle A: $\mathbf{r}_A = (1.0, 5.0, 5.0)$ Å
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>- Particle B: $\mathbf{r}_B = (9.5, 5.0, 5.0)$ Å
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>**Naive distance**: $|\mathbf{r}_A - \mathbf{r}_B| = 8.5$ Å (along x-axis)
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>**MIC distance**: The nearest image of B is actually at $(-0.5, 5.0, 5.0)$ through periodic wrapping, giving true distance $|1.0 - (-0.5)| = 1.5$ Å.
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>This 6× reduction dramatically affects force calculations! Always apply MIC before computing $r_{ij}$ for forces.
-</span></code></pre></div></h2>
+<hr />
 <h3 id="computational-efficiency-the-mathcalon2-problem"><strong>Computational Efficiency: The <span class="arithmatex">\(\mathcal{O}(N^2)\)</span> Problem</strong></h3>
 <p>For a system with <span class="arithmatex">\(N\)</span> particles, the direct calculation of all pairwise forces requires iterating through <span class="arithmatex">\(N(N-1)/2\)</span> unique pairs. This process scales as <span class="arithmatex">\(\mathcal{O}(N^2)\)</span> with respect to the number of particles. While feasible for small systems (<span class="arithmatex">\(N &lt; 10^3\)</span>), this computational cost quickly becomes <strong>prohibitive</strong> for large-scale MD simulations (<span class="arithmatex">\(N \ge 10^5\)</span>).</p>
 <p>However, most common interatomic potentials, such as the <strong>Lennard-Jones potential</strong>, exhibit a rapid decay with distance. Beyond a specific <strong>cutoff radius</strong> <span class="arithmatex">\(r_c\)</span>, the interaction energy becomes negligible, and the force approaches zero. This observation allows for significant computational optimization by restricting force calculations only to nearby pairs of particles.</p>
@@ -2361,21 +2358,17 @@ This structure ensures that the position update uses information available at ti
 <p>While effective for <strong>equilibration</strong>—quickly achieving the target temperature <span class="arithmatex">\(T_0\)</span>—the Berendsen thermostat does <strong>not</strong> generate the correct canonical ensemble. It artificially suppresses large fluctuations in kinetic energy, leading to incorrect calculations of fluctuation-dependent observables (e.g., specific heat).</p>
 <details class="question">
 <summary>When Should You Use Berendsen vs. Nosé–Hoover Thermostats?</summary>
+<p>The choice depends on your simulation phase and what you're measuring:</p>
+<p><strong>Use Berendsen for</strong>:
+- Initial equilibration (first 10-100 ps)
+- Quickly bringing system to target temperature
+- When you only care about structural properties (not fluctuations)</p>
+<p><strong>Use Nosé–Hoover for</strong>:
+- Production runs where you extract thermodynamic data
+- Computing heat capacity, energy fluctuations, or free energies
+- Any ensemble-sensitive observable</p>
+<p><strong>Best practice</strong>: Equilibrate with Berendsen (<span class="arithmatex">\(\tau_T \approx 0.1\)</span> ps), then switch to Nosé–Hoover (<span class="arithmatex">\(Q \approx Nk_BT\tau^2\)</span> with <span class="arithmatex">\(\tau \approx 1\)</span> ps) for production. Monitor temperature distribution—should match canonical <span class="arithmatex">\(P(T) \propto \sqrt{T} e^{-\beta(E-\langle E \rangle)^2/2k_B T^2}\)</span>.</p>
 </details>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>The choice depends on your simulation phase and what you&#39;re measuring:
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>**Use Berendsen for**:
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>- Initial equilibration (first 10-100 ps)
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>- Quickly bringing system to target temperature
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>- When you only care about structural properties (not fluctuations)
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>**Use Nosé–Hoover for**:
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>- Production runs where you extract thermodynamic data
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>- Computing heat capacity, energy fluctuations, or free energies
-</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>- Any ensemble-sensitive observable
-</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>
-</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>**Best practice**: Equilibrate with Berendsen ($\tau_T \approx 0.1$ ps), then switch to Nosé–Hoover ($Q \approx Nk_BT\tau^2$ with $\tau \approx 1$ ps) for production. Monitor temperature distribution—should match canonical $P(T) \propto \sqrt{T} e^{-\beta(E-\langle E \rangle)^2/2k_B T^2}$.
-</span></code></pre></div>
 <h4 id="the-nosehoover-thermostat">The Nosé–Hoover Thermostat</h4>
 <p>The <strong>Nosé–Hoover thermostat</strong> is a deterministic method that explicitly generates the statistically correct <strong>canonical ensemble</strong>. It achieves this by modifying the equations of motion to include a dynamic friction term <span class="arithmatex">\(\xi \mathbf{v}_i\)</span>, effectively introducing an auxiliary thermostat variable (<span class="arithmatex">\(\xi\)</span>) and an associated thermal inertia (<span class="arithmatex">\(Q\)</span>):</p>
 <div class="arithmatex">\[\dot{\mathbf{v}}_i = \frac{\mathbf{F}_i}{m_i} - \xi \mathbf{v}_i, \quad \dot{\xi} = \frac{1}{Q}\left(\frac{K}{k_B T_0} - N\right).\]</div>

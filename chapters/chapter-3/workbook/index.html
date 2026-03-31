@@ -2389,7 +2389,7 @@
   
 
 
-<h1 id="chapter-3-physics-ii-lattice-gauge-theory-workbook"><strong>Chapter 3: Physics II: Lattice Gauge Theory () () () (Workbook)</strong></h1>
+<h1 id="chapter-3-physics-ii-lattice-gauge-theory-workbook"><strong>Chapter 3: Physics II: Lattice Gauge Theory (Workbook)</strong></h1>
 <p>The goal of this chapter is to apply the MCMC engine (from Chapter 1) to a non-perturbative <strong>Quantum Field Theory (QFT)</strong>, showing how a discrete lattice simulation can solve problems unreachable by continuous mathematical expansion.</p>
 <table>
 <thead>
@@ -2429,31 +2429,29 @@
 <h4 id="quiz-questions">Quiz Questions</h4>
 <div class="admonition note">
 <p class="admonition-title">Quiz</p>
+<p><strong>1. The primary reason traditional perturbation theory fails in Quantum Chromodynamics (QCD) at low energies is:</strong></p>
+<ul>
+<li><strong>A.</strong> The coupling constant <span class="arithmatex">\(g\)</span> is too small to be used for expansion.</li>
+<li><strong>B.</strong> The coupling constant <span class="arithmatex">\(g\)</span> is too large (strong coupling), and the theory exhibits non-perturbative phenomena like confinement. (<strong>Correct</strong>)</li>
+<li><strong>C.</strong> The QCD action is non-gauge-invariant.</li>
+<li><strong>D.</strong> All gauge theories must be simulated on a lattice.</li>
+</ul>
 </div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>**1. The primary reason traditional perturbation theory fails in Quantum Chromodynamics (QCD) at low energies is:**
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>* **A.** The coupling constant $g$ is too small to be used for expansion.
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>* **B.** The coupling constant $g$ is too large (strong coupling), and the theory exhibits non-perturbative phenomena like confinement. (**Correct**)
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>* **C.** The QCD action is non-gauge-invariant.
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>* **D.** All gauge theories must be simulated on a lattice.
-</span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Quiz</p>
+<p><strong>2. The purpose of the **Wick rotation</strong> in Lattice Gauge Theory (LGT) is to:**</p>
+<ul>
+<li><strong>A.</strong> Replace the spatial dimensions with temporal dimensions.</li>
+<li><strong>B.</strong> Convert the oscillatory factor <span class="arithmatex">\(\exp(iS/\hbar)\)</span> in the path integral into a real, non-oscillatory Boltzmann-like weight <span class="arithmatex">\(\exp(-S_E/\hbar)\)</span>. (<strong>Correct</strong>)</li>
+<li><strong>C.</strong> Force all degrees of freedom to be matrices instead of scalar fields.</li>
+<li><strong>D.</strong> Ensure the lattice spacing <span class="arithmatex">\(a\)</span> goes to zero.</li>
+</ul>
 </div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>**2. The purpose of the **Wick rotation** in Lattice Gauge Theory (LGT) is to:**
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>* **A.** Replace the spatial dimensions with temporal dimensions.
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>* **B.** Convert the oscillatory factor $\exp(iS/\hbar)$ in the path integral into a real, non-oscillatory Boltzmann-like weight $\exp(-S_E/\hbar)$. (**Correct**)
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>* **C.** Force all degrees of freedom to be matrices instead of scalar fields.
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>* **D.** Ensure the lattice spacing $a$ goes to zero.
-</span></code></pre></div>
 <div class="admonition question">
 <p class="admonition-title">Interview Practice</p>
+<p><strong>Question:</strong> Conceptually, LGT is often described as a technique for studying <strong>emergent phenomena</strong>. Briefly explain what "emerges" in LGT (in the context of the strong force) that is not visible in the elementary equations.</p>
+<p><strong>Answer Strategy:</strong> The fundamental equations describe quarks and gluons. The emergent phenomenon is <strong>confinement</strong>. The emergence of a linearly rising potential <span class="arithmatex">\(V(R) \sim \sigma R\)</span> (the Area Law) and the physical observation of colour-neutral <strong>hadrons</strong> (like protons), rather than free quarks, are not directly predicted by the simple perturbative equations. They arise non-perturbatively from the collective, strong-coupling dynamics of the gauge fields sampled by MCMC.</p>
 </div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>**Question:** Conceptually, LGT is often described as a technique for studying **emergent phenomena**. Briefly explain what &quot;emerges&quot; in LGT (in the context of the strong force) that is not visible in the elementary equations.
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>**Answer Strategy:** The fundamental equations describe quarks and gluons. The emergent phenomenon is **confinement**. The emergence of a linearly rising potential $V(R) \sim \sigma R$ (the Area Law) and the physical observation of colour-neutral **hadrons** (like protons), rather than free quarks, are not directly predicted by the simple perturbative equations. They arise non-perturbatively from the collective, strong-coupling dynamics of the gauge fields sampled by MCMC.
-</span></code></pre></div>
 <h3 id="32-the-field-on-the-lattice-sites-links-and-plaquettes">3.2 The Field on the Lattice: Sites, Links, and Plaquettes</h3>
 <blockquote>
 <p><strong>Summary:</strong> The 4D spacetime is discretized. Gauge fields (gluons) are placed on the <strong>links</strong> as <span class="arithmatex">\(SU(N)\)</span> matrices. Matter fields (quarks) live on the <strong>sites</strong>. The fundamental gauge-invariant building block is the <strong>plaquette</strong> (a <span class="arithmatex">\(1 \times 1\)</span> closed loop of links).</p>
@@ -2461,31 +2459,29 @@
 <h4 id="quiz-questions_1">Quiz Questions</h4>
 <div class="admonition note">
 <p class="admonition-title">Quiz</p>
+<p><strong>1. In Lattice Gauge Theory, the fundamental dynamical variables that we update using MCMC are the:</strong></p>
+<ul>
+<li><strong>A.</strong> Scalar fields living on the sites.</li>
+<li><strong>B.</strong> <span class="arithmatex">\(SU(N)\)</span> matrices living on the links, representing parallel transport. (<strong>Correct</strong>)</li>
+<li><strong>C.</strong> Energy values assigned to each plaquette.</li>
+<li><strong>D.</strong> The field strength tensor <span class="arithmatex">\(F_{\mu\nu}\)</span> at each site.</li>
+</ul>
 </div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>**1. In Lattice Gauge Theory, the fundamental dynamical variables that we update using MCMC are the:**
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>* **A.** Scalar fields living on the sites.
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>* **B.** $SU(N)$ matrices living on the links, representing parallel transport. (**Correct**)
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>* **C.** Energy values assigned to each plaquette.
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>* **D.** The field strength tensor $F_{\mu\nu}$ at each site.
-</span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Quiz</p>
+<p><strong>2. Which object is the <em>smallest</em> and most fundamental structure on the lattice that is guaranteed to be **gauge-invariant</strong> (up to conjugation)?**</p>
+<ul>
+<li><strong>A.</strong> A single site.</li>
+<li><strong>B.</strong> A single link <span class="arithmatex">\(U_\mu(n)\)</span>.</li>
+<li><strong>C.</strong> The trace of the plaquette product <span class="arithmatex">\(\mathrm{Tr}\,U_{\mu\nu}(n)\)</span>. (<strong>Correct</strong>)</li>
+<li><strong>D.</strong> The product of two adjacent links.</li>
+</ul>
 </div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>**2. Which object is the *smallest* and most fundamental structure on the lattice that is guaranteed to be **gauge-invariant** (up to conjugation)?**
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>* **A.** A single site.
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>* **B.** A single link $U_\mu(n)$.
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>* **C.** The trace of the plaquette product $\mathrm{Tr}\,U_{\mu\nu}(n)$. (**Correct**)
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>* **D.** The product of two adjacent links.
-</span></code></pre></div>
 <div class="admonition question">
 <p class="admonition-title">Interview Practice</p>
+<p><strong>Question:</strong> Why is it necessary to put the gauge field variables (gluons) on the <strong>links</strong> between sites rather than directly on the <strong>sites</strong> like a traditional scalar field?</p>
+<p><strong>Answer Strategy:</strong> This is required to maintain <strong>local gauge invariance</strong>. The link variable <span class="arithmatex">\(U_\mu(n)\)</span> represents the operation of <strong>parallel transport</strong>—a fundamental concept in gauge theory. When a gauge transformation <span class="arithmatex">\(\Omega(n)\)</span> is applied at a site, the link variable must be rotated by <span class="arithmatex">\(\Omega(n)\)</span> at its tail and inversely rotated by <span class="arithmatex">\(\Omega^\dagger(n+\hat{\mu})\)</span> at its head. Placing the field on the link ensures this property is preserved exactly on the lattice, coupling the degrees of freedom consistently between neighboring sites.</p>
 </div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>**Question:** Why is it necessary to put the gauge field variables (gluons) on the **links** between sites rather than directly on the **sites** like a traditional scalar field?
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>**Answer Strategy:** This is required to maintain **local gauge invariance**. The link variable $U_\mu(n)$ represents the operation of **parallel transport**—a fundamental concept in gauge theory. When a gauge transformation $\Omega(n)$ is applied at a site, the link variable must be rotated by $\Omega(n)$ at its tail and inversely rotated by $\Omega^\dagger(n+\hat{\mu})$ at its head. Placing the field on the link ensures this property is preserved exactly on the lattice, coupling the degrees of freedom consistently between neighboring sites.
-</span></code></pre></div>
 <h3 id="33-the-wilson-action-the-lgt-hamiltonian">3.3 The Wilson Action (The LGT “Hamiltonian”)</h3>
 <blockquote>
 <p><strong>Summary:</strong> The continuous Yang-Mills action is approximated by the <strong>Wilson Action</strong> <span class="arithmatex">\(S_W\)</span>, which is a sum over the traces of all plaquettes. The coupling parameter <span class="arithmatex">\(\beta_{\text{gauge}} = 2N/g_0^2\)</span> acts like the <strong>inverse temperature</strong> <span class="arithmatex">\(\beta\)</span> from the Ising model, controlling the transition between the strong-coupling (confining) and weak-coupling (deconfining) regimes.</p>
@@ -2493,31 +2489,29 @@
 <h4 id="quiz-questions_2">Quiz Questions</h4>
 <div class="admonition note">
 <p class="admonition-title">Quiz</p>
+<p><strong>1. The bare lattice coupling <span class="arithmatex">\(\beta_{\text{gauge}}\)</span> in the Wilson Action is directly analogous to which physical parameter in the Ising model?</strong></p>
+<ul>
+<li><strong>A.</strong> The coupling constant <span class="arithmatex">\(J\)</span>.</li>
+<li><strong>B.</strong> The external magnetic field <span class="arithmatex">\(H\)</span>.</li>
+<li><strong>C.</strong> The inverse temperature <span class="arithmatex">\(\beta = 1/k_B T\)</span>. (<strong>Correct</strong>)</li>
+<li><strong>D.</strong> The system size <span class="arithmatex">\(N \times N\)</span>.</li>
+</ul>
 </div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>**1. The bare lattice coupling $\beta_{\text{gauge}}$ in the Wilson Action is directly analogous to which physical parameter in the Ising model?**
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>* **A.** The coupling constant $J$.
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>* **B.** The external magnetic field $H$.
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>* **C.** The inverse temperature $\beta = 1/k_B T$. (**Correct**)
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>* **D.** The system size $N \times N$.
-</span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Quiz</p>
+<p><strong>2. The Wilson Action <span class="arithmatex">\(S_W\)</span> is designed to be minimized when the plaquette matrix <span class="arithmatex">\(U_{\mu\nu}(n)\)</span> is close to the:</strong></p>
+<ul>
+<li><strong>A.</strong> Zero matrix.</li>
+<li><strong>B.</strong> Identity matrix <span class="arithmatex">\(I\)</span>. (<strong>Correct</strong>)</li>
+<li><strong>C.</strong> Negative of the identity matrix <span class="arithmatex">\(-I\)</span>.</li>
+<li><strong>D.</strong> The Pauli matrices <span class="arithmatex">\(\sigma^a\)</span>.</li>
+</ul>
 </div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>**2. The Wilson Action $S_W$ is designed to be minimized when the plaquette matrix $U_{\mu\nu}(n)$ is close to the:**
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>* **A.** Zero matrix.
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>* **B.** Identity matrix $I$. (**Correct**)
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>* **C.** Negative of the identity matrix $-I$.
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>* **D.** The Pauli matrices $\sigma^a$.
-</span></code></pre></div>
 <div class="admonition question">
 <p class="admonition-title">Interview Practice</p>
+<p><strong>Question:</strong> In the context of LGT, how does the physicist ensure that their simulated lattice results, obtained at a finite lattice spacing <span class="arithmatex">\(a\)</span>, are physically meaningful for the continuous world? What parameter must be controlled?</p>
+<p><strong>Answer Strategy:</strong> To recover physical meaning, the simulation must be performed in the <strong>continuum limit</strong>, where the lattice spacing <span class="arithmatex">\(a\)</span> approaches zero. This is achieved by tuning the bare lattice coupling <span class="arithmatex">\(\beta_{\text{gauge}}\)</span>. The continuum limit corresponds to taking <span class="arithmatex">\(\beta_{\text{gauge}} \to \infty\)</span> (weak coupling), where the lattice artifacts are minimized, and the physical results become independent of the specific lattice parameter <span class="arithmatex">\(a\)</span>. This scaling is essential for all LGT calculations.</p>
 </div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>**Question:** In the context of LGT, how does the physicist ensure that their simulated lattice results, obtained at a finite lattice spacing $a$, are physically meaningful for the continuous world? What parameter must be controlled?
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>**Answer Strategy:** To recover physical meaning, the simulation must be performed in the **continuum limit**, where the lattice spacing $a$ approaches zero. This is achieved by tuning the bare lattice coupling $\beta_{\text{gauge}}$. The continuum limit corresponds to taking $\beta_{\text{gauge}} \to \infty$ (weak coupling), where the lattice artifacts are minimized, and the physical results become independent of the specific lattice parameter $a$. This scaling is essential for all LGT calculations.
-</span></code></pre></div>
 <h3 id="34-the-simulation-metropolis-updates-on-sun-matrices">3.4 The Simulation: Metropolis Updates on <span class="arithmatex">\(SU(N)\)</span> Matrices</h3>
 <blockquote>
 <p><strong>Summary:</strong> Metropolis updates in LGT use a <strong>local update</strong> strategy. The change in action <span class="arithmatex">\(\Delta S\)</span> depends only on the local <strong>staple</strong> <span class="arithmatex">\(\Sigma_\mu(n)\)</span>—the products of the three neighboring links in the plaquettes connected to the updated link. This <span class="arithmatex">\(O(1)\)</span> calculation is crucial for efficiency. Updates must use a random matrix <span class="arithmatex">\(\delta U\)</span> that preserves the <span class="arithmatex">\(SU(N)\)</span> group manifold.</p>
@@ -2525,33 +2519,31 @@
 <h4 id="quiz-questions_3">Quiz Questions</h4>
 <div class="admonition note">
 <p class="admonition-title">Quiz</p>
+<p><strong>1. When updating a single link matrix <span class="arithmatex">\(U_\mu(n)\)</span>, the change in the action <span class="arithmatex">\(\Delta S_W\)</span> depends only on the sum of the products of the <em>three</em> neighboring links in the surrounding plaquettes. This sum is formally called the:</strong></p>
+<ul>
+<li><strong>A.</strong> Wilson loop.</li>
+<li><strong>B.</strong> Staple <span class="arithmatex">\(\Sigma_\mu(n)\)</span>. (<strong>Correct</strong>)</li>
+<li><strong>C.</strong> Propagator.</li>
+<li><strong>D.</strong> Adjacency matrix.</li>
+</ul>
 </div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>**1. When updating a single link matrix $U_\mu(n)$, the change in the action $\Delta S_W$ depends only on the sum of the products of the *three* neighboring links in the surrounding plaquettes. This sum is formally called the:**
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>* **A.** Wilson loop.
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>* **B.** Staple $\Sigma_\mu(n)$. (**Correct**)
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>* **C.** Propagator.
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>* **D.** Adjacency matrix.
-</span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Quiz</p>
+<p><strong>2. An efficient Metropolis update in LGT requires proposing a new link matrix <span class="arithmatex">\(U'\)</span> that is:</strong></p>
+<ul>
+<li><strong>A.</strong> An arbitrary random matrix.</li>
+<li><strong>B.</strong> Drawn from a uniform distribution over the entire <span class="arithmatex">\(SU(N)\)</span> group manifold.</li>
+<li><strong>C.</strong> Close to the current matrix <span class="arithmatex">\(U\)</span> to maintain a reasonable acceptance rate. (<strong>Correct</strong>)</li>
+<li><strong>D.</strong> Always accepted (acceptance probability <span class="arithmatex">\(\alpha=1\)</span>).</li>
+</ul>
 </div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>**2. An efficient Metropolis update in LGT requires proposing a new link matrix $U&#39;$ that is:**
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>* **A.** An arbitrary random matrix.
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>* **B.** Drawn from a uniform distribution over the entire $SU(N)$ group manifold.
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>* **C.** Close to the current matrix $U$ to maintain a reasonable acceptance rate. (**Correct**)
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>* **D.** Always accepted (acceptance probability $\alpha=1$).
-</span></code></pre></div>
 <div class="admonition question">
 <p class="admonition-title">Interview Practice</p>
+<p><strong>Question:</strong> Contrast the <strong>Metropolis</strong> update with the <strong>Heat-Bath</strong> update in LGT, and explain why both are often preferred over a third method, <strong>Over-relaxation</strong>, for generating statistically independent configurations.</p>
+<p><strong>Answer Strategy:</strong>
+* <strong>Metropolis</strong> and <strong>Heat-Bath</strong> both satisfy <strong>detailed balance</strong> and are used to generate samples whose distribution converges to the target <span class="arithmatex">\(\exp(-S_W)\)</span>. Heat-bath is generally more efficient for <span class="arithmatex">\(SU(2)\)</span> as it generates the new configuration <em>exactly</em> from the conditional probability.
+* <strong>Over-relaxation</strong> is a <em>deterministic</em> update that preserves the action (microcanonical). While it reduces autocorrelation, it does <strong>not</strong> explore new energy surfaces. Therefore, it must be <em>combined</em> with Metropolis or Heat-Bath steps to ensure <strong>ergodicity</strong> (the ability to reach all relevant configurations) and maintain the correct canonical distribution.</p>
 </div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>**Question:** Contrast the **Metropolis** update with the **Heat-Bath** update in LGT, and explain why both are often preferred over a third method, **Over-relaxation**, for generating statistically independent configurations.
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>**Answer Strategy:**
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>* **Metropolis** and **Heat-Bath** both satisfy **detailed balance** and are used to generate samples whose distribution converges to the target $\exp(-S_W)$. Heat-bath is generally more efficient for $SU(2)$ as it generates the new configuration *exactly* from the conditional probability.
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>* **Over-relaxation** is a *deterministic* update that preserves the action (microcanonical). While it reduces autocorrelation, it does **not** explore new energy surfaces. Therefore, it must be *combined* with Metropolis or Heat-Bath steps to ensure **ergodicity** (the ability to reach all relevant configurations) and maintain the correct canonical distribution.
-</span></code></pre></div>
 <h3 id="35-core-application-measuring-confinement-with-the-wilson-loop">3.5 Core Application: Measuring Confinement with the Wilson Loop</h3>
 <blockquote>
 <p><strong>Summary:</strong> The <strong>Wilson Loop <span class="arithmatex">\(W(R, T)\)</span></strong> (a product of link matrices around an <span class="arithmatex">\(R \times T\)</span> rectangle) is the key observable to test confinement. Confinement implies a linearly rising potential <span class="arithmatex">\(V(R) \sim \sigma R\)</span>, which computationally translates to the <strong>Area Law</strong>: <span class="arithmatex">\(\langle W(R, T) \rangle \sim e^{-\sigma R T}\)</span>, where the decay rate is proportional to the loop's area <span class="arithmatex">\(R \times T\)</span>.</p>
@@ -2559,32 +2551,30 @@
 <h4 id="quiz-questions_4">Quiz Questions</h4>
 <div class="admonition note">
 <p class="admonition-title">Quiz</p>
+<p><strong>1. The primary physical phenomenon that the **Area Law</strong> behavior of the Wilson Loop demonstrates in pure QCD is:**</p>
+<ul>
+<li><strong>A.</strong> Asymptotic freedom at high energy.</li>
+<li><strong>B.</strong> The breaking of chiral symmetry.</li>
+<li><strong>C.</strong> Quark <strong>confinement</strong>. (<strong>Correct</strong>)</li>
+<li><strong>D.</strong> The existence of glueballs.</li>
+</ul>
 </div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>**1. The primary physical phenomenon that the **Area Law** behavior of the Wilson Loop demonstrates in pure QCD is:**
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>* **A.** Asymptotic freedom at high energy.
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>* **B.** The breaking of chiral symmetry.
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>* **C.** Quark **confinement**. (**Correct**)
-</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>* **D.** The existence of glueballs.
-</span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Quiz</p>
+<p><strong>2. The expectation value <span class="arithmatex">\(\langle W(R,T) \rangle\)</span> is computationally related to the static quark-antiquark potential <span class="arithmatex">\(V(R)\)</span> by:</strong></p>
+<ul>
+<li><strong>A.</strong> <span class="arithmatex">\(\langle W(R,T) \rangle \propto V(R)/T\)</span>.</li>
+<li><strong>B.</strong> <span class="arithmatex">\(\langle W(R,T) \rangle \propto e^{-V(R) T}\)</span>. (<strong>Correct</strong>)</li>
+<li><strong>C.</strong> <span class="arithmatex">\(\langle W(R,T) \rangle \propto V(R) / R\)</span>.</li>
+<li><strong>D.</strong> <span class="arithmatex">\(\langle W(R,T) \rangle \propto R \times T\)</span>.</li>
+</ul>
 </div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>**2. The expectation value $\langle W(R,T) \rangle$ is computationally related to the static quark-antiquark potential $V(R)$ by:**
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>* **A.** $\langle W(R,T) \rangle \propto V(R)/T$.
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>* **B.** $\langle W(R,T) \rangle \propto e^{-V(R) T}$. (**Correct**)
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>* **C.** $\langle W(R,T) \rangle \propto V(R) / R$.
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>* **D.** $\langle W(R,T) \rangle \propto R \times T$.
-</span></code></pre></div>
 <div class="admonition question">
 <p class="admonition-title">Interview Practice</p>
+<p><strong>Question:</strong> The Wilson Loop observable suffers from a poor signal-to-noise ratio at large areas. Explain why this happens and propose one computational technique to mitigate this issue.</p>
+<p><strong>Answer Strategy:</strong> The signal <span class="arithmatex">\(\langle W(R, T) \rangle\)</span> decays <strong>exponentially</strong> with the loop area <span class="arithmatex">\(R \times T\)</span>. However, the noise (the variance of the product of link matrices) does not decrease at the same rate. This means for large loops, the signal is drowned out by noise.
+One mitigation technique is <strong>link smearing</strong> (e.g., APE smearing), which replaces a link with a weighted average of itself and its surrounding links (the staple). This process smooths out short-distance, high-frequency fluctuations (noise) without changing the physics, thus enhancing the signal's visibility and making large loops tractable.</p>
 </div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>**Question:** The Wilson Loop observable suffers from a poor signal-to-noise ratio at large areas. Explain why this happens and propose one computational technique to mitigate this issue.
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>**Answer Strategy:** The signal $\langle W(R, T) \rangle$ decays **exponentially** with the loop area $R \times T$. However, the noise (the variance of the product of link matrices) does not decrease at the same rate. This means for large loops, the signal is drowned out by noise.
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>One mitigation technique is **link smearing** (e.g., APE smearing), which replaces a link with a weighted average of itself and its surrounding links (the staple). This process smooths out short-distance, high-frequency fluctuations (noise) without changing the physics, thus enhancing the signal&#39;s visibility and making large loops tractable.
-</span></code></pre></div>
 <h3 id="hands-on-project-the-area-law-as-an-exponential-fit">Hands-On Project: The Area Law as an Exponential Fit 🧪</h3>
 <p>This project simulates the key analytical step required to prove confinement, using conceptual data.</p>
 <ul>
@@ -2593,7 +2583,7 @@
 <li>Define a target string tension, e.g., <span class="arithmatex">\(\sigma_{\text{target}} = 0.05\)</span>.</li>
 <li>Generate a set of <span class="arithmatex">\(R \times T\)</span> areas, <span class="arithmatex">\(A_k = R_k \times T_k\)</span>, for <span class="arithmatex">\(k=1, \dots, 20\)</span>.</li>
 <li>Generate "simulated" Wilson Loop expectation values <span class="arithmatex">\(W_k\)</span> that follow the Area Law, but include small random Gaussian noise <span class="arithmatex">\(\eta_k\)</span>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>    $$\mathbf{W}_k = \exp(-\sigma_{\text{target}} \cdot A_k) + \eta_k$$
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>    $$\mathbf{W}_k = \exp(-\sigma_{\text{target}} \cdot A_k) + \eta_k$$
 </span></code></pre></div></li>
 </ol>
 </li>
@@ -2607,132 +2597,132 @@
 <li><strong><em>Expected Result:</em></strong> The plot will show a clear linear decay, and the fitted slope <span class="arithmatex">\(\sigma_{\text{fit}}\)</span> will be close to the target value <span class="arithmatex">\(\sigma_{\text{target}}\)</span>, confirming the computational proof of the Area Law.</li>
 </ul>
 <h4 id="python-implementation">Python Implementation</h4>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">linregress</span>
-</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
-</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="c1"># ====================================================================</span>
-</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
-</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1">## 1. Setup Parameters and Generate Conceptual Data</span>
-</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
-</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="c1">## ====================================================================</span>
-</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>
-</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="c1">## --- Simulation Parameters (Conceptual) ---</span>
-</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>
-</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="n">SIGMA_TARGET</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># The target String Tension (slope) in lattice units</span>
-</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="n">LATTICE_MAX_SIZE</span> <span class="o">=</span> <span class="mi">12</span>
-</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="n">R_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">LATTICE_MAX_SIZE</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="n">T_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">LATTICE_MAX_SIZE</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>
-</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="c1">## Generate R x T pairs for unique areas (Area = R * T)</span>
-</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>
-</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a><span class="n">areas</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a><span class="n">wilson_loops</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="__span-16-22"><a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="c1"># For reproducibility of noise</span>
-</span><span id="__span-16-23"><a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a>
-</span><span id="__span-16-24"><a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a><span class="k">for</span> <span class="n">R</span> <span class="ow">in</span> <span class="n">R_values</span><span class="p">:</span>
-</span><span id="__span-16-25"><a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a>    <span class="k">for</span> <span class="n">T</span> <span class="ow">in</span> <span class="n">T_values</span><span class="p">:</span>
-</span><span id="__span-16-26"><a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a>        <span class="n">A</span> <span class="o">=</span> <span class="n">R</span> <span class="o">*</span> <span class="n">T</span>
-</span><span id="__span-16-27"><a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a>
-</span><span id="__span-16-28"><a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a>        <span class="c1"># Area Law with target string tension: W = exp(-sigma * A)</span>
-</span><span id="__span-16-29"><a id="__codelineno-16-29" name="__codelineno-16-29" href="#__codelineno-16-29"></a>        <span class="n">W_exact</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">SIGMA_TARGET</span> <span class="o">*</span> <span class="n">A</span><span class="p">)</span>
-</span><span id="__span-16-30"><a id="__codelineno-16-30" name="__codelineno-16-30" href="#__codelineno-16-30"></a>
-</span><span id="__span-16-31"><a id="__codelineno-16-31" name="__codelineno-16-31" href="#__codelineno-16-31"></a>        <span class="c1"># Add small Gaussian noise to simulate the poor signal/noise ratio at large areas</span>
-</span><span id="__span-16-32"><a id="__codelineno-16-32" name="__codelineno-16-32" href="#__codelineno-16-32"></a>        <span class="c1"># Noise magnitude scaled slightly with area to mimic the LGT challenge</span>
-</span><span id="__span-16-33"><a id="__codelineno-16-33" name="__codelineno-16-33" href="#__codelineno-16-33"></a>        <span class="n">noise_std</span> <span class="o">=</span> <span class="mf">0.005</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
-</span><span id="__span-16-34"><a id="__codelineno-16-34" name="__codelineno-16-34" href="#__codelineno-16-34"></a>        <span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">noise_std</span><span class="p">)</span>
-</span><span id="__span-16-35"><a id="__codelineno-16-35" name="__codelineno-16-35" href="#__codelineno-16-35"></a>
-</span><span id="__span-16-36"><a id="__codelineno-16-36" name="__codelineno-16-36" href="#__codelineno-16-36"></a>        <span class="c1"># Simulated Wilson Loop expectation value</span>
-</span><span id="__span-16-37"><a id="__codelineno-16-37" name="__codelineno-16-37" href="#__codelineno-16-37"></a>        <span class="n">W_simulated</span> <span class="o">=</span> <span class="n">W_exact</span> <span class="o">+</span> <span class="n">noise</span>
-</span><span id="__span-16-38"><a id="__codelineno-16-38" name="__codelineno-16-38" href="#__codelineno-16-38"></a>
-</span><span id="__span-16-39"><a id="__codelineno-16-39" name="__codelineno-16-39" href="#__codelineno-16-39"></a>        <span class="n">areas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-</span><span id="__span-16-40"><a id="__codelineno-16-40" name="__codelineno-16-40" href="#__codelineno-16-40"></a>        <span class="n">wilson_loops</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">W_simulated</span><span class="p">)</span>
-</span><span id="__span-16-41"><a id="__codelineno-16-41" name="__codelineno-16-41" href="#__codelineno-16-41"></a>
-</span><span id="__span-16-42"><a id="__codelineno-16-42" name="__codelineno-16-42" href="#__codelineno-16-42"></a><span class="n">areas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">areas</span><span class="p">)</span>
-</span><span id="__span-16-43"><a id="__codelineno-16-43" name="__codelineno-16-43" href="#__codelineno-16-43"></a><span class="n">wilson_loops</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">wilson_loops</span><span class="p">)</span>
-</span><span id="__span-16-44"><a id="__codelineno-16-44" name="__codelineno-16-44" href="#__codelineno-16-44"></a>
-</span><span id="__span-16-45"><a id="__codelineno-16-45" name="__codelineno-16-45" href="#__codelineno-16-45"></a><span class="c1">## Filter out non-positive values that break the log (a result of large noise at W approx 0)</span>
-</span><span id="__span-16-46"><a id="__codelineno-16-46" name="__codelineno-16-46" href="#__codelineno-16-46"></a>
-</span><span id="__span-16-47"><a id="__codelineno-16-47" name="__codelineno-16-47" href="#__codelineno-16-47"></a><span class="n">positive_filter</span> <span class="o">=</span> <span class="n">wilson_loops</span> <span class="o">&gt;</span> <span class="mf">1e-10</span>
-</span><span id="__span-16-48"><a id="__codelineno-16-48" name="__codelineno-16-48" href="#__codelineno-16-48"></a><span class="n">areas_filtered</span> <span class="o">=</span> <span class="n">areas</span><span class="p">[</span><span class="n">positive_filter</span><span class="p">]</span>
-</span><span id="__span-16-49"><a id="__codelineno-16-49" name="__codelineno-16-49" href="#__codelineno-16-49"></a><span class="n">wilson_loops_filtered</span> <span class="o">=</span> <span class="n">wilson_loops</span><span class="p">[</span><span class="n">positive_filter</span><span class="p">]</span>
-</span><span id="__span-16-50"><a id="__codelineno-16-50" name="__codelineno-16-50" href="#__codelineno-16-50"></a>
-</span><span id="__span-16-51"><a id="__codelineno-16-51" name="__codelineno-16-51" href="#__codelineno-16-51"></a><span class="c1">## ====================================================================</span>
-</span><span id="__span-16-52"><a id="__codelineno-16-52" name="__codelineno-16-52" href="#__codelineno-16-52"></a>
-</span><span id="__span-16-53"><a id="__codelineno-16-53" name="__codelineno-16-53" href="#__codelineno-16-53"></a><span class="c1">## 2. Computational Strategy: Linearization and Fitting</span>
-</span><span id="__span-16-54"><a id="__codelineno-16-54" name="__codelineno-16-54" href="#__codelineno-16-54"></a>
-</span><span id="__span-16-55"><a id="__codelineno-16-55" name="__codelineno-16-55" href="#__codelineno-16-55"></a><span class="c1">## ====================================================================</span>
-</span><span id="__span-16-56"><a id="__codelineno-16-56" name="__codelineno-16-56" href="#__codelineno-16-56"></a>
-</span><span id="__span-16-57"><a id="__codelineno-16-57" name="__codelineno-16-57" href="#__codelineno-16-57"></a><span class="c1">## 1. Linearization: ln(W) = -sigma * A + C</span>
-</span><span id="__span-16-58"><a id="__codelineno-16-58" name="__codelineno-16-58" href="#__codelineno-16-58"></a>
-</span><span id="__span-16-59"><a id="__codelineno-16-59" name="__codelineno-16-59" href="#__codelineno-16-59"></a><span class="n">ln_wilson_loops</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">wilson_loops_filtered</span><span class="p">)</span>
-</span><span id="__span-16-60"><a id="__codelineno-16-60" name="__codelineno-16-60" href="#__codelineno-16-60"></a><span class="n">X_area</span> <span class="o">=</span> <span class="n">areas_filtered</span>
-</span><span id="__span-16-61"><a id="__codelineno-16-61" name="__codelineno-16-61" href="#__codelineno-16-61"></a>
-</span><span id="__span-16-62"><a id="__codelineno-16-62" name="__codelineno-16-62" href="#__codelineno-16-62"></a><span class="c1">## 2. Perform Linear Least-Squares Fit</span>
-</span><span id="__span-16-63"><a id="__codelineno-16-63" name="__codelineno-16-63" href="#__codelineno-16-63"></a>
-</span><span id="__span-16-64"><a id="__codelineno-16-64" name="__codelineno-16-64" href="#__codelineno-16-64"></a><span class="c1">## linregress returns (slope, intercept, r_value, p_value, std_err)</span>
-</span><span id="__span-16-65"><a id="__codelineno-16-65" name="__codelineno-16-65" href="#__codelineno-16-65"></a>
-</span><span id="__span-16-66"><a id="__codelineno-16-66" name="__codelineno-16-66" href="#__codelineno-16-66"></a><span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">r_value</span><span class="p">,</span> <span class="n">p_value</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="n">linregress</span><span class="p">(</span><span class="n">X_area</span><span class="p">,</span> <span class="n">ln_wilson_loops</span><span class="p">)</span>
-</span><span id="__span-16-67"><a id="__codelineno-16-67" name="__codelineno-16-67" href="#__codelineno-16-67"></a>
-</span><span id="__span-16-68"><a id="__codelineno-16-68" name="__codelineno-16-68" href="#__codelineno-16-68"></a><span class="c1">## The string tension sigma_fit is the negative of the fitted slope</span>
-</span><span id="__span-16-69"><a id="__codelineno-16-69" name="__codelineno-16-69" href="#__codelineno-16-69"></a>
-</span><span id="__span-16-70"><a id="__codelineno-16-70" name="__codelineno-16-70" href="#__codelineno-16-70"></a><span class="n">SIGMA_FIT</span> <span class="o">=</span> <span class="o">-</span><span class="n">slope</span>
-</span><span id="__span-16-71"><a id="__codelineno-16-71" name="__codelineno-16-71" href="#__codelineno-16-71"></a><span class="n">SIGMA_ERROR</span> <span class="o">=</span> <span class="n">std_err</span>
-</span><span id="__span-16-72"><a id="__codelineno-16-72" name="__codelineno-16-72" href="#__codelineno-16-72"></a>
-</span><span id="__span-16-73"><a id="__codelineno-16-73" name="__codelineno-16-73" href="#__codelineno-16-73"></a><span class="c1">## 3. Create the best-fit line data for visualization</span>
-</span><span id="__span-16-74"><a id="__codelineno-16-74" name="__codelineno-16-74" href="#__codelineno-16-74"></a>
-</span><span id="__span-16-75"><a id="__codelineno-16-75" name="__codelineno-16-75" href="#__codelineno-16-75"></a><span class="n">fit_line</span> <span class="o">=</span> <span class="n">intercept</span> <span class="o">+</span> <span class="n">slope</span> <span class="o">*</span> <span class="n">X_area</span>
-</span><span id="__span-16-76"><a id="__codelineno-16-76" name="__codelineno-16-76" href="#__codelineno-16-76"></a>
-</span><span id="__span-16-77"><a id="__codelineno-16-77" name="__codelineno-16-77" href="#__codelineno-16-77"></a><span class="c1">## ====================================================================</span>
-</span><span id="__span-16-78"><a id="__codelineno-16-78" name="__codelineno-16-78" href="#__codelineno-16-78"></a>
-</span><span id="__span-16-79"><a id="__codelineno-16-79" name="__codelineno-16-79" href="#__codelineno-16-79"></a><span class="c1">## 3. Visualization</span>
-</span><span id="__span-16-80"><a id="__codelineno-16-80" name="__codelineno-16-80" href="#__codelineno-16-80"></a>
-</span><span id="__span-16-81"><a id="__codelineno-16-81" name="__codelineno-16-81" href="#__codelineno-16-81"></a><span class="c1">## ====================================================================</span>
-</span><span id="__span-16-82"><a id="__codelineno-16-82" name="__codelineno-16-82" href="#__codelineno-16-82"></a>
-</span><span id="__span-16-83"><a id="__codelineno-16-83" name="__codelineno-16-83" href="#__codelineno-16-83"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-</span><span id="__span-16-84"><a id="__codelineno-16-84" name="__codelineno-16-84" href="#__codelineno-16-84"></a>
-</span><span id="__span-16-85"><a id="__codelineno-16-85" name="__codelineno-16-85" href="#__codelineno-16-85"></a><span class="c1">## Plot the linearized, noisy simulation data</span>
-</span><span id="__span-16-86"><a id="__codelineno-16-86" name="__codelineno-16-86" href="#__codelineno-16-86"></a>
-</span><span id="__span-16-87"><a id="__codelineno-16-87" name="__codelineno-16-87" href="#__codelineno-16-87"></a><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_area</span><span class="p">,</span> <span class="n">ln_wilson_loops</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span>
-</span><span id="__span-16-88"><a id="__codelineno-16-88" name="__codelineno-16-88" href="#__codelineno-16-88"></a>        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Simulated Data ($\ln </span><span class="se">\\</span><span class="s1">langle W </span><span class="se">\\</span><span class="s1">rangle$)&#39;</span><span class="p">)</span>
-</span><span id="__span-16-89"><a id="__codelineno-16-89" name="__codelineno-16-89" href="#__codelineno-16-89"></a>
-</span><span id="__span-16-90"><a id="__codelineno-16-90" name="__codelineno-16-90" href="#__codelineno-16-90"></a><span class="c1">## Plot the best-fit linear regression line</span>
-</span><span id="__span-16-91"><a id="__codelineno-16-91" name="__codelineno-16-91" href="#__codelineno-16-91"></a>
-</span><span id="__span-16-92"><a id="__codelineno-16-92" name="__codelineno-16-92" href="#__codelineno-16-92"></a><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_area</span><span class="p">,</span> <span class="n">fit_line</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkblue&#39;</span><span class="p">,</span>
-</span><span id="__span-16-93"><a id="__codelineno-16-93" name="__codelineno-16-93" href="#__codelineno-16-93"></a>        <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Linear Fit: Slope = </span><span class="si">{</span><span class="o">-</span><span class="n">SIGMA_FIT</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-</span><span id="__span-16-94"><a id="__codelineno-16-94" name="__codelineno-16-94" href="#__codelineno-16-94"></a>
-</span><span id="__span-16-95"><a id="__codelineno-16-95" name="__codelineno-16-95" href="#__codelineno-16-95"></a><span class="c1">## Plot the original theoretical line for comparison</span>
-</span><span id="__span-16-96"><a id="__codelineno-16-96" name="__codelineno-16-96" href="#__codelineno-16-96"></a>
-</span><span id="__span-16-97"><a id="__codelineno-16-97" name="__codelineno-16-97" href="#__codelineno-16-97"></a><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_area</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">SIGMA_TARGET</span> <span class="o">*</span> <span class="n">X_area</span><span class="p">)),</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span>
-</span><span id="__span-16-98"><a id="__codelineno-16-98" name="__codelineno-16-98" href="#__codelineno-16-98"></a>        <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Theoretical ($\sigma_</span><span class="se">{{\\</span><span class="s1">text</span><span class="se">{{</span><span class="s1">target</span><span class="se">}}}}</span><span class="s1"> = </span><span class="si">{</span><span class="n">SIGMA_TARGET</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">$)&#39;</span><span class="p">)</span>
-</span><span id="__span-16-99"><a id="__codelineno-16-99" name="__codelineno-16-99" href="#__codelineno-16-99"></a>
-</span><span id="__span-16-100"><a id="__codelineno-16-100" name="__codelineno-16-100" href="#__codelineno-16-100"></a><span class="c1">## Labeling and Formatting</span>
-</span><span id="__span-16-101"><a id="__codelineno-16-101" name="__codelineno-16-101" href="#__codelineno-16-101"></a>
-</span><span id="__span-16-102"><a id="__codelineno-16-102" name="__codelineno-16-102" href="#__codelineno-16-102"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Wilson Loop Area Law: Extraction of String Tension $</span><span class="se">\\</span><span class="s1">sigma$&#39;</span><span class="p">)</span>
-</span><span id="__span-16-103"><a id="__codelineno-16-103" name="__codelineno-16-103" href="#__codelineno-16-103"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Loop Area $A = R </span><span class="se">\\</span><span class="s1">times T$ (lattice units)&#39;</span><span class="p">)</span>
-</span><span id="__span-16-104"><a id="__codelineno-16-104" name="__codelineno-16-104" href="#__codelineno-16-104"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">ln(</span><span class="se">\\</span><span class="s1">langle W(R,T) </span><span class="se">\\</span><span class="s1">rangle)$&#39;</span><span class="p">)</span>
-</span><span id="__span-16-105"><a id="__codelineno-16-105" name="__codelineno-16-105" href="#__codelineno-16-105"></a><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-</span><span id="__span-16-106"><a id="__codelineno-16-106" name="__codelineno-16-106" href="#__codelineno-16-106"></a><span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
-</span><span id="__span-16-107"><a id="__codelineno-16-107" name="__codelineno-16-107" href="#__codelineno-16-107"></a>
-</span><span id="__span-16-108"><a id="__codelineno-16-108" name="__codelineno-16-108" href="#__codelineno-16-108"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-</span><span id="__span-16-109"><a id="__codelineno-16-109" name="__codelineno-16-109" href="#__codelineno-16-109"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</span><span id="__span-16-110"><a id="__codelineno-16-110" name="__codelineno-16-110" href="#__codelineno-16-110"></a>
-</span><span id="__span-16-111"><a id="__codelineno-16-111" name="__codelineno-16-111" href="#__codelineno-16-111"></a><span class="c1">## Final Analysis</span>
-</span><span id="__span-16-112"><a id="__codelineno-16-112" name="__codelineno-16-112" href="#__codelineno-16-112"></a>
-</span><span id="__span-16-113"><a id="__codelineno-16-113" name="__codelineno-16-113" href="#__codelineno-16-113"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- String Tension Analysis Summary ---&quot;</span><span class="p">)</span>
-</span><span id="__span-16-114"><a id="__codelineno-16-114" name="__codelineno-16-114" href="#__codelineno-16-114"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Target String Tension (</span><span class="se">\\</span><span class="s2">sigma_target): </span><span class="si">{</span><span class="n">SIGMA_TARGET</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-16-115"><a id="__codelineno-16-115" name="__codelineno-16-115" href="#__codelineno-16-115"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fitted String Tension (</span><span class="se">\\</span><span class="s2">sigma_fit): </span><span class="si">{</span><span class="n">SIGMA_FIT</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> </span><span class="se">\u00B1</span><span class="s2"> </span><span class="si">{</span><span class="n">SIGMA_ERROR</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-16-116"><a id="__codelineno-16-116" name="__codelineno-16-116" href="#__codelineno-16-116"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Residual R-squared value: </span><span class="si">{</span><span class="n">r_value</span><span class="o">**</span><span class="mi">2</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-16-117"><a id="__codelineno-16-117" name="__codelineno-16-117" href="#__codelineno-16-117"></a>
-</span><span id="__span-16-118"><a id="__codelineno-16-118" name="__codelineno-16-118" href="#__codelineno-16-118"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Conclusion: The linear decay in the $</span><span class="se">\\</span><span class="s2">ln(</span><span class="se">\\</span><span class="s2">langle W </span><span class="se">\\</span><span class="s2">rangle)$ vs. Area plot confirms the **Area Law** behaviour, which is the computational signature of **confinement**. The fitted string tension $</span><span class="se">\\</span><span class="s2">sigma_{</span><span class="se">\\</span><span class="s2">text</span><span class="si">{fit}</span><span class="s2">}$ successfully reproduces the target value, demonstrating the method used in LGT to extract the fundamental scale of the strong nuclear force.&quot;</span><span class="p">)</span>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">linregress</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># ====================================================================</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1">## 1. Setup Parameters and Generate Conceptual Data</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1">## ====================================================================</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1">## --- Simulation Parameters (Conceptual) ---</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="n">SIGMA_TARGET</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># The target String Tension (slope) in lattice units</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="n">LATTICE_MAX_SIZE</span> <span class="o">=</span> <span class="mi">12</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="n">R_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">LATTICE_MAX_SIZE</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="n">T_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">LATTICE_MAX_SIZE</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="c1">## Generate R x T pairs for unique areas (Area = R * T)</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="n">areas</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="n">wilson_loops</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="c1"># For reproducibility of noise</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="k">for</span> <span class="n">R</span> <span class="ow">in</span> <span class="n">R_values</span><span class="p">:</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>    <span class="k">for</span> <span class="n">T</span> <span class="ow">in</span> <span class="n">T_values</span><span class="p">:</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>        <span class="n">A</span> <span class="o">=</span> <span class="n">R</span> <span class="o">*</span> <span class="n">T</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>        <span class="c1"># Area Law with target string tension: W = exp(-sigma * A)</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>        <span class="n">W_exact</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">SIGMA_TARGET</span> <span class="o">*</span> <span class="n">A</span><span class="p">)</span>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>        <span class="c1"># Add small Gaussian noise to simulate the poor signal/noise ratio at large areas</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>        <span class="c1"># Noise magnitude scaled slightly with area to mimic the LGT challenge</span>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>        <span class="n">noise_std</span> <span class="o">=</span> <span class="mf">0.005</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>        <span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">noise_std</span><span class="p">)</span>
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>        <span class="c1"># Simulated Wilson Loop expectation value</span>
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>        <span class="n">W_simulated</span> <span class="o">=</span> <span class="n">W_exact</span> <span class="o">+</span> <span class="n">noise</span>
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>        <span class="n">areas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>        <span class="n">wilson_loops</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">W_simulated</span><span class="p">)</span>
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>
+</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="n">areas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">areas</span><span class="p">)</span>
+</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="n">wilson_loops</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">wilson_loops</span><span class="p">)</span>
+</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>
+</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="c1">## Filter out non-positive values that break the log (a result of large noise at W approx 0)</span>
+</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>
+</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a><span class="n">positive_filter</span> <span class="o">=</span> <span class="n">wilson_loops</span> <span class="o">&gt;</span> <span class="mf">1e-10</span>
+</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a><span class="n">areas_filtered</span> <span class="o">=</span> <span class="n">areas</span><span class="p">[</span><span class="n">positive_filter</span><span class="p">]</span>
+</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="n">wilson_loops_filtered</span> <span class="o">=</span> <span class="n">wilson_loops</span><span class="p">[</span><span class="n">positive_filter</span><span class="p">]</span>
+</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a>
+</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a><span class="c1">## ====================================================================</span>
+</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a>
+</span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a><span class="c1">## 2. Computational Strategy: Linearization and Fitting</span>
+</span><span id="__span-1-54"><a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a>
+</span><span id="__span-1-55"><a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a><span class="c1">## ====================================================================</span>
+</span><span id="__span-1-56"><a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a>
+</span><span id="__span-1-57"><a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a><span class="c1">## 1. Linearization: ln(W) = -sigma * A + C</span>
+</span><span id="__span-1-58"><a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a>
+</span><span id="__span-1-59"><a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a><span class="n">ln_wilson_loops</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">wilson_loops_filtered</span><span class="p">)</span>
+</span><span id="__span-1-60"><a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a><span class="n">X_area</span> <span class="o">=</span> <span class="n">areas_filtered</span>
+</span><span id="__span-1-61"><a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a>
+</span><span id="__span-1-62"><a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a><span class="c1">## 2. Perform Linear Least-Squares Fit</span>
+</span><span id="__span-1-63"><a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a>
+</span><span id="__span-1-64"><a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a><span class="c1">## linregress returns (slope, intercept, r_value, p_value, std_err)</span>
+</span><span id="__span-1-65"><a id="__codelineno-1-65" name="__codelineno-1-65" href="#__codelineno-1-65"></a>
+</span><span id="__span-1-66"><a id="__codelineno-1-66" name="__codelineno-1-66" href="#__codelineno-1-66"></a><span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">r_value</span><span class="p">,</span> <span class="n">p_value</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="n">linregress</span><span class="p">(</span><span class="n">X_area</span><span class="p">,</span> <span class="n">ln_wilson_loops</span><span class="p">)</span>
+</span><span id="__span-1-67"><a id="__codelineno-1-67" name="__codelineno-1-67" href="#__codelineno-1-67"></a>
+</span><span id="__span-1-68"><a id="__codelineno-1-68" name="__codelineno-1-68" href="#__codelineno-1-68"></a><span class="c1">## The string tension sigma_fit is the negative of the fitted slope</span>
+</span><span id="__span-1-69"><a id="__codelineno-1-69" name="__codelineno-1-69" href="#__codelineno-1-69"></a>
+</span><span id="__span-1-70"><a id="__codelineno-1-70" name="__codelineno-1-70" href="#__codelineno-1-70"></a><span class="n">SIGMA_FIT</span> <span class="o">=</span> <span class="o">-</span><span class="n">slope</span>
+</span><span id="__span-1-71"><a id="__codelineno-1-71" name="__codelineno-1-71" href="#__codelineno-1-71"></a><span class="n">SIGMA_ERROR</span> <span class="o">=</span> <span class="n">std_err</span>
+</span><span id="__span-1-72"><a id="__codelineno-1-72" name="__codelineno-1-72" href="#__codelineno-1-72"></a>
+</span><span id="__span-1-73"><a id="__codelineno-1-73" name="__codelineno-1-73" href="#__codelineno-1-73"></a><span class="c1">## 3. Create the best-fit line data for visualization</span>
+</span><span id="__span-1-74"><a id="__codelineno-1-74" name="__codelineno-1-74" href="#__codelineno-1-74"></a>
+</span><span id="__span-1-75"><a id="__codelineno-1-75" name="__codelineno-1-75" href="#__codelineno-1-75"></a><span class="n">fit_line</span> <span class="o">=</span> <span class="n">intercept</span> <span class="o">+</span> <span class="n">slope</span> <span class="o">*</span> <span class="n">X_area</span>
+</span><span id="__span-1-76"><a id="__codelineno-1-76" name="__codelineno-1-76" href="#__codelineno-1-76"></a>
+</span><span id="__span-1-77"><a id="__codelineno-1-77" name="__codelineno-1-77" href="#__codelineno-1-77"></a><span class="c1">## ====================================================================</span>
+</span><span id="__span-1-78"><a id="__codelineno-1-78" name="__codelineno-1-78" href="#__codelineno-1-78"></a>
+</span><span id="__span-1-79"><a id="__codelineno-1-79" name="__codelineno-1-79" href="#__codelineno-1-79"></a><span class="c1">## 3. Visualization</span>
+</span><span id="__span-1-80"><a id="__codelineno-1-80" name="__codelineno-1-80" href="#__codelineno-1-80"></a>
+</span><span id="__span-1-81"><a id="__codelineno-1-81" name="__codelineno-1-81" href="#__codelineno-1-81"></a><span class="c1">## ====================================================================</span>
+</span><span id="__span-1-82"><a id="__codelineno-1-82" name="__codelineno-1-82" href="#__codelineno-1-82"></a>
+</span><span id="__span-1-83"><a id="__codelineno-1-83" name="__codelineno-1-83" href="#__codelineno-1-83"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</span><span id="__span-1-84"><a id="__codelineno-1-84" name="__codelineno-1-84" href="#__codelineno-1-84"></a>
+</span><span id="__span-1-85"><a id="__codelineno-1-85" name="__codelineno-1-85" href="#__codelineno-1-85"></a><span class="c1">## Plot the linearized, noisy simulation data</span>
+</span><span id="__span-1-86"><a id="__codelineno-1-86" name="__codelineno-1-86" href="#__codelineno-1-86"></a>
+</span><span id="__span-1-87"><a id="__codelineno-1-87" name="__codelineno-1-87" href="#__codelineno-1-87"></a><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_area</span><span class="p">,</span> <span class="n">ln_wilson_loops</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span>
+</span><span id="__span-1-88"><a id="__codelineno-1-88" name="__codelineno-1-88" href="#__codelineno-1-88"></a>        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Simulated Data ($\ln </span><span class="se">\\</span><span class="s1">langle W </span><span class="se">\\</span><span class="s1">rangle$)&#39;</span><span class="p">)</span>
+</span><span id="__span-1-89"><a id="__codelineno-1-89" name="__codelineno-1-89" href="#__codelineno-1-89"></a>
+</span><span id="__span-1-90"><a id="__codelineno-1-90" name="__codelineno-1-90" href="#__codelineno-1-90"></a><span class="c1">## Plot the best-fit linear regression line</span>
+</span><span id="__span-1-91"><a id="__codelineno-1-91" name="__codelineno-1-91" href="#__codelineno-1-91"></a>
+</span><span id="__span-1-92"><a id="__codelineno-1-92" name="__codelineno-1-92" href="#__codelineno-1-92"></a><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_area</span><span class="p">,</span> <span class="n">fit_line</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkblue&#39;</span><span class="p">,</span>
+</span><span id="__span-1-93"><a id="__codelineno-1-93" name="__codelineno-1-93" href="#__codelineno-1-93"></a>        <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Linear Fit: Slope = </span><span class="si">{</span><span class="o">-</span><span class="n">SIGMA_FIT</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span><span id="__span-1-94"><a id="__codelineno-1-94" name="__codelineno-1-94" href="#__codelineno-1-94"></a>
+</span><span id="__span-1-95"><a id="__codelineno-1-95" name="__codelineno-1-95" href="#__codelineno-1-95"></a><span class="c1">## Plot the original theoretical line for comparison</span>
+</span><span id="__span-1-96"><a id="__codelineno-1-96" name="__codelineno-1-96" href="#__codelineno-1-96"></a>
+</span><span id="__span-1-97"><a id="__codelineno-1-97" name="__codelineno-1-97" href="#__codelineno-1-97"></a><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_area</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">SIGMA_TARGET</span> <span class="o">*</span> <span class="n">X_area</span><span class="p">)),</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span>
+</span><span id="__span-1-98"><a id="__codelineno-1-98" name="__codelineno-1-98" href="#__codelineno-1-98"></a>        <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Theoretical ($\sigma_</span><span class="se">{{\\</span><span class="s1">text</span><span class="se">{{</span><span class="s1">target</span><span class="se">}}}}</span><span class="s1"> = </span><span class="si">{</span><span class="n">SIGMA_TARGET</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">$)&#39;</span><span class="p">)</span>
+</span><span id="__span-1-99"><a id="__codelineno-1-99" name="__codelineno-1-99" href="#__codelineno-1-99"></a>
+</span><span id="__span-1-100"><a id="__codelineno-1-100" name="__codelineno-1-100" href="#__codelineno-1-100"></a><span class="c1">## Labeling and Formatting</span>
+</span><span id="__span-1-101"><a id="__codelineno-1-101" name="__codelineno-1-101" href="#__codelineno-1-101"></a>
+</span><span id="__span-1-102"><a id="__codelineno-1-102" name="__codelineno-1-102" href="#__codelineno-1-102"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Wilson Loop Area Law: Extraction of String Tension $</span><span class="se">\\</span><span class="s1">sigma$&#39;</span><span class="p">)</span>
+</span><span id="__span-1-103"><a id="__codelineno-1-103" name="__codelineno-1-103" href="#__codelineno-1-103"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Loop Area $A = R </span><span class="se">\\</span><span class="s1">times T$ (lattice units)&#39;</span><span class="p">)</span>
+</span><span id="__span-1-104"><a id="__codelineno-1-104" name="__codelineno-1-104" href="#__codelineno-1-104"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">ln(</span><span class="se">\\</span><span class="s1">langle W(R,T) </span><span class="se">\\</span><span class="s1">rangle)$&#39;</span><span class="p">)</span>
+</span><span id="__span-1-105"><a id="__codelineno-1-105" name="__codelineno-1-105" href="#__codelineno-1-105"></a><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</span><span id="__span-1-106"><a id="__codelineno-1-106" name="__codelineno-1-106" href="#__codelineno-1-106"></a><span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+</span><span id="__span-1-107"><a id="__codelineno-1-107" name="__codelineno-1-107" href="#__codelineno-1-107"></a>
+</span><span id="__span-1-108"><a id="__codelineno-1-108" name="__codelineno-1-108" href="#__codelineno-1-108"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</span><span id="__span-1-109"><a id="__codelineno-1-109" name="__codelineno-1-109" href="#__codelineno-1-109"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span><span id="__span-1-110"><a id="__codelineno-1-110" name="__codelineno-1-110" href="#__codelineno-1-110"></a>
+</span><span id="__span-1-111"><a id="__codelineno-1-111" name="__codelineno-1-111" href="#__codelineno-1-111"></a><span class="c1">## Final Analysis</span>
+</span><span id="__span-1-112"><a id="__codelineno-1-112" name="__codelineno-1-112" href="#__codelineno-1-112"></a>
+</span><span id="__span-1-113"><a id="__codelineno-1-113" name="__codelineno-1-113" href="#__codelineno-1-113"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- String Tension Analysis Summary ---&quot;</span><span class="p">)</span>
+</span><span id="__span-1-114"><a id="__codelineno-1-114" name="__codelineno-1-114" href="#__codelineno-1-114"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Target String Tension (</span><span class="se">\\</span><span class="s2">sigma_target): </span><span class="si">{</span><span class="n">SIGMA_TARGET</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-1-115"><a id="__codelineno-1-115" name="__codelineno-1-115" href="#__codelineno-1-115"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fitted String Tension (</span><span class="se">\\</span><span class="s2">sigma_fit): </span><span class="si">{</span><span class="n">SIGMA_FIT</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> </span><span class="se">\u00B1</span><span class="s2"> </span><span class="si">{</span><span class="n">SIGMA_ERROR</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-1-116"><a id="__codelineno-1-116" name="__codelineno-1-116" href="#__codelineno-1-116"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Residual R-squared value: </span><span class="si">{</span><span class="n">r_value</span><span class="o">**</span><span class="mi">2</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-1-117"><a id="__codelineno-1-117" name="__codelineno-1-117" href="#__codelineno-1-117"></a>
+</span><span id="__span-1-118"><a id="__codelineno-1-118" name="__codelineno-1-118" href="#__codelineno-1-118"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Conclusion: The linear decay in the $</span><span class="se">\\</span><span class="s2">ln(</span><span class="se">\\</span><span class="s2">langle W </span><span class="se">\\</span><span class="s2">rangle)$ vs. Area plot confirms the **Area Law** behaviour, which is the computational signature of **confinement**. The fitted string tension $</span><span class="se">\\</span><span class="s2">sigma_{</span><span class="se">\\</span><span class="s2">text</span><span class="si">{fit}</span><span class="s2">}$ successfully reproduces the target value, demonstrating the method used in LGT to extract the fundamental scale of the strong nuclear force.&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <strong>Sample Output:</strong>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="o">---</span> <span class="n">String</span> <span class="n">Tension</span> <span class="n">Analysis</span> <span class="n">Summary</span> <span class="o">---</span>
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">Target</span> <span class="n">String</span> <span class="n">Tension</span> <span class="p">(</span>\<span class="n">sigma_target</span><span class="p">):</span> <span class="mf">0.0500</span>
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="n">Fitted</span> <span class="n">String</span> <span class="n">Tension</span> <span class="p">(</span>\<span class="n">sigma_fit</span><span class="p">):</span> <span class="mf">0.0533</span> <span class="err">±</span> <span class="mf">0.0011</span>
-</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="n">Residual</span> <span class="n">R</span><span class="o">-</span><span class="n">squared</span> <span class="n">value</span><span class="p">:</span> <span class="mf">0.9847</span>
-</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>
-</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="n">Conclusion</span><span class="p">:</span> <span class="n">The</span> <span class="n">linear</span> <span class="n">decay</span> <span class="ow">in</span> <span class="n">the</span> <span class="err">$</span>\<span class="n">ln</span><span class="p">(</span>\<span class="n">langle</span> <span class="n">W</span> \<span class="n">rangle</span><span class="p">)</span><span class="err">$</span> <span class="n">vs</span><span class="o">.</span> <span class="n">Area</span> <span class="n">plot</span> <span class="n">confirms</span> <span class="n">the</span> <span class="o">**</span><span class="n">Area</span> <span class="n">Law</span><span class="o">**</span> <span class="n">behaviour</span><span class="p">,</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">computational</span> <span class="n">signature</span> <span class="n">of</span> <span class="o">**</span><span class="n">confinement</span><span class="o">**.</span> <span class="n">The</span> <span class="n">fitted</span> <span class="n">string</span> <span class="n">tension</span> <span class="err">$</span>\<span class="n">sigma_</span><span class="p">{</span>\<span class="n">text</span><span class="p">{</span><span class="n">fit</span><span class="p">}}</span><span class="err">$</span> <span class="n">successfully</span> <span class="n">reproduces</span> <span class="n">the</span> <span class="n">target</span> <span class="n">value</span><span class="p">,</span> <span class="n">demonstrating</span> <span class="n">the</span> <span class="n">method</span> <span class="n">used</span> <span class="ow">in</span> <span class="n">LGT</span> <span class="n">to</span> <span class="n">extract</span> <span class="n">the</span> <span class="n">fundamental</span> <span class="n">scale</span> <span class="n">of</span> <span class="n">the</span> <span class="n">strong</span> <span class="n">nuclear</span> <span class="n">force</span><span class="o">.</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">---</span> <span class="n">String</span> <span class="n">Tension</span> <span class="n">Analysis</span> <span class="n">Summary</span> <span class="o">---</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">Target</span> <span class="n">String</span> <span class="n">Tension</span> <span class="p">(</span>\<span class="n">sigma_target</span><span class="p">):</span> <span class="mf">0.0500</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">Fitted</span> <span class="n">String</span> <span class="n">Tension</span> <span class="p">(</span>\<span class="n">sigma_fit</span><span class="p">):</span> <span class="mf">0.0533</span> <span class="err">±</span> <span class="mf">0.0011</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">Residual</span> <span class="n">R</span><span class="o">-</span><span class="n">squared</span> <span class="n">value</span><span class="p">:</span> <span class="mf">0.9847</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">Conclusion</span><span class="p">:</span> <span class="n">The</span> <span class="n">linear</span> <span class="n">decay</span> <span class="ow">in</span> <span class="n">the</span> <span class="err">$</span>\<span class="n">ln</span><span class="p">(</span>\<span class="n">langle</span> <span class="n">W</span> \<span class="n">rangle</span><span class="p">)</span><span class="err">$</span> <span class="n">vs</span><span class="o">.</span> <span class="n">Area</span> <span class="n">plot</span> <span class="n">confirms</span> <span class="n">the</span> <span class="o">**</span><span class="n">Area</span> <span class="n">Law</span><span class="o">**</span> <span class="n">behaviour</span><span class="p">,</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">computational</span> <span class="n">signature</span> <span class="n">of</span> <span class="o">**</span><span class="n">confinement</span><span class="o">**.</span> <span class="n">The</span> <span class="n">fitted</span> <span class="n">string</span> <span class="n">tension</span> <span class="err">$</span>\<span class="n">sigma_</span><span class="p">{</span>\<span class="n">text</span><span class="p">{</span><span class="n">fit</span><span class="p">}}</span><span class="err">$</span> <span class="n">successfully</span> <span class="n">reproduces</span> <span class="n">the</span> <span class="n">target</span> <span class="n">value</span><span class="p">,</span> <span class="n">demonstrating</span> <span class="n">the</span> <span class="n">method</span> <span class="n">used</span> <span class="ow">in</span> <span class="n">LGT</span> <span class="n">to</span> <span class="n">extract</span> <span class="n">the</span> <span class="n">fundamental</span> <span class="n">scale</span> <span class="n">of</span> <span class="n">the</span> <span class="n">strong</span> <span class="n">nuclear</span> <span class="n">force</span><span class="o">.</span>
 </span></code></pre></div></p>
 
 
