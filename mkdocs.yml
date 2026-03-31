@@ -2,7 +2,6 @@ site_name: Big Book of Computing | Simulation
 site_description: A comprehensive guide to the foundations of stochastic simulation
 site_author: Big Book of Computing
 site_url: https://bigbookofcomputing.github.io
-site_language: en
 
 repo_url: https://github.com/bigbookofcomputing/simulation
 
@@ -73,6 +72,7 @@ markdown_extensions:
   
 theme:
   name: 'material'
+  language: en
   #custom_dir: overrides
   highlightjs: true
   hljs_languages: [python]
@@ -185,60 +185,57 @@ extra:
 
 
 nav:
-- Home: index.md
+- Home: home.md
 - Contents: chapters/contents.md
 - Introduction: chapters/introduction.md
 
 
 - Chapters:
-  - Chapter-1 Foundations of Stochastic Simulation: chapters/chapter-1/Chapter-1-Essay.md
-  - Chapter-2 The Ising Model: chapters/chapter-2/Chapter-2-Essay.md
-  - Chapter-3 Lattice Gauge Theory: chapters/chapter-3/Chapter-3-Essay.md
-  - Chapter-4 Monte Carlo Option Pricing: chapters/chapter-4/Chapter-4-Essay.md
-  - Chapter-5 Stochastic Systems Biology: chapters/chapter-5/Chapter-5-Essay.md
-  - Chapter-6 Advanced Monte Carlo Methods: chapters/chapter-6/Chapter-6-Essay.md
-  - Chapter-7 Molecular Dynamics (MD): chapters/chapter-7/Chapter-7-Essay.md
-  - Chapter-8 The Stochastic Calculus (SDEs): chapters/chapter-8/Chapter-8-Essay.md
-  - Chapter-9 Black-Scholes-Merton (BSM): chapters/chapter-9/Chapter-9-Essay.md
-  - Chapter-10 Neuroscience (Hodgkin-Huxley): chapters/chapter-10/Chapter-10-Essay.md
-  - Chapter-11 Agent-Based & Network Models: chapters/chapter-11/Chapter-11-Essay.md
-  - Chapter-12 Collective Behavior & Pattern Formation: chapters/chapter-12/Chapter-12-Essay.md
-  - Chapter-13 Collective Behavior & Pattern Formation: chapters/chapter-13/Chapter-13-Essay.md
-  - Chapter-14 Computational Neuroscience: chapters/chapter-14/Chapter-14-Essay.md
-  - Chapter-15 Graph and Network Models: chapters/chapter-15/Chapter-15-Essay.md
+  - Chapter-1 Foundations of Stochastic Simulation: chapters/chapter-1/essay.md
+  - Chapter-2 The Ising Model: chapters/chapter-2/essay.md
+  - Chapter-3 Lattice Gauge Theory: chapters/chapter-3/essay.md
+  - Chapter-4 Monte Carlo Option Pricing: chapters/chapter-4/essay.md
+  - Chapter-5 Stochastic Systems Biology: chapters/chapter-5/essay.md
+  - Chapter-6 Advanced Monte Carlo Methods: chapters/chapter-6/essay.md
+  - Chapter-7 Molecular Dynamics (MD): chapters/chapter-7/essay.md
+  - Chapter-8 The Stochastic Calculus (SDEs): chapters/chapter-8/essay.md
+  - Chapter-9 Black-Scholes-Merton (BSM): chapters/chapter-9/essay.md
+  - Chapter-10 Neuroscience (Hodgkin-Huxley): chapters/chapter-10/essay.md
+  - Chapter-11 Agent-Based & Network Models: chapters/chapter-11/essay.md
+  - Chapter-12 Agent-Based Market Models: chapters/chapter-12/essay.md
+  - Chapter-13 Collective Behavior & Pattern Formation: chapters/chapter-13/essay.md
+  - Chapter-14 Computational Neuroscience: chapters/chapter-14/essay.md
   
 
 - WorkBooks:
-  - Chapter-1 Foundations of Stochastic Simulation: chapters/chapter-1/Chapter-1-WorkBook.md
-  - Chapter-2 The Ising Model: chapters/chapter-2/Chapter-2-WorkBook.md
-  - Chapter-3 Lattice Gauge Theory: chapters/chapter-3/Chapter-3-WorkBook.md
-  - Chapter-4 Monte Carlo Option Pricing: chapters/chapter-4/Chapter-4-WorkBook.md
-  - Chapter-5 Stochastic Systems Biology: chapters/chapter-5/Chapter-5-WorkBook.md
-  - Chapter-6 Advanced Monte Carlo Methods: chapters/chapter-6/Chapter-6-WorkBook.md
-  - Chapter-7 Molecular Dynamics (MD): chapters/chapter-7/Chapter-7-WorkBook.md
-  - Chapter-8 The Stochastic Calculus (SDEs): chapters/chapter-8/Chapter-8-WorkBook.md
-  - Chapter-9 Black-Scholes-Merton (BSM): chapters/chapter-9/Chapter-9-WorkBook.md
-  - Chapter-10 Neuroscience (Hodgkin-Huxley): chapters/chapter-10/Chapter-10-WorkBook.md
-  - Chapter-11 Agent-Based & Network Models: chapters/chapter-11/Chapter-11-WorkBook    
-  - Chapter-12 Collective Behavior & Pattern Formation: chapters/chapter-12/Chapter-12-WorkBook.md
-  - Chapter-13 Collective Behavior & Pattern Formation: chapters/chapter-13/Chapter-13-WorkBook.md
-  - Chapter-14 Computational Neuroscience: chapters/chapter-14/Chapter-14-WorkBook.md
-  - Chapter-15 Graph and Network Models: chapters/chapter-15/Chapter-15-WorkBook.md
+  - Chapter-1 Foundations of Stochastic Simulation: chapters/chapter-1/workbook.md
+  - Chapter-2 The Ising Model: chapters/chapter-2/workbook.md
+  - Chapter-3 Lattice Gauge Theory: chapters/chapter-3/workbook.md
+  - Chapter-4 Monte Carlo Option Pricing: chapters/chapter-4/workbook.md
+  - Chapter-5 Stochastic Systems Biology: chapters/chapter-5/workbook.md
+  - Chapter-6 Advanced Monte Carlo Methods: chapters/chapter-6/workbook.md
+  - Chapter-7 Molecular Dynamics (MD): chapters/chapter-7/workbook.md
+  - Chapter-8 The Stochastic Calculus (SDEs): chapters/chapter-8/workbook.md
+  - Chapter-9 Black-Scholes-Merton (BSM): chapters/chapter-9/workbook.md
+  - Chapter-10 Neuroscience (Hodgkin-Huxley): chapters/chapter-10/workbook.md
+  - Chapter-11 Agent-Based & Network Models: chapters/chapter-11/workbook.md    
+  - Chapter-12 Agent-Based Market Models: chapters/chapter-12/workbook.md
+  - Chapter-13 Collective Behavior & Pattern Formation: chapters/chapter-13/workbook.md
+  - Chapter-14 Computational Neuroscience: chapters/chapter-14/workbook.md
 
 - CodeBooks:
-  - Chapter-1 Foundations of Stochastic Simulation: chapters/chapter-1/Chapter-1-CodeBook.md
-  - Chapter-2 The Ising Model: chapters/chapter-2/Chapter-2-CodeBook.md
-  - Chapter-3 Lattice Gauge Theory: chapters/chapter-3/Chapter-3-CodeBook.md
-  - Chapter-4 Monte Carlo Option Pricing: chapters/chapter-4/Chapter-4-CodeBook.md
-  - Chapter-5 Stochastic Systems Biology: chapters/chapter-5/Chapter-5-CodeBook.md
-  - Chapter-6 Advanced Monte Carlo Methods: chapters/chapter-6/Chapter-6-CodeBook.md 
-  - Chapter-7 Molecular Dynamics (MD): chapters/chapter-7/Chapter-7-CodeBook.md
-  - Chapter-8 The Stochastic Calculus (SDEs): chapters/chapter-8/Chapter-8-CodeBook.md
-  - Chapter-9 Black-Scholes-Merton (BSM): chapters/chapter-9/Chapter-9-CodeBook.md
-  - Chapter-10 Neuroscience (Hodgkin-Huxley): chapters/chapter-10/Chapter-10-CodeBook.md
-  - Chapter-11 Agent-Based & Network Models: chapters/chapter-11/Chapter-11-CodeBook.md
-  - Chapter-12 Collective Behavior & Pattern Formation: chapters/chapter-12/Chapter-12-CodeBook.md
-  - Chapter-13 Collective Behavior & Pattern Formation: chapters/chapter-13/Chapter-13-CodeBook.md
-  - Chapter-14 Computational Neuroscience: chapters/chapter-14/Chapter-14-CodeBook.md
-  - Chapter-15 Graph and Network Models: chapters/chapter-15/Chapter-15-CodeBook.md 
+  - Chapter-1 Foundations of Stochastic Simulation: chapters/chapter-1/codebook.md
+  - Chapter-2 The Ising Model: chapters/chapter-2/codebook.md
+  - Chapter-3 Lattice Gauge Theory: chapters/chapter-3/codebook.md
+  - Chapter-4 Monte Carlo Option Pricing: chapters/chapter-4/codebook.md
+  - Chapter-5 Stochastic Systems Biology: chapters/chapter-5/codebook.md
+  - Chapter-6 Advanced Monte Carlo Methods: chapters/chapter-6/codebook.md 
+  - Chapter-7 Molecular Dynamics (MD): chapters/chapter-7/codebook.md
+  - Chapter-8 The Stochastic Calculus (SDEs): chapters/chapter-8/codebook.md
+  - Chapter-9 Black-Scholes-Merton (BSM): chapters/chapter-9/codebook.md
+  - Chapter-10 Neuroscience (Hodgkin-Huxley): chapters/chapter-10/codebook.md
+  - Chapter-11 Agent-Based & Network Models: chapters/chapter-11/codebook.md
+  - Chapter-12 Agent-Based Market Models: chapters/chapter-12/codebook.md
+  - Chapter-13 Collective Behavior & Pattern Formation: chapters/chapter-13/codebook.md
+  - Chapter-14 Computational Neuroscience: chapters/chapter-14/codebook.md
 
