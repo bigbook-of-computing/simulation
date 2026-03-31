@@ -135,12 +135,10 @@ theme:
     text: Roboto
     code: Roboto Mono
 # Plugins
-  plugins:
-    - blog
-    - search:
-        separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
-    - minify:
-        minify_html: true
+plugins:
+  - blog
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   
 
 
@@ -185,7 +183,7 @@ extra:
 
 
 nav:
-- Home: home.md
+- Home: index.md
 - Contents: chapters/contents.md
 - Introduction: chapters/introduction.md
 
