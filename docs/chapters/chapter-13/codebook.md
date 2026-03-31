@@ -1,4 +1,4 @@
-# **Chapter 13: Biology III: Collective Behavior & Pattern Formation () () (Codebook)**
+# **Chapter 13: Biology III: Collective Behavior & Pattern Formation (Codebook)**
 
 ## Project 1: Simulating a 1D Reaction–Diffusion System
 

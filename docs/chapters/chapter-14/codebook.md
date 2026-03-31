@@ -1,4 +1,4 @@
-# **Chapter 14: Biology IV: Computational Neuroscience () () (Codebook)**
+# **Chapter 14: Biology IV: Computational Neuroscience (Codebook)**
 
 ## Project 1: Encoding and Analyzing the Weight Matrix ($\boldsymbol{W}$)
 

@@ -1,4 +1,4 @@
-# **Chapter 9: Finance III: Black-Scholes-Merton (BSM) () () () (Workbook)**
+# **Chapter 9: Finance III: Black-Scholes-Merton (BSM) (Workbook)**
 
 The goal of this chapter is to connect stochastic calculus (Chapter 8) with deterministic PDE solvers (Volume I) to derive and numerically solve the **Black–Scholes–Merton (BSM) equation**, which prices derivatives by eliminating market risk.
 
@@ -23,34 +23,28 @@ The delta-hedged portfolio ($\Pi = V - \Delta S$) is designed to be **riskless**
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. The breakthrough insight of the BSM model that allows for deterministic pricing is the discovery that:**
-
-* **A.** Volatility is always zero.
-* **B.** The expected return ($\mu$) is always equal to the risk-free rate ($r$).
-* **C.** **The random component ($dW_t$) of the stock and derivative dynamics can be made to cancel in a hedged portfolio**. (**Correct**)
-* **D.** All stock prices follow a normal distribution.
-
-```
+    **1. The breakthrough insight of the BSM model that allows for deterministic pricing is the discovery that:**
+    
+    * **A.** Volatility is always zero.
+    * **B.** The expected return ($\mu$) is always equal to the risk-free rate ($r$).
+    * **C.** **The random component ($dW_t$) of the stock and derivative dynamics can be made to cancel in a hedged portfolio**. (**Correct**)
+    * **D.** All stock prices follow a normal distribution.
+    
 !!! note "Quiz"
-```
-**2. The resulting BSM equation is classified as a parabolic PDE, which is mathematically equivalent to which fundamental equation from physics?**
-
-* **A.** The Wave Equation.
-* **B.** The Navier-Stokes Equation.
-* **C.** The **Heat/Diffusion Equation**. (**Correct**)
-* **D.** The Schrödinger Equation.
-
-```
+    **2. The resulting BSM equation is classified as a parabolic PDE, which is mathematically equivalent to which fundamental equation from physics?**
+    
+    * **A.** The Wave Equation.
+    * **B.** The Navier-Stokes Equation.
+    * **C.** The **Heat/Diffusion Equation**. (**Correct**)
+    * **D.** The Schrödinger Equation.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** Briefly define the concept of a **delta-hedged portfolio** in the BSM context and explain its primary purpose.
-
-**Answer Strategy:** A delta-hedged portfolio is a combination of holding one unit of the derivative ($V$) and simultaneously shorting $\Delta = \partial V / \partial S$ units of the underlying asset ($S$). Its primary purpose is to **neutralize (cancel out)** the random $dW_t$ term in the portfolio's change in value, thereby creating a riskless asset. The subsequent condition that this riskless asset must earn the risk-free rate ($d\Pi = r\Pi\,dt$) leads directly to the BSM PDE.
-
-```
+    **Question:** Briefly define the concept of a **delta-hedged portfolio** in the BSM context and explain its primary purpose.
+    
+    **Answer Strategy:** A delta-hedged portfolio is a combination of holding one unit of the derivative ($V$) and simultaneously shorting $\Delta = \partial V / \partial S$ units of the underlying asset ($S$). Its primary purpose is to **neutralize (cancel out)** the random $dW_t$ term in the portfolio's change in value, thereby creating a riskless asset. The subsequent condition that this riskless asset must earn the risk-free rate ($d\Pi = r\Pi\,dt$) leads directly to the BSM PDE.
+    
 ---
 
 ---
@@ -66,39 +60,33 @@ The cancellation of the random term is perfect, leaving $d\Pi$ purely determinis
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. The value chosen for the hedge ratio $\Delta$ (the number of shares to hold against one option) that ensures the portfolio is risk-free is:**
-
-* **A.** $\Delta = \sigma / r$.
-* **B.** $\Delta = r / \sigma$.
-* **C.** $\Delta = \frac{\partial V}{\partial t}$.
-* **D.** $\Delta = \frac{\partial V}{\partial S}$ (the option's delta). (**Correct**)
-
-```
+    **1. The value chosen for the hedge ratio $\Delta$ (the number of shares to hold against one option) that ensures the portfolio is risk-free is:**
+    
+    * **A.** $\Delta = \sigma / r$.
+    * **B.** $\Delta = r / \sigma$.
+    * **C.** $\Delta = \frac{\partial V}{\partial t}$.
+    * **D.** $\Delta = \frac{\partial V}{\partial S}$ (the option's delta). (**Correct**)
+    
 !!! note "Quiz"
-```
-**2. A profound observation of the final BSM PDE is that the price $V(S,t)$ is independent of which variable?**
-
-* **A.** Volatility ($\sigma$).
-* **B.** The risk-free rate ($r$).
-* **C.** **The stock's expected rate of return ($\mu$)**. (**Correct**)
-* **D.** The strike price ($K$).
-
-```
+    **2. A profound observation of the final BSM PDE is that the price $V(S,t)$ is independent of which variable?**
+    
+    * **A.** Volatility ($\sigma$).
+    * **B.** The risk-free rate ($r$).
+    * **C.** **The stock's expected rate of return ($\mu$)**. (**Correct**)
+    * **D.** The strike price ($K$).
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** The deterministic term in the portfolio change $d\Pi$ still contains the $\mu S \partial V / \partial S$ term from Itō's Lemma. Explain how $\mu$ is ultimately eliminated from the final BSM PDE.
-
-**Answer Strategy:** The $\mu$ term is eliminated in the final step where the **no-arbitrage condition** is imposed. The final step equates the deterministic change derived from Itō's Lemma with the return of a riskless bond:
-$$d\Pi_{\text{Ito}} = d\Pi_{\text{Risk-Free}}$$
-$$
-\left(\frac{\partial V}{\partial t} + \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 V}{\partial S^2}\right) dt = r(V - \Delta S) dt
-$$
-By substituting $\Delta = \partial V / \partial S$, the stock's expected return $\mu$ is no longer necessary to describe the derivative's value, as its effects are perfectly offset by the hedging strategy, and the portfolio must simply return the risk-free rate $r$.
-
-```
+    **Question:** The deterministic term in the portfolio change $d\Pi$ still contains the $\mu S \partial V / \partial S$ term from Itō's Lemma. Explain how $\mu$ is ultimately eliminated from the final BSM PDE.
+    
+    **Answer Strategy:** The $\mu$ term is eliminated in the final step where the **no-arbitrage condition** is imposed. The final step equates the deterministic change derived from Itō's Lemma with the return of a riskless bond:
+    $$d\Pi_{\text{Ito}} = d\Pi_{\text{Risk-Free}}$$
+    $$
+    \left(\frac{\partial V}{\partial t} + \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 V}{\partial S^2}\right) dt = r(V - \Delta S) dt
+    $$
+    By substituting $\Delta = \partial V / \partial S$, the stock's expected return $\mu$ is no longer necessary to describe the derivative's value, as its effects are perfectly offset by the hedging strategy, and the portfolio must simply return the risk-free rate $r$.
+    
 ---
 
 ---
@@ -114,34 +102,28 @@ The BSM equation is a parabolic PDE where volatility ($\frac{1}{2}\sigma^2 S^2$)
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. Which change of variables is necessary to transform the BSM equation into a pure diffusion equation?**
-
-* **A.** Substituting $\sigma$ with $\mu$ and $r$ with $\sigma$.
-* **B.** **Transforming the price $S$ into a log-space coordinate $x = \ln S$ and time $t$ into time-to-expiry $\tau = T - t$**. (**Correct**)
-* **C.** Multiplying the entire equation by the time step $\Delta t$.
-* **D.** Setting the diffusion term to zero.
-
-```
+    **1. Which change of variables is necessary to transform the BSM equation into a pure diffusion equation?**
+    
+    * **A.** Substituting $\sigma$ with $\mu$ and $r$ with $\sigma$.
+    * **B.** **Transforming the price $S$ into a log-space coordinate $x = \ln S$ and time $t$ into time-to-expiry $\tau = T - t$**. (**Correct**)
+    * **C.** Multiplying the entire equation by the time step $\Delta t$.
+    * **D.** Setting the diffusion term to zero.
+    
 !!! note "Quiz"
-```
-**2. In the Heat Equation analogy, the option value $V(S,t)$ corresponds to the physical quantity of:**
-
-* **A.** Heat flux.
-* **B.** Mass density.
-* **C.** **Temperature $T(x,t)$**. (**Correct**)
-* **D.** Thermal conductivity.
-
-```
+    **2. In the Heat Equation analogy, the option value $V(S,t)$ corresponds to the physical quantity of:**
+    
+    * **A.** Heat flux.
+    * **B.** Mass density.
+    * **C.** **Temperature $T(x,t)$**. (**Correct**)
+    * **D.** Thermal conductivity.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** The transformation of the BSM equation often involves two major steps: $x=\ln S$ and $V = e^{\alpha x + \beta \tau} u$. Explain the purpose of the second, more complex substitution ($V = e^{\alpha x + \beta \tau} u$).
-
-**Answer Strategy:** The first substitution ($x=\ln S$) linearizes the multiplicative randomness, but the transformed PDE still contains a **first derivative term ($V_x$)** and a **decay term ($-rV$)**. The substitution $V = e^{\alpha x + \beta \tau} u$ is specifically chosen to eliminate these remaining unwanted terms. By correctly choosing constants $\alpha$ and $\beta$, the resulting equation simplifies to the classic, pure diffusion form ($u_{\tau} = \frac{1}{2}\sigma^2 u_{xx}$), allowing the use of standard heat equation solution techniques.
-
-```
+    **Question:** The transformation of the BSM equation often involves two major steps: $x=\ln S$ and $V = e^{\alpha x + \beta \tau} u$. Explain the purpose of the second, more complex substitution ($V = e^{\alpha x + \beta \tau} u$).
+    
+    **Answer Strategy:** The first substitution ($x=\ln S$) linearizes the multiplicative randomness, but the transformed PDE still contains a **first derivative term ($V_x$)** and a **decay term ($-rV$)**. The substitution $V = e^{\alpha x + \beta \tau} u$ is specifically chosen to eliminate these remaining unwanted terms. By correctly choosing constants $\alpha$ and $\beta$, the resulting equation simplifies to the classic, pure diffusion form ($u_{\tau} = \frac{1}{2}\sigma^2 u_{xx}$), allowing the use of standard heat equation solution techniques.
+    
 ---
 
 ---
@@ -157,34 +139,28 @@ The FDM discretizes the BSM PDE onto a grid of price ($S$) and time ($t$). The s
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. The primary feature that makes the American option pricing problem intractable for analytical solutions (and thus necessitates FDM) is that it is a:**
-
-* **A.** Log-normal distribution problem.
-* **B.** $\mathcal{O}(N^2)$ complexity problem.
-* **C.** **Free-boundary problem**. (**Correct**)
-* **D.** Time-reversible problem.
-
-```
+    **1. The primary feature that makes the American option pricing problem intractable for analytical solutions (and thus necessitates FDM) is that it is a:**
+    
+    * **A.** Log-normal distribution problem.
+    * **B.** $\mathcal{O}(N^2)$ complexity problem.
+    * **C.** **Free-boundary problem**. (**Correct**)
+    * **D.** Time-reversible problem.
+    
 !!! note "Quiz"
-```
-**2. Which widely-used FDM scheme is typically favored for solving the BSM PDE due to its balance of stability and $\mathcal{O}(\Delta t^2, \Delta S^2)$ accuracy?**
-
-* **A.** The Explicit Euler scheme.
-* **B.** The Implicit Euler scheme.
-* **C.** The **Crank–Nicolson scheme**. (**Correct**)
-* **D.** The Milstein scheme.
-
-```
+    **2. Which widely-used FDM scheme is typically favored for solving the BSM PDE due to its balance of stability and $\mathcal{O}(\Delta t^2, \Delta S^2)$ accuracy?**
+    
+    * **A.** The Explicit Euler scheme.
+    * **B.** The Implicit Euler scheme.
+    * **C.** The **Crank–Nicolson scheme**. (**Correct**)
+    * **D.** The Milstein scheme.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** In the FDM algorithm for American options, why is the optimal exercise boundary problem solved by taking the **maximum** of the calculated PDE value and the option’s intrinsic value?
-
-**Answer Strategy:** The FDM solves the PDE for the option's value **if it is held** (the time value). However, the holder has the right to exercise, which yields the intrinsic value. At any given time, a rational holder will choose the path that yields the highest value. Therefore, the option's true value must be $\max(V_{\text{hold}}, V_{\text{intrinsic}})$. The point where this maximum switches defines the optimal exercise frontier (the free boundary).
-
-```
+    **Question:** In the FDM algorithm for American options, why is the optimal exercise boundary problem solved by taking the **maximum** of the calculated PDE value and the option’s intrinsic value?
+    
+    **Answer Strategy:** The FDM solves the PDE for the option's value **if it is held** (the time value). However, the holder has the right to exercise, which yields the intrinsic value. At any given time, a rational holder will choose the path that yields the highest value. Therefore, the option's true value must be $\max(V_{\text{hold}}, V_{\text{intrinsic}})$. The point where this maximum switches defines the optimal exercise frontier (the free boundary).
+    
 ---
 
 ---
@@ -200,36 +176,30 @@ The synthesis of Itō calculus, the no-arbitrage principle, and PDE methods prov
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. The analogy between the BSM equation and the Heat Equation means that market **volatility ($\sigma$)** in finance corresponds physically to which property?**
-
-* **A.** Time (t).
-* **B.** **Thermal conductivity (or diffusivity, $\alpha$)**. (**Correct**)
-* **C.** Temperature (T).
-* **D.** Energy (E).
-
-```
+    **1. The analogy between the BSM equation and the Heat Equation means that market **volatility ($\sigma$)** in finance corresponds physically to which property?**
+    
+    * **A.** Time (t).
+    * **B.** **Thermal conductivity (or diffusivity, $\alpha$)**. (**Correct**)
+    * **C.** Temperature (T).
+    * **D.** Energy (E).
+    
 !!! note "Quiz"
-```
-**2. Which core concept, shared across finance, thermodynamics, and physics, is essential for transforming the stochastic stock price SDE into the deterministic BSM PDE?**
-
-* **A.** The Law of Large Numbers.
-* **B.** The Central Limit Theorem.
-* **C.** The concept that **randomness can be neutralized in a self-consistent system**. (**Correct**)
-* **D.** The need for a Monte Carlo simulation.
-
-```
+    **2. Which core concept, shared across finance, thermodynamics, and physics, is essential for transforming the stochastic stock price SDE into the deterministic BSM PDE?**
+    
+    * **A.** The Law of Large Numbers.
+    * **B.** The Central Limit Theorem.
+    * **C.** The concept that **randomness can be neutralized in a self-consistent system**. (**Correct**)
+    * **D.** The need for a Monte Carlo simulation.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** In the context of the BSM model, how is the mathematical concept of a **moving phase boundary** from physics relevant to financial decision-making?
-
-**Answer Strategy:** The moving phase boundary is a direct analogy to the **optimal early exercise frontier** ($S^*(t)$) for an American option.
-* **Phase Boundary (Physics):** Separates two states (e.g., solid/liquid) where the diffusion equation applies on one side and a constraint applies on the other.
-* **Exercise Frontier (Finance):** Separates the region where it is optimal to **hold** the option (where the BSM PDE applies) from the region where it is optimal to **exercise** immediately (where the constraint $V = V_{\text{intrinsic}}$ applies). Numerically solving the American option requires tracking this moving boundary.
-
-```
+    **Question:** In the context of the BSM model, how is the mathematical concept of a **moving phase boundary** from physics relevant to financial decision-making?
+    
+    **Answer Strategy:** The moving phase boundary is a direct analogy to the **optimal early exercise frontier** ($S^*(t)$) for an American option.
+    * **Phase Boundary (Physics):** Separates two states (e.g., solid/liquid) where the diffusion equation applies on one side and a constraint applies on the other.
+    * **Exercise Frontier (Finance):** Separates the region where it is optimal to **hold** the option (where the BSM PDE applies) from the region where it is optimal to **exercise** immediately (where the constraint $V = V_{\text{intrinsic}}$ applies). Numerically solving the American option requires tracking this moving boundary.
+    
 ---
 
 ## 💡 Hands-On Simulation Projects (Chapter Conclusion) 🛠️

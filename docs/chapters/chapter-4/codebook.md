@@ -1,4 +1,4 @@
-# **Chapter 4: Finance I: Monte Carlo Option Pricing () () (Codebook)**
+# **Chapter 4: Finance I: Monte Carlo Option Pricing (Codebook)**
 
 ---
 

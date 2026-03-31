@@ -1,4 +1,4 @@
-# **Chapter 8: Finance II: The Stochastic Calculus (SDEs) () () () (Workbook)**
+# **Chapter 8: Finance II: The Stochastic Calculus (SDEs) (Workbook)**
 
 The goal of this chapter is to introduce the necessary mathematical framework — **Itō Calculus** — to model asset prices as continuous, random processes and to numerically solve their **Stochastic Differential Equations (SDEs)**.
 
@@ -23,34 +23,28 @@ Classical differentiation requires that the rate of change is well-behaved and d
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. The failure of classical calculus to model stock prices is primarily due to the fact that the price path is:**
-
-* **A.** A deterministic sine wave.
-* **B.** A discrete random walk.
-* **C.** **Continuous but nowhere differentiable**. (**Correct**)
-* **D.** A simple linear function of time.
-
-```
+    **1. The failure of classical calculus to model stock prices is primarily due to the fact that the price path is:**
+    
+    * **A.** A deterministic sine wave.
+    * **B.** A discrete random walk.
+    * **C.** **Continuous but nowhere differentiable**. (**Correct**)
+    * **D.** A simple linear function of time.
+    
 !!! note "Quiz"
-```
-**2. Which of the following is the key reason why standard calculus rules (like dropping second-order terms in Taylor expansions) break down for the Wiener Process?**
-
-* **A.** The process has infinite drift.
-* **B.** **The square of the differential, $(dW_t)^2$, is of order $dt$, not $(dt)^2$**. (**Correct**)
-* **C.** The process is not a Markov chain.
-* **D.** The time step $\Delta t$ is always too large.
-
-```
+    **2. Which of the following is the key reason why standard calculus rules (like dropping second-order terms in Taylor expansions) break down for the Wiener Process?**
+    
+    * **A.** The process has infinite drift.
+    * **B.** **The square of the differential, $(dW_t)^2$, is of order $dt$, not $(dt)^2$**. (**Correct**)
+    * **C.** The process is not a Markov chain.
+    * **D.** The time step $\Delta t$ is always too large.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** In simple terms, explain the mathematical significance of the relationship: $\mathbb{E}[(dW_t)^2] = dt$.
-
-**Answer Strategy:** This equation is the core difference between classical and stochastic calculus. It means the variance of the infinitesimal price shock ($\mathbb{E}[(dW_t)^2]$) grows **linearly with time $dt$**. In classical calculus, any term of order $dt$ in a Taylor expansion is assumed negligible compared to $dt$. By showing that the variance of the random component is *also* of order $dt$, we demonstrate that **the random component is not negligible** and must be explicitly retained, leading to the necessary modification of the chain rule.
-
-```
+    **Question:** In simple terms, explain the mathematical significance of the relationship: $\mathbb{E}[(dW_t)^2] = dt$.
+    
+    **Answer Strategy:** This equation is the core difference between classical and stochastic calculus. It means the variance of the infinitesimal price shock ($\mathbb{E}[(dW_t)^2]$) grows **linearly with time $dt$**. In classical calculus, any term of order $dt$ in a Taylor expansion is assumed negligible compared to $dt$. By showing that the variance of the random component is *also* of order $dt$, we demonstrate that **the random component is not negligible** and must be explicitly retained, leading to the necessary modification of the chain rule.
+    
 ---
 
 ---
@@ -66,34 +60,28 @@ The SDE is the mathematical tool for describing continuous random dynamics. The 
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. The SDE $dS_t = \mu(S_t,t)\,dt + \sigma(S_t,t)\,dW_t$ contains two parts. The term $\mu(S_t,t)\,dt$ is known as the:**
-
-* **A.** Volatility term.
-* **B.** **Drift term**. (**Correct**)
-* **C.** Diffusion term.
-* **D.** Stochastic noise.
-
-```
+    **1. The SDE $dS_t = \mu(S_t,t)\,dt + \sigma(S_t,t)\,dW_t$ contains two parts. The term $\mu(S_t,t)\,dt$ is known as the:**
+    
+    * **A.** Volatility term.
+    * **B.** **Drift term**. (**Correct**)
+    * **C.** Diffusion term.
+    * **D.** Stochastic noise.
+    
 !!! note "Quiz"
-```
-**2. The single most widely used SDE for modeling asset prices in financial mathematics is:**
-
-* **A.** The Mean-Reverting Ornstein-Uhlenbeck process.
-* **B.** **Geometric Brownian Motion (GBM)**. (**Correct**)
-* **C.** The Pure Diffusion equation.
-* **D.** The Ito-Correction SDE.
-
-```
+    **2. The single most widely used SDE for modeling asset prices in financial mathematics is:**
+    
+    * **A.** The Mean-Reverting Ornstein-Uhlenbeck process.
+    * **B.** **Geometric Brownian Motion (GBM)**. (**Correct**)
+    * **C.** The Pure Diffusion equation.
+    * **D.** The Ito-Correction SDE.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** In the context of GBM, $dS_t = \mu S_t\,dt + \sigma S_t\,dW_t$, what is the physical meaning of the diffusion term being proportional to the current price ($ \propto S_t$)?
-
-**Answer Strategy:** This proportionality ensures that the price remains positive and reflects a key financial reality: **volatility scales with price**. A $\$100$ stock has a much larger dollar movement (volatility) than a $\$1$ stock. By making the diffusion term proportional to $S_t$, we ensure that the *percentage change* in the price remains constant (log-normal property), rather than the absolute dollar change, providing a more realistic model for financial markets.
-
-```
+    **Question:** In the context of GBM, $dS_t = \mu S_t\,dt + \sigma S_t\,dW_t$, what is the physical meaning of the diffusion term being proportional to the current price ($ \propto S_t$)?
+    
+    **Answer Strategy:** This proportionality ensures that the price remains positive and reflects a key financial reality: **volatility scales with price**. A $\$100$ stock has a much larger dollar movement (volatility) than a $\$1$ stock. By making the diffusion term proportional to $S_t$, we ensure that the *percentage change* in the price remains constant (log-normal property), rather than the absolute dollar change, providing a more realistic model for financial markets.
+    
 ---
 
 ---
@@ -113,37 +101,31 @@ $$
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. The key non-classical rule that underlies the derivation of Itō’s Lemma is that:**
-
-* **A.** $dt^2 = 0$.
-* **B.** $dW_t\,dt = 0$.
-* **C.** **$(dW_t)^2 = dt$**. (**Correct**)
-* **D.** $\mu = r$.
-
-```
+    **1. The key non-classical rule that underlies the derivation of Itō’s Lemma is that:**
+    
+    * **A.** $dt^2 = 0$.
+    * **B.** $dW_t\,dt = 0$.
+    * **C.** **$(dW_t)^2 = dt$**. (**Correct**)
+    * **D.** $\mu = r$.
+    
 !!! note "Quiz"
-```
-**2. The term $\frac{1}{2}\sigma^2 \frac{\partial^2 f}{\partial S^2}\,dt$ in Itō’s Lemma is known as the Itō correction. It is fundamentally a:**
-
-* **A.** Random, stochastic term.
-* **B.** **Deterministic drift adjustment**. (**Correct**)
-* **C.** Second-order noise term.
-* **D.** First-order velocity term.
-
-```
+    **2. The term $\frac{1}{2}\sigma^2 \frac{\partial^2 f}{\partial S^2}\,dt$ in Itō’s Lemma is known as the Itō correction. It is fundamentally a:**
+    
+    * **A.** Random, stochastic term.
+    * **B.** **Deterministic drift adjustment**. (**Correct**)
+    * **C.** Second-order noise term.
+    * **D.** First-order velocity term.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** Consider the SDE for GBM. If you apply the classical chain rule to $f(S_t) = S_t^2$ and the Itō Lemma to $f(S_t) = S_t^2$, the two results differ by a term proportional to $\sigma^2 dt$. Why is the term $\propto \sigma^2 dt$ always present in the Itō version and missing in the classical version?
-
-**Answer Strategy:** The term $S_t^2$ is convex ($\frac{\partial^2 f}{\partial S^2} > 0$).
-* The **classical rule** ignores the second-order term $\frac{1}{2}f_{SS}(dS_t)^2$.
-* The **Itō rule** keeps this term, which simplifies to $\frac{1}{2}(2)\sigma^2 dt = \sigma^2 dt$.
-The missing term represents the deterministic drift that the price gains *due to its own volatility* ($\sigma$). Since the path is always jiggling (volatility $\sigma>0$), the function is always growing slightly faster than predicted by the average trend, and Itō's Lemma correctly captures this gain.
-
-```
+    **Question:** Consider the SDE for GBM. If you apply the classical chain rule to $f(S_t) = S_t^2$ and the Itō Lemma to $f(S_t) = S_t^2$, the two results differ by a term proportional to $\sigma^2 dt$. Why is the term $\propto \sigma^2 dt$ always present in the Itō version and missing in the classical version?
+    
+    **Answer Strategy:** The term $S_t^2$ is convex ($\frac{\partial^2 f}{\partial S^2} > 0$).
+    * The **classical rule** ignores the second-order term $\frac{1}{2}f_{SS}(dS_t)^2$.
+    * The **Itō rule** keeps this term, which simplifies to $\frac{1}{2}(2)\sigma^2 dt = \sigma^2 dt$.
+    The missing term represents the deterministic drift that the price gains *due to its own volatility* ($\sigma$). Since the path is always jiggling (volatility $\sigma>0$), the function is always growing slightly faster than predicted by the average trend, and Itō's Lemma correctly captures this gain.
+    
 ---
 
 ---
@@ -166,34 +148,28 @@ For options, we primarily need weak convergence, making EM the preferred, stable
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. The primary random component added at each step of the Euler–Maruyama simulation must be scaled by:**
-
-* **A.** The square of the time step $(\Delta t)^2$.
-* **B.** The total time $T$.
-* **C.** **The square root of the time step $\sqrt{\Delta t}$**. (**Correct**)
-* **D.** The initial price $S_0$.
-
-```
+    **1. The primary random component added at each step of the Euler–Maruyama simulation must be scaled by:**
+    
+    * **A.** The square of the time step $(\Delta t)^2$.
+    * **B.** The total time $T$.
+    * **C.** **The square root of the time step $\sqrt{\Delta t}$**. (**Correct**)
+    * **D.** The initial price $S_0$.
+    
 !!! note "Quiz"
-```
-**2. In financial modeling, we often use the Euler–Maruyama method for its **weak convergence** because it accurately estimates the:**
-
-* **A.** Exact pathwise solution of a single trajectory.
-* **B.** Required computational time.
-* **C.** **Expected value (average payoff) of the SDE**. (**Correct**)
-* **D.** Strong order of convergence.
-
-```
+    **2. In financial modeling, we often use the Euler–Maruyama method for its **weak convergence** because it accurately estimates the:**
+    
+    * **A.** Exact pathwise solution of a single trajectory.
+    * **B.** Required computational time.
+    * **C.** **Expected value (average payoff) of the SDE**. (**Correct**)
+    * **D.** Strong order of convergence.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** The numerical simulation of an SDE is required for Monte Carlo option pricing. Why is the simplicity and stability of the first-order **Euler–Maruyama** method often favored in financial practice over a more accurate higher-order method like Milstein?
-
-**Answer Strategy:** In finance, the goal is typically to find the expected payoff, which relies on **weak convergence** ($O(\Delta t)$). Since EM already achieves a weak order of $O(\Delta t)$, the complexity added by higher-order methods (which offer marginal gains in weak accuracy but are more complex to implement and debug) is generally not worth the effort. The simple structure of EM and its stability make it the most reliable and transparent choice for production systems.
-
-```
+    **Question:** The numerical simulation of an SDE is required for Monte Carlo option pricing. Why is the simplicity and stability of the first-order **Euler–Maruyama** method often favored in financial practice over a more accurate higher-order method like Milstein?
+    
+    **Answer Strategy:** In finance, the goal is typically to find the expected payoff, which relies on **weak convergence** ($O(\Delta t)$). Since EM already achieves a weak order of $O(\Delta t)$, the complexity added by higher-order methods (which offer marginal gains in weak accuracy but are more complex to implement and debug) is generally not worth the effort. The simple structure of EM and its stability make it the most reliable and transparent choice for production systems.
+    
 ---
 
 ---
@@ -209,34 +185,28 @@ Chapter 8 provided the mathematical foundation for Part II's finance section. It
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. The philosophical leap achieved by the Black–Scholes–Merton derivation is that it shows how to:**
-
-* **A.** Increase the volatility of a portfolio.
-* **B.** Find the average price of an asset.
-* **C.** **Cancel out the random $dW_t$ term in a hedged portfolio to arrive at a deterministic PDE**. (**Correct**)
-* **D.** Directly solve the Euler–Maruyama equation.
-
-```
+    **1. The philosophical leap achieved by the Black–Scholes–Merton derivation is that it shows how to:**
+    
+    * **A.** Increase the volatility of a portfolio.
+    * **B.** Find the average price of an asset.
+    * **C.** **Cancel out the random $dW_t$ term in a hedged portfolio to arrive at a deterministic PDE**. (**Correct**)
+    * **D.** Directly solve the Euler–Maruyama equation.
+    
 !!! note "Quiz"
-```
-**2. Which mathematical term in the Black–Scholes PDE is directly related to the Itō Correction?**
-
-* **A.** The $r\,f$ term.
-* **B.** The $\frac{\partial f}{\partial t}$ term.
-* **C.** The $\frac{\partial f}{\partial S}$ term.
-* **D.** **The $\frac{1}{2}\sigma^2 S^2 \frac{\partial^2 f}{\partial S^2}$ term (the second derivative with respect to price)**. (**Correct**)
-
-```
+    **2. Which mathematical term in the Black–Scholes PDE is directly related to the Itō Correction?**
+    
+    * **A.** The $r\,f$ term.
+    * **B.** The $\frac{\partial f}{\partial t}$ term.
+    * **C.** The $\frac{\partial f}{\partial S}$ term.
+    * **D.** **The $\frac{1}{2}\sigma^2 S^2 \frac{\partial^2 f}{\partial S^2}$ term (the second derivative with respect to price)**. (**Correct**)
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** In one sentence, summarize the central importance of Itō's Lemma to the field of quantitative finance.
-
-**Answer Strategy:** Itō's Lemma is the essential stochastic chain rule that allows us to correctly model how the **value of a financial derivative** (which is a function of the stock price) changes over time, acknowledging that **volatility** contributes a **predictable, deterministic drift** that must be included in the derivative's valuation.
-
-```
+    **Question:** In one sentence, summarize the central importance of Itō's Lemma to the field of quantitative finance.
+    
+    **Answer Strategy:** Itō's Lemma is the essential stochastic chain rule that allows us to correctly model how the **value of a financial derivative** (which is a function of the stock price) changes over time, acknowledging that **volatility** contributes a **predictable, deterministic drift** that must be included in the derivative's valuation.
+    
 ---
 
 ## 💡 Hands-On Simulation Projects (Chapter Conclusion) 🛠️

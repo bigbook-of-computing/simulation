@@ -56,10 +56,8 @@ $$
 where $J_{ij}$ is the coupling between spins $i$ and $j$, $\mu$ is the magnetic moment, and $h_i$ the local field. In this chapter we simplify to uniform coupling $J > 0$ (ferromagnetic) and uniform external field $H$.
 
 !!! tip "Exponential State Space"
-```
-A $30 \times 30$ Ising lattice has $2^{900} \approx 10^{270}$ configurations—far exceeding the number of atoms in the observable universe. Direct enumeration is impossible; Monte Carlo sampling is essential.
-
-```
+    A $30 \times 30$ Ising lattice has $2^{900} \approx 10^{270}$ configurations—far exceeding the number of atoms in the observable universe. Direct enumeration is impossible; Monte Carlo sampling is essential.
+    
 ---
 
 ### **Emergence from Local Rules**
@@ -151,10 +149,8 @@ $$
 This formula, derived from the Hamiltonian, allows us to compute the energy difference for a proposed spin flip by looking only at the four neighbours of the spin. It makes the Metropolis update an $\mathcal{O}(1)$ operation rather than $\mathcal{O}(N^2)$.
 
 !!! example "Local Energy Change Efficiency"
-```
-Computing $\Delta E$ for a spin flip requires only checking 4 neighbors—constant time $\mathcal{O}(1)$. For a $100 \times 100$ lattice, this avoids recalculating the entire $10{,}000$-spin energy, enabling millions of updates per second.
-
-```
+    Computing $\Delta E$ for a spin flip requires only checking 4 neighbors—constant time $\mathcal{O}(1)$. For a $100 \times 100$ lattice, this avoids recalculating the entire $10{,}000$-spin energy, enabling millions of updates per second.
+    
 ---
 
 ### **Generalizations and Variants**
@@ -208,10 +204,8 @@ Under periodic boundary conditions, opposite edges of the lattice are identified
 Implementing PBCs in code is straightforward. Suppose arrays `i` and `j` index lattice coordinates from 0 to $N-1$. The right neighbour of $(i,j)$ is at `((i + 1) % N, j)`, the left neighbour at `((i - 1 + N) % N, j)`, and similarly for up/down. This modular arithmetic ensures that indices "wrap around" the lattice.
 
 ??? question "Why does wrapping the lattice onto a torus preserve translational invariance?"
-```
-On a torus, every site is equivalent—there are no edges or corners. Each spin has exactly 4 neighbors, making the local environment uniform. This restores translational symmetry broken by finite boundaries and better approximates an infinite system.
-
-```
+    On a torus, every site is equivalent—there are no edges or corners. Each spin has exactly 4 neighbors, making the local environment uniform. This restores translational symmetry broken by finite boundaries and better approximates an infinite system.
+    
 ---
 
 ### **Alternative Boundary Conditions**

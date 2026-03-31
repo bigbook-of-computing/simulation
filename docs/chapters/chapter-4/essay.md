@@ -78,10 +78,8 @@ $$
 More generally, if the payoff depends on the entire path $\{S_t\}_{0\le t\le T}$, we compute the expected value of $h(\{S_t\})$ under $\mathbb{Q}$ and discount it by $e^{-rT}$.
 
 !!! tip "Why the Risk-Free Rate as Drift?"
-```
-Under the risk-neutral measure, the expected return of any tradable asset must equal the risk-free rate $r$ to prevent arbitrage. If $S_t$ had expected return $\mu > r$, one could borrow at rate $r$, invest in $S_t$, and lock in riskless profit. The change from physical measure $\mathbb{P}$ (drift $\mu$) to risk-neutral measure $\mathbb{Q}$ (drift $r$) is achieved via Girsanov's theorem, which adjusts the Brownian motion by the market price of risk.
-
-```
+    Under the risk-neutral measure, the expected return of any tradable asset must equal the risk-free rate $r$ to prevent arbitrage. If $S_t$ had expected return $\mu > r$, one could borrow at rate $r$, invest in $S_t$, and lock in riskless profit. The change from physical measure $\mathbb{P}$ (drift $\mu$) to risk-neutral measure $\mathbb{Q}$ (drift $r$) is achieved via Girsanov's theorem, which adjusts the Brownian motion by the market price of risk.
+    
 ---
 
 ### **Monte‑Carlo pricing under the risk‑neutral measure**
@@ -106,16 +104,14 @@ Monte‑Carlo simulation estimates the risk‑neutral expectation by generating 
 As in physical Monte‑Carlo simulations, the estimator's standard error decreases as $1/\sqrt{M}$. Doubling precision requires quadrupling the number of paths. The flexibility of this method is immense: you can incorporate multiple assets, correlated Brownian motions, stochastic volatilities or jumps. The only requirement is that you can simulate the underlying process under the risk‑neutral measure.
 
 !!! example "Pricing a European Call with Monte Carlo"
-```
-Consider $S_0 = 100$, $K = 105$, $r = 0.05$, $\sigma = 0.20$, $T = 1$ year. With $M = 10{,}000$ paths:
-
-1. For each path $m$: generate $Z \sim N(0,1)$, compute $S_T^{(m)} = 100 \exp[(0.05 - 0.5 \times 0.2^2) + 0.2 Z]$
-2. Payoff: $h_m = \max(S_T^{(m)} - 105, 0)$
-3. Estimate: $\hat{V}_0 = e^{-0.05} \times \frac{1}{10000}\sum h_m \approx 8.02$
-
-The Black-Scholes formula gives $V_0 = 8.02$. Standard error $\approx 0.15$, so the estimate is accurate within $\pm 0.30$ at 95% confidence.
-
-```
+    Consider $S_0 = 100$, $K = 105$, $r = 0.05$, $\sigma = 0.20$, $T = 1$ year. With $M = 10{,}000$ paths:
+    
+    1. For each path $m$: generate $Z \sim N(0,1)$, compute $S_T^{(m)} = 100 \exp[(0.05 - 0.5 \times 0.2^2) + 0.2 Z]$
+    2. Payoff: $h_m = \max(S_T^{(m)} - 105, 0)$
+    3. Estimate: $\hat{V}_0 = e^{-0.05} \times \frac{1}{10000}\sum h_m \approx 8.02$
+    
+    The Black-Scholes formula gives $V_0 = 8.02$. Standard error $\approx 0.15$, so the estimate is accurate within $\pm 0.30$ at 95% confidence.
+    
 ---
 
 ### **Why Monte‑Carlo? Advantages and limitations**
@@ -133,16 +129,14 @@ The Black-Scholes formula gives $V_0 = 8.02$. Standard error $\approx 0.15$, so 
 - **Model risk:** The accuracy of the price depends on the correctness of the assumed stochastic model (GBM). Real markets exhibit jumps, volatility clustering and fat tails; such effects can significantly alter option prices if ignored. More advanced models (Heston, Merton jump–diffusion, variance gamma) address these issues at additional computational cost.
 
 ??? question "When Should You Use Monte Carlo Instead of Black-Scholes?"
-```
-Use Monte Carlo when:
-- The option is path-dependent (Asian, barrier, lookback) with no closed-form solution
-- Multiple correlated assets are involved (basket options)
-- Complex early exercise features exist (American with path dependence)
-- You need to model stochastic volatility or jumps
-
-Stick with analytical formulas when they exist (European vanilla) for speed and precision. For American options on single assets, binomial trees or finite difference methods are often more efficient than Monte Carlo.
-
-```
+    Use Monte Carlo when:
+    - The option is path-dependent (Asian, barrier, lookback) with no closed-form solution
+    - Multiple correlated assets are involved (basket options)
+    - Complex early exercise features exist (American with path dependence)
+    - You need to model stochastic volatility or jumps
+    
+    Stick with analytical formulas when they exist (European vanilla) for speed and precision. For American options on single assets, binomial trees or finite difference methods are often more efficient than Monte Carlo.
+    
 ---
 
 ### **Connecting back to physics and beyond**

@@ -4,7 +4,7 @@ I have already drafted and provided the codebook sections for all four projects 
 
 ---
 
-# **Chapter 9: The Black–Scholes Equation () () (Codebook)**
+# **Chapter 9: The Black–Scholes Equation (Codebook)**
 
 ## Project 1: Testing the Black–Scholes Price $\boldsymbol{C(\boldsymbol{S}, \boldsymbol{t})}$
 

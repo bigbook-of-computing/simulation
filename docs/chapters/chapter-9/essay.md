@@ -112,10 +112,8 @@ $$dV = \left(\frac{\partial V}{\partial t} + \mu S \frac{\partial V}{\partial S}
 
 ```
 !!! tip "Why Delta Hedging Eliminates Randomness"
-```
-The key insight: when you hold $\Delta = \frac{\partial V}{\partial S}$ shares of stock and short one option, the instantaneous changes $dS_t$ and $dV_t$ **cancel out perfectly** in the combined portfolio. The $dW_t$ terms disappear, leaving only a deterministic drift that must equal the risk-free rate to prevent arbitrage.
-
-```
+    The key insight: when you hold $\Delta = \frac{\partial V}{\partial S}$ shares of stock and short one option, the instantaneous changes $dS_t$ and $dV_t$ **cancel out perfectly** in the combined portfolio. The $dW_t$ terms disappear, leaving only a deterministic drift that must equal the risk-free rate to prevent arbitrage.
+    
 ---
 
 ### **Step 2: Constructing the Delta-Hedged Portfolio**
@@ -201,12 +199,10 @@ The mathematical structure reveals its diffusion nature:
 | **Source/Sink term** | Heat loss (or gain) | Discounting term $-rV$ |
 
 !!! example "The Heat Equation Analogy: Volatility as Thermal Diffusivity"
-```
-Just as heat diffuses through a rod with diffusivity $\kappa$, option value diffuses through stock price space with diffusivity proportional to $\sigma^2$. High volatility = rapid diffusion of option value. The boundary conditions (strike price, expiration) act like temperature constraints at the rod's endpoints.
-
-```
-The analogy implies that uncertainty, driven by volatility ($\sigma$), causes the option value to **diffuse** or spread out over the space of possible stock prices ($S$) as time progresses.
-
+    Just as heat diffuses through a rod with diffusivity $\kappa$, option value diffuses through stock price space with diffusivity proportional to $\sigma^2$. High volatility = rapid diffusion of option value. The boundary conditions (strike price, expiration) act like temperature constraints at the rod's endpoints.
+    
+    The analogy implies that uncertainty, driven by volatility ($\sigma$), causes the option value to **diffuse** or spread out over the space of possible stock prices ($S$) as time progresses.
+    
 ---
 
 ### **The Transformation to a Pure Diffusion Equation**
@@ -270,18 +266,16 @@ For cases where analytical solutions are impossible (such as for **American opti
 While European-style options, exercisable only at maturity, yield to the analytical closed-form solution of the Black–Scholes–Merton (BSM) equation, **American-style options** cannot be solved analytically. The difficulty arises because the holder has the right to exercise the option **at any time** before expiry ($t \le T$).
 
 ??? question "American vs European Options: When Does Early Exercise Matter?"
-```
-For American **call options** on non-dividend-paying stocks, early exercise is **never optimal** (can be proven mathematically). But for American **put options**, early exercise becomes optimal when the stock price falls sufficiently below the strike—the option holder can capture the intrinsic value immediately rather than waiting and risking the stock price recovery. This asymmetry makes American puts significantly more complex to price than their European counterparts.
-
-```
-This early exercise feature introduces a **free-boundary problem** into the governing PDE:
-
-1.  **The Governing Region:** The BSM PDE holds only in the region where it is optimal to **hold** the option.
-2.  **The Exercise Region:** In the region where the intrinsic value (immediate payoff) is greater than the holding value, it is optimal to **exercise** immediately.
-3.  **The Free Boundary ($\boldsymbol{S^*(t)}$):** The boundary separating these two regions—the optimal exercise price $S^* (t)$—is unknown and must be determined as part of the solution.
-
-This situation is mathematically analogous to the **Stefan problem** in heat transfer, which models a moving phase front (like a melting or freezing boundary) in a diffusion system.
-
+    For American **call options** on non-dividend-paying stocks, early exercise is **never optimal** (can be proven mathematically). But for American **put options**, early exercise becomes optimal when the stock price falls sufficiently below the strike—the option holder can capture the intrinsic value immediately rather than waiting and risking the stock price recovery. This asymmetry makes American puts significantly more complex to price than their European counterparts.
+    
+    This early exercise feature introduces a **free-boundary problem** into the governing PDE:
+    
+    1.  **The Governing Region:** The BSM PDE holds only in the region where it is optimal to **hold** the option.
+    2.  **The Exercise Region:** In the region where the intrinsic value (immediate payoff) is greater than the holding value, it is optimal to **exercise** immediately.
+    3.  **The Free Boundary ($\boldsymbol{S^*(t)}$):** The boundary separating these two regions—the optimal exercise price $S^* (t)$—is unknown and must be determined as part of the solution.
+    
+    This situation is mathematically analogous to the **Stefan problem** in heat transfer, which models a moving phase front (like a melting or freezing boundary) in a diffusion system.
+    
 ---
 
 ### **The Inequality Constraint**

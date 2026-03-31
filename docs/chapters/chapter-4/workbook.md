@@ -1,4 +1,4 @@
-# **Chapter 4: Finance I: Monte Carlo Option Pricing () () () (Workbook)**
+# **Chapter 4: Finance I: Monte Carlo Option Pricing (Workbook)**
 
 The goal of this chapter is to apply the MCMC and stochastic principles (from Chapters 1–3) to **financial engineering**, showing how to value complex financial derivatives by sampling potential asset price paths.
 
@@ -29,37 +29,31 @@ This approach is analogous to how MCMC estimates thermodynamic observables in ph
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. For which type of derivative is Monte Carlo simulation typically necessary?**
-
-* **A.** Plain European Call options.
-* **B.** **Exotic options** whose payoff depends on the entire asset price path. (**Correct**)
-* **C.** U.S. Treasury bonds.
-* **D.** Vanilla options with short maturity.
-
-```
+    **1. For which type of derivative is Monte Carlo simulation typically necessary?**
+    
+    * **A.** Plain European Call options.
+    * **B.** **Exotic options** whose payoff depends on the entire asset price path. (**Correct**)
+    * **C.** U.S. Treasury bonds.
+    * **D.** Vanilla options with short maturity.
+    
 !!! note "Quiz"
-```
-**2. In the risk-neutral measure ($\mathbb{Q}$), the expected drift ($\mu$) of a stock's price is assumed to be equal to:**
-
-* **A.** The asset's historical return.
-* **B.** The asset's volatility ($\sigma$).
-* **C.** Zero.
-* **D.** The **risk-free interest rate ($r$)**. (**Correct**)
-
-
-```
+    **2. In the risk-neutral measure ($\mathbb{Q}$), the expected drift ($\mu$) of a stock's price is assumed to be equal to:**
+    
+    * **A.** The asset's historical return.
+    * **B.** The asset's volatility ($\sigma$).
+    * **C.** Zero.
+    * **D.** The **risk-free interest rate ($r$)**. (**Correct**)
+    
+    
 !!! question "Interview Practice"
-```
-**Question:** Conceptually, explain the connection between the **Boltzmann Distribution** in statistical mechanics and the **Risk-Neutral Measure ($\mathbb{Q}$)** in finance, as suggested by the text.
-
-**Answer Strategy:** Both concepts represent the **equilibrium probability measure** used for expectation value calculations.
-* The **Boltzmann distribution** $P(\mathbf{s}) \propto e^{-\beta E}$ is the equilibrium measure that weights the *microstates* ($\mathbf{s}$) of a physical system based on their energy, allowing us to compute thermodynamic averages.
-* The **Risk-Neutral Measure** ($\mathbb{Q}$) is the equilibrium measure that weights the *asset price paths* based on the no-arbitrage principle, allowing us to compute fair market prices.
-In both cases, we sample from a theoretical probability distribution to solve a high-dimensional integral and find an expected value.
-
-
-```
+    **Question:** Conceptually, explain the connection between the **Boltzmann Distribution** in statistical mechanics and the **Risk-Neutral Measure ($\mathbb{Q}$)** in finance, as suggested by the text.
+    
+    **Answer Strategy:** Both concepts represent the **equilibrium probability measure** used for expectation value calculations.
+    * The **Boltzmann distribution** $P(\mathbf{s}) \propto e^{-\beta E}$ is the equilibrium measure that weights the *microstates* ($\mathbf{s}$) of a physical system based on their energy, allowing us to compute thermodynamic averages.
+    * The **Risk-Neutral Measure** ($\mathbb{Q}$) is the equilibrium measure that weights the *asset price paths* based on the no-arbitrage principle, allowing us to compute fair market prices.
+    In both cases, we sample from a theoretical probability distribution to solve a high-dimensional integral and find an expected value.
+    
+    
 ### 4.2 Simulating Asset Paths Under Geometric Brownian Motion
 
 > **Summary:** Asset paths are typically modeled using **Geometric Brownian Motion (GBM)**, a stochastic differential equation (SDE) that results in log-normal prices. Paths are generated using the **exact discretization** formula, driven by standard normal random variates ($Z_k$).
@@ -77,38 +71,32 @@ The log-normal property ensures prices remain positive, and the term $\left(r - 
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. The primary random input used to drive the price changes $S_{t_{k+1}} / S_{t_k}$ in a Geometric Brownian Motion simulation is a variable $Z_k$ drawn from a:**
-
-* **A.** Uniform distribution $U(0,1)$.
-* **B.** Exponential distribution.
-* **C.** Standard **Normal (Gaussian) distribution** $N(0,1)$. (**Correct**)
-* **D.** Poisson distribution.
-
-```
+    **1. The primary random input used to drive the price changes $S_{t_{k+1}} / S_{t_k}$ in a Geometric Brownian Motion simulation is a variable $Z_k$ drawn from a:**
+    
+    * **A.** Uniform distribution $U(0,1)$.
+    * **B.** Exponential distribution.
+    * **C.** Standard **Normal (Gaussian) distribution** $N(0,1)$. (**Correct**)
+    * **D.** Poisson distribution.
+    
 !!! note "Quiz"
-```
-**2. Which key property of asset prices does the Geometric Brownian Motion model satisfy, in contrast to simple arithmetic Brownian motion?**
-
-* **A.** Prices are always stationary.
-* **B.** Prices always drift at the risk-free rate $r$.
-* **C.** **Prices are guaranteed to remain positive**. (**Correct**)
-* **D.** Volatility $\sigma$ is guaranteed to be constant.
-
-
-```
+    **2. Which key property of asset prices does the Geometric Brownian Motion model satisfy, in contrast to simple arithmetic Brownian motion?**
+    
+    * **A.** Prices are always stationary.
+    * **B.** Prices always drift at the risk-free rate $r$.
+    * **C.** **Prices are guaranteed to remain positive**. (**Correct**)
+    * **D.** Volatility $\sigma$ is guaranteed to be constant.
+    
+    
 !!! question "Interview Practice"
-```
-**Question:** When simulating a multi-asset option (e.g., a basket option), why is it insufficient to simply generate two independent GBM paths for the two assets, $S^{(1)}$ and $S^{(2)}$? What computational step must be introduced?
-
-**Answer Strategy:** Most real-world assets are **correlated** (e.g., $\rho_{12} \neq 0$). Generating independent paths assumes $\rho_{12}=0$, which misrepresents the market and biases the option price. The computational step required is to introduce **correlated normal variates**:
-1.  Define the target correlation matrix $\rho$.
-2.  Compute the **Cholesky decomposition** $C$ of $\rho$.
-3.  Draw independent standard normals $Z_k$.
-4.  Transform them to correlated normals $Y_k = C Z_k$, and use these correlated $Y_k$ in the GBM updates.
-
-
-```
+    **Question:** When simulating a multi-asset option (e.g., a basket option), why is it insufficient to simply generate two independent GBM paths for the two assets, $S^{(1)}$ and $S^{(2)}$? What computational step must be introduced?
+    
+    **Answer Strategy:** Most real-world assets are **correlated** (e.g., $\rho_{12} \neq 0$). Generating independent paths assumes $\rho_{12}=0$, which misrepresents the market and biases the option price. The computational step required is to introduce **correlated normal variates**:
+    1.  Define the target correlation matrix $\rho$.
+    2.  Compute the **Cholesky decomposition** $C$ of $\rho$.
+    3.  Draw independent standard normals $Z_k$.
+    4.  Transform them to correlated normals $Y_k = C Z_k$, and use these correlated $Y_k$ in the GBM updates.
+    
+    
 ### 4.3 Path-Dependent Options: Asian, Lookback and Barrier
 
 > **Summary:** Monte Carlo simulation excels at pricing options whose payoff depends on a **functional of the path** (e.g., the average $\bar{S}$, the maximum $M_{\max}$, or hitting a barrier $B$). To price these, the simulation must track the required path statistic at every time step.
@@ -124,37 +112,31 @@ Because the price is only observed at discrete $\Delta t$ steps, a nuance for Ba
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. To price an **Arithmetic-Average Asian Call** using Monte Carlo, which single statistic must be accumulated during the simulation of each price path?**
-
-* **A.** The terminal price $S_T$.
-* **B.** The volatility $\sigma$.
-* **C.** The **running sum of prices**. (**Correct**)
-* **D.** The time to maturity $T$.
-
-```
+    **1. To price an **Arithmetic-Average Asian Call** using Monte Carlo, which single statistic must be accumulated during the simulation of each price path?**
+    
+    * **A.** The terminal price $S_T$.
+    * **B.** The volatility $\sigma$.
+    * **C.** The **running sum of prices**. (**Correct**)
+    * **D.** The time to maturity $T$.
+    
 !!! note "Quiz"
-```
-**2. A key implementation nuance for **Barrier Options** is the potential for the asset price to cross the barrier $B$ between discrete time steps. This modeling error can be mitigated using:**
-
-* **A.** Quasi-Monte Carlo.
-* **B.** The antithetic variates technique.
-* **C.** **Brownian bridge interpolation/adjustment**. (**Correct**)
-* **D.** A lower risk-free rate $r$.
-
-
-```
+    **2. A key implementation nuance for **Barrier Options** is the potential for the asset price to cross the barrier $B$ between discrete time steps. This modeling error can be mitigated using:**
+    
+    * **A.** Quasi-Monte Carlo.
+    * **B.** The antithetic variates technique.
+    * **C.** **Brownian bridge interpolation/adjustment**. (**Correct**)
+    * **D.** A lower risk-free rate $r$.
+    
+    
 !!! question "Interview Practice"
-```
-**Question:** Compare the analytical tractability and Monte Carlo implementation difficulty of an **Arithmetic Asian Option** versus a **Geometric Asian Option**.
-
-**Answer Strategy:**
-* **Geometric Asian Option:** Is relatively **analytically tractable**. Since the geometric average of log-normal variables is itself log-normal, a closed-form solution exists. In Monte Carlo, it's easily calculated by accumulating the product of returns.
-* **Arithmetic Asian Option:** Is **analytically intractable** because the arithmetic average of log-normal variables is not log-normal. It *requires* Monte Carlo simulation.
-* **Implementation Difficulty:** Both are easy to implement in Monte Carlo, but the arithmetic option is typically more difficult to price accurately due to higher variance, making the geometric option a strong candidate for a **control variate**.
-
-
-```
+    **Question:** Compare the analytical tractability and Monte Carlo implementation difficulty of an **Arithmetic Asian Option** versus a **Geometric Asian Option**.
+    
+    **Answer Strategy:**
+    * **Geometric Asian Option:** Is relatively **analytically tractable**. Since the geometric average of log-normal variables is itself log-normal, a closed-form solution exists. In Monte Carlo, it's easily calculated by accumulating the product of returns.
+    * **Arithmetic Asian Option:** Is **analytically intractable** because the arithmetic average of log-normal variables is not log-normal. It *requires* Monte Carlo simulation.
+    * **Implementation Difficulty:** Both are easy to implement in Monte Carlo, but the arithmetic option is typically more difficult to price accurately due to higher variance, making the geometric option a strong candidate for a **control variate**.
+    
+    
 ### 4.4 Variance-Reduction Techniques
 
 > **Summary:** Monte Carlo convergence is slow ($O(1/\sqrt{M})$). **Variance-Reduction Techniques (VRTs)** are essential to lower the standard error without increasing the number of paths $M$ dramatically. **Antithetic Variates** use negative correlation, and **Control Variates** leverage a correlated option with a known price.
@@ -171,37 +153,32 @@ $$
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. If a Monte Carlo estimator's standard error is $0.10$, and you want to reduce it to $0.05$ (halve the error) without using variance reduction, you must increase the number of paths $M$ by a factor of:**
-
-* **A.** 2.
-* **B.** $\sqrt{2}$.
-* **C.** **4** (because error $\propto 1/\sqrt{M}$). (**Correct**)
-* **D.** 8.
-
-```
+    **1. If a Monte Carlo estimator's standard error is $0.10$, and you want to reduce it to $0.05$ (halve the error) without using variance reduction, you must increase the number of paths $M$ by a factor of:**
+    
+    * **A.** 2.
+    * **B.** $\sqrt{2}$.
+    * **C.** **4** (because error $\propto 1/\sqrt{M}$). (**Correct**)
+    * **D.** 8.
+    
 !!! note "Quiz"
-```
-**2. The key requirement for a random variable $C$ to be an effective **Control Variate** for a target payoff $H$ is that $C$ must be:**
-
-* **A.** Uncorrelated with $H$.
-* **B.** **Highly correlated with $H$ and have a known analytical expected value $\mathbb{E}[C]$**. (**Correct**)
-* **C.** Always equal to zero.
-* **D.** A standard Normal variate.
-
-
-```
+    **2. The key requirement for a random variable $C$ to be an effective **Control Variate** for a target payoff $H$ is that $C$ must be:**
+    
+    * **A.** Uncorrelated with $H$.
+    * **B.** **Highly correlated with $H$ and have a known analytical expected value $\mathbb{E}[C]$**. (**Correct**)
+    * **C.** Always equal to zero.
+    * **D.** A standard Normal variate.
+    
+    
 !!! question "Interview Practice"
-```
-**Question:** An engineer proposes using a Control Variate $C$ that has a correlation of $\rho=0.5$ with the target payoff $H$. Is this a good control variate? Quantify the variance reduction achieved.
-
-**Answer Strategy:** A correlation of $\rho=0.5$ is better than nothing, but not "excellent." The percentage of variance reduction achieved is determined by $1 - \rho^2$.
-* Variance Reduction Factor: $\mathrm{Var}[H^{\star}] / \mathrm{Var}[H] = (1 - \rho^2)$.
-* For $\rho=0.5$, the reduction factor is $1 - (0.5)^2 = 1 - 0.25 = 0.75$.
-* This means the variance of the final estimator is **$75\%$** of the original variance, achieving a $25\%$ reduction in variance (or about a $13\%$ reduction in standard error). Better control variates typically aim for $\rho > 0.8$ or $\rho > 0.9$.
-
-
-
+    **Question:** An engineer proposes using a Control Variate $C$ that has a correlation of $\rho=0.5$ with the target payoff $H$. Is this a good control variate? Quantify the variance reduction achieved.
+    
+    **Answer Strategy:** A correlation of $\rho=0.5$ is better than nothing, but not "excellent." The percentage of variance reduction achieved is determined by $1 - \rho^2$.
+    * Variance Reduction Factor: $\mathrm{Var}[H^{\star}] / \mathrm{Var}[H] = (1 - \rho^2)$.
+    * For $\rho=0.5$, the reduction factor is $1 - (0.5)^2 = 1 - 0.25 = 0.75$.
+    * This means the variance of the final estimator is **$75\%$** of the original variance, achieving a $25\%$ reduction in variance (or about a $13\%$ reduction in standard error). Better control variates typically aim for $\rho > 0.8$ or $\rho > 0.9$.
+    
+    
+    
 ##  Hands-On Simulation Projects (Chapter Conclusion) 🛠️
 
 These projects focus on building the core Monte Carlo engine and implementing essential variance-reduction techniques.

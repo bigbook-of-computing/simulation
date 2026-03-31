@@ -2,7 +2,7 @@ Certainly. We will now implement the simulation projects for Chapter 12, focusin
 
 ---
 
-# **Chapter 12: Finance IV: Agent-Based Market Models () () (Codebook)**
+# **Chapter 12: Finance IV: Agent-Based Market Models (Codebook)**
 
 ## Project 1: Modeling the Ising Market Hamiltonian
 

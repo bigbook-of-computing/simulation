@@ -50,10 +50,8 @@ In reality, financial markets exhibit **stylized facts** that fundamentally viol
 This pervasive mismatch exposes the limit of top-down, continuous models in capturing true market instability.
 
 !!! tip "The October 1987 Black Monday Paradox"
-```
-On October 19, 1987, the S&P 500 dropped 20.5% in a single day. Under the Gaussian assumption of GBM with historical volatility $\sigma \approx 15\%$ annually, this was a **22-sigma event**—probability $\sim 10^{-100}$, essentially impossible even over the universe's lifetime. Yet it happened. ABMs explain this naturally: synchronized herding by chartists creates collective phase transitions (crashes) with power-law frequency, making "impossible" events routine.
-
-```
+    On October 19, 1987, the S&P 500 dropped 20.5% in a single day. Under the Gaussian assumption of GBM with historical volatility $\sigma \approx 15\%$ annually, this was a **22-sigma event**—probability $\sim 10^{-100}$, essentially impossible even over the universe's lifetime. Yet it happened. ABMs explain this naturally: synchronized herding by chartists creates collective phase transitions (crashes) with power-law frequency, making "impossible" events routine.
+    
 ---
 
 ### **The Emergent Cause: Interaction, Not Noise**
@@ -109,10 +107,8 @@ The Ising Model describes how local interactions among binary units (spins) crea
 | **Magnetization ($M$)** | **Net Order Flow/Sentiment:** Total buying minus selling |
 
 !!! example "The Ising-Market Mapping in Practice"
-```
-Consider a network of 1000 traders. Each trader $i$ has opinion $s_i = +1$ (bullish, buy) or $s_i = -1$ (bearish, sell). With coupling $J = 0.5$ (moderate herding) and temperature $T = 1.0$ (moderate randomness), the system exhibits bistability: it can lock into collective buying ($M \approx +1$, bull market) or collective selling ($M \approx -1$, bear market) for extended periods, then suddenly flip between them—exactly like real market regime shifts.
-
-```
+    Consider a network of 1000 traders. Each trader $i$ has opinion $s_i = +1$ (bullish, buy) or $s_i = -1$ (bearish, sell). With coupling $J = 0.5$ (moderate herding) and temperature $T = 1.0$ (moderate randomness), the system exhibits bistability: it can lock into collective buying ($M \approx +1$, bull market) or collective selling ($M \approx -1$, bear market) for extended periods, then suddenly flip between them—exactly like real market regime shifts.
+    
 ---
 
 ### **The Hamiltonian and Decision Forces**
@@ -295,10 +291,8 @@ $$P(|r| > x) \sim x^{-\alpha}$$
 This power law means the probability density of large returns decays much slower than a Gaussian, confirming that **extreme events are orders of magnitude more common** than predicted by the BSM framework. The fitted exponent $\alpha$ in both real data and ASM simulations typically lies near $3$ (the inverse cubic law).
 
 ??? question "Why Do Markets Exhibit Power Laws Instead of Exponential Decay?"
-```
-Power laws arise from **scale-free systems** operating near critical points—systems without characteristic scales where events at all magnitudes follow similar statistical rules. In markets, this happens because herding creates **cascades**: one trader's action triggers neighbors, which trigger more neighbors, creating avalanches of arbitrary size. This is identical to sandpile models and earthquakes. Gaussian models assume independence (no cascades), so they can only produce exponential decay.
-
-```
+    Power laws arise from **scale-free systems** operating near critical points—systems without characteristic scales where events at all magnitudes follow similar statistical rules. In markets, this happens because herding creates **cascades**: one trader's action triggers neighbors, which trigger more neighbors, creating avalanches of arbitrary size. This is identical to sandpile models and earthquakes. Gaussian models assume independence (no cascades), so they can only produce exponential decay.
+    
 ---
 
 ### **The Emergent Memory: Volatility Clustering**

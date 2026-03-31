@@ -2,7 +2,7 @@ Certainly. We'll proceed with the hands-on simulation projects for Chapter 11, i
 
 ---
 
-# **Chapter 11: The Agent-Based Model (ABM) Framework () () (Codebook)**
+# **Chapter 11: The Agent-Based Model (ABM) Framework (Codebook)**
 
 ## Project 1: Implementing and Testing Schelling's Segregation
 

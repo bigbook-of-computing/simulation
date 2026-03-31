@@ -1,4 +1,4 @@
-# **Chapter 14: Biology IV: Computational Neuroscience () () () (Workbook)**
+# **Chapter 14: Biology IV: Computational Neuroscience (Workbook)**
 
 The goal of this chapter is to scale up from the single-neuron dynamics (Chapter 10) to **network behavior**, showing how collective computation, memory, and pattern recognition emerge from simple, coupled neural elements, using the **Hopfield Network** as the primary model.
 
@@ -23,34 +23,28 @@ Modeling the entire brain using the complex Hodgkin-Huxley ODEs (Chapter 10) is 
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. Why are complex models like Hodgkin-Huxley (H-H) impractical for simulating a network of thousands of neurons?**
-
-* **A.** H-H does not account for the action potential.
-* **B.** H-H is a stochastic model.
-* **C.** **H-H is too computationally expensive to simulate for large networks**. (**Correct**)
-* **D.** H-H violates the principle of local interaction.
-
-```
+    **1. Why are complex models like Hodgkin-Huxley (H-H) impractical for simulating a network of thousands of neurons?**
+    
+    * **A.** H-H does not account for the action potential.
+    * **B.** H-H is a stochastic model.
+    * **C.** **H-H is too computationally expensive to simulate for large networks**. (**Correct**)
+    * **D.** H-H violates the principle of local interaction.
+    
 !!! note "Quiz"
-```
-**2. The higher-level cognitive functions of the brain, such as memory and recognition, are primarily considered emergent properties of the:**
-
-* **A.** Complexity of the neuron's membrane potential.
-* **B.** **Collective interaction of billions of neurons in a network**. (**Correct**)
-* **C.** The exact formula for the $K^+$ current.
-* **D.** The process of transcription.
-
-```
+    **2. The higher-level cognitive functions of the brain, such as memory and recognition, are primarily considered emergent properties of the:**
+    
+    * **A.** Complexity of the neuron's membrane potential.
+    * **B.** **Collective interaction of billions of neurons in a network**. (**Correct**)
+    * **C.** The exact formula for the $K^+$ current.
+    * **D.** The process of transcription.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** Explain why the concept of **emergence** is essential for understanding the brain, as opposed to a reductionist approach that focuses on individual neuron function.
-
-**Answer Strategy:** A reductionist approach (like H-H modeling) explains the physics of the **single-neuron signal** (the spike). However, **memory, thought, and cognition** are not properties of a single neuron; they are properties of the **network**. Emergence is essential because it explains how a simple, collective pattern (e.g., a specific set of 10,000 neurons firing simultaneously) can arise from, and stabilize across, billions of individual interactions. The whole (memory) is qualitatively different from the sum of its parts (individual spikes).
-
-```
+    **Question:** Explain why the concept of **emergence** is essential for understanding the brain, as opposed to a reductionist approach that focuses on individual neuron function.
+    
+    **Answer Strategy:** A reductionist approach (like H-H modeling) explains the physics of the **single-neuron signal** (the spike). However, **memory, thought, and cognition** are not properties of a single neuron; they are properties of the **network**. Emergence is essential because it explains how a simple, collective pattern (e.g., a specific set of 10,000 neurons firing simultaneously) can arise from, and stabilize across, billions of individual interactions. The whole (memory) is qualitatively different from the sum of its parts (individual spikes).
+    
 ---
 
 ### 14.2 The Agents: Simplification to Integrate-and-Fire
@@ -64,34 +58,28 @@ The simplification shifts the focus from complex **membrane dynamics** to the fu
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. The primary purpose of simplifying the neuron model from Hodgkin-Huxley to the Integrate-and-Fire model for network studies is to:**
-
-* **A.** Introduce a refractory period.
-* **B.** **Shift the computational focus from complex membrane dynamics to network connectivity**. (**Correct**)
-* **C.** Introduce a continuous voltage variable.
-* **D.** Model the $Cl^-$ current.
-
-```
+    **1. The primary purpose of simplifying the neuron model from Hodgkin-Huxley to the Integrate-and-Fire model for network studies is to:**
+    
+    * **A.** Introduce a refractory period.
+    * **B.** **Shift the computational focus from complex membrane dynamics to network connectivity**. (**Correct**)
+    * **C.** Introduce a continuous voltage variable.
+    * **D.** Model the $Cl^-$ current.
+    
 !!! note "Quiz"
-```
-**2. In the Hopfield Network's simplified model, the state $s_i = +1$ typically represents which neural event?**
-
-* **A.** The resting potential.
-* **B.** **The neuron is firing (active)**. (**Correct**)
-* **C.** The $Na^+$ inactivation gate is closed.
-* **D.** The neuron is inhibited.
-
-```
+    **2. In the Hopfield Network's simplified model, the state $s_i = +1$ typically represents which neural event?**
+    
+    * **A.** The resting potential.
+    * **B.** **The neuron is firing (active)**. (**Correct**)
+    * **C.** The $Na^+$ inactivation gate is closed.
+    * **D.** The neuron is inhibited.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** The transition from a continuous $\text{H-H}$ voltage variable ($V_m$) to a discrete binary state ($s_i = \pm 1$) is a massive abstraction. What crucial aspect of neural signaling does the binary simplification still successfully capture?
-
-**Answer Strategy:** The binary state successfully captures the **all-or-nothing nature** of the action potential (Chapter 10). A neuron either fires at its full amplitude ($+1$) or it doesn't ($-1$). Since information in the brain is often encoded in the **rate and pattern of firing** rather than the precise voltage of a single spike, the binary abstraction retains the essential functional output needed for network-level computation.
-
-```
+    **Question:** The transition from a continuous $\text{H-H}$ voltage variable ($V_m$) to a discrete binary state ($s_i = \pm 1$) is a massive abstraction. What crucial aspect of neural signaling does the binary simplification still successfully capture?
+    
+    **Answer Strategy:** The binary state successfully captures the **all-or-nothing nature** of the action potential (Chapter 10). A neuron either fires at its full amplitude ($+1$) or it doesn't ($-1$). Since information in the brain is often encoded in the **rate and pattern of firing** rather than the precise voltage of a single spike, the binary abstraction retains the essential functional output needed for network-level computation.
+    
 ---
 
 ### 14.3 The Physics Analogy: The Hopfield Network and Memory
@@ -105,37 +93,31 @@ The retrieval process in the Hopfield network is equivalent to the system underg
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. In the Hopfield Network's Energy Function, $E(\mathbf{s}) = - \frac{1}{2} \sum w_{ij} s_i s_j$, what variable is analogous to the $\frac{1}{k_B T}$ term in the Ising Model?**
-
-* **A.** The synaptic weight $w_{ij}$.
-* **B.** The neuron state $s_i$.
-* **C.** **The temperature (or stochastic noise) of the neural system**. (**Correct**)
-* **D.** The number of stored patterns $M$.
-
-```
+    **1. In the Hopfield Network's Energy Function, $E(\mathbf{s}) = - \frac{1}{2} \sum w_{ij} s_i s_j$, what variable is analogous to the $\frac{1}{k_B T}$ term in the Ising Model?**
+    
+    * **A.** The synaptic weight $w_{ij}$.
+    * **B.** The neuron state $s_i$.
+    * **C.** **The temperature (or stochastic noise) of the neural system**. (**Correct**)
+    * **D.** The number of stored patterns $M$.
+    
 !!! note "Quiz"
-```
-**2. In the Hopfield Network, a stored memory corresponds to which feature in the network's energy landscape?**
-
-* **A.** The global maximum of the energy function.
-* **B.** A random walk.
-* **C.** **A stable, low-energy minimum (attractor)**. (**Correct**)
-* **D.** A high-energy metastable state.
-
-```
+    **2. In the Hopfield Network, a stored memory corresponds to which feature in the network's energy landscape?**
+    
+    * **A.** The global maximum of the energy function.
+    * **B.** A random walk.
+    * **C.** **A stable, low-energy minimum (attractor)**. (**Correct**)
+    * **D.** A high-energy metastable state.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** Explain the concept of **associative memory** using the terms *attractor*, *energy landscape*, and *Hebbian learning*.
-
-**Answer Strategy:**
-1.  **Encoding (Hebbian Learning):** Patterns (memories) are encoded into the network by setting the **synaptic weights ($w_{ij}$) using the Hebbian rule**, which essentially determines the shape of the **energy landscape**.
-2.  **Storage (Attractors):** This process makes the encoded patterns correspond to specific **low-energy minima (attractors)** in the energy landscape.
-3.  **Retrieval (Relaxation):** When the network is given a **partial or corrupted input** (a cue), the system undergoes **relaxation** (gradient descent) and evolves from the current high-energy state until it falls into the nearest low-energy attractor, thereby **completing the pattern** and recalling the associated memory.
-
-```
+    **Question:** Explain the concept of **associative memory** using the terms *attractor*, *energy landscape*, and *Hebbian learning*.
+    
+    **Answer Strategy:**
+    1.  **Encoding (Hebbian Learning):** Patterns (memories) are encoded into the network by setting the **synaptic weights ($w_{ij}$) using the Hebbian rule**, which essentially determines the shape of the **energy landscape**.
+    2.  **Storage (Attractors):** This process makes the encoded patterns correspond to specific **low-energy minima (attractors)** in the energy landscape.
+    3.  **Retrieval (Relaxation):** When the network is given a **partial or corrupted input** (a cue), the system undergoes **relaxation** (gradient descent) and evolves from the current high-energy state until it falls into the nearest low-energy attractor, thereby **completing the pattern** and recalling the associated memory.
+    
 ---
 
 ### 14.4 The Simulation: Storing and Retrieving Patterns
@@ -149,34 +131,28 @@ The asynchronous update, similar to MCMC in Chapter 2, involves selecting one ra
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. The **Hebbian learning rule** is the mechanism used in the Hopfield Network to calculate the synaptic weights $W$ during the encoding phase. This rule primarily relies on:**
-
-* **A.** The external magnetic field $H$.
-* **B.** The nearest-neighbor interaction $J$.
-* **C.** **The outer product (correlation) of the patterns being stored**. (**Correct**)
-* **D.** The $K^+$ current dynamics.
-
-```
+    **1. The **Hebbian learning rule** is the mechanism used in the Hopfield Network to calculate the synaptic weights $W$ during the encoding phase. This rule primarily relies on:**
+    
+    * **A.** The external magnetic field $H$.
+    * **B.** The nearest-neighbor interaction $J$.
+    * **C.** **The outer product (correlation) of the patterns being stored**. (**Correct**)
+    * **D.** The $K^+$ current dynamics.
+    
 !!! note "Quiz"
-```
-**2. The dynamics of memory retrieval in the Hopfield Network is simulated by an iterative, asynchronous update that ensures the network is always moving toward a state where:**
-
-* **A.** The total voltage is maximized.
-* **B.** **The network energy $E(\mathbf{s})$ is minimized**. (**Correct**)
-* **C.** The temperature is maximized.
-* **D.** All neurons are firing ($s_i = +1$).
-
-```
+    **2. The dynamics of memory retrieval in the Hopfield Network is simulated by an iterative, asynchronous update that ensures the network is always moving toward a state where:**
+    
+    * **A.** The total voltage is maximized.
+    * **B.** **The network energy $E(\mathbf{s})$ is minimized**. (**Correct**)
+    * **C.** The temperature is maximized.
+    * **D.** All neurons are firing ($s_i = +1$).
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** In the Hopfield Network, the asynchronous update rule is deterministic (no acceptance probability, unlike Metropolis). Why is it guaranteed that this deterministic process will eventually stabilize (stop changing) and settle into a minimum, rather than oscillating forever?
-
-**Answer Strategy:** The update rule is constructed to be a pure **gradient descent** process. By definition, the rule only permits moves that either **lower the network energy ($\Delta E < 0$) or leave it unchanged ($\Delta E = 0$)**. Since the energy function $E(\mathbf{s})$ is bounded from below (it has a minimum possible value), the system must eventually run out of energy-lowering moves and therefore stabilize in a state where $\Delta E = 0$, which is a local minimum (the attractor).
-
-```
+    **Question:** In the Hopfield Network, the asynchronous update rule is deterministic (no acceptance probability, unlike Metropolis). Why is it guaranteed that this deterministic process will eventually stabilize (stop changing) and settle into a minimum, rather than oscillating forever?
+    
+    **Answer Strategy:** The update rule is constructed to be a pure **gradient descent** process. By definition, the rule only permits moves that either **lower the network energy ($\Delta E < 0$) or leave it unchanged ($\Delta E = 0$)**. Since the energy function $E(\mathbf{s})$ is bounded from below (it has a minimum possible value), the system must eventually run out of energy-lowering moves and therefore stabilize in a state where $\Delta E = 0$, which is a local minimum (the attractor).
+    
 ---
 
 ## 💡 Hands-On Simulation Projects (Chapter Conclusion) 🛠️
@@ -757,36 +733,30 @@ The **Hopfield Network** is the model that formalizes this connection, realizing
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. The primary breakthrough of the Hopfield Network model was realizing that:**
-
-* **A.** Neuron firing is continuous.
-* **B.** **The network's activity evolves to minimize a scalar energy function**. (**Correct**)
-* **C.** Memories are stored in a central location.
-* **D.** Only inhibitory connections are needed.
-
-```
+    **1. The primary breakthrough of the Hopfield Network model was realizing that:**
+    
+    * **A.** Neuron firing is continuous.
+    * **B.** **The network's activity evolves to minimize a scalar energy function**. (**Correct**)
+    * **C.** Memories are stored in a central location.
+    * **D.** Only inhibitory connections are needed.
+    
 !!! note "Quiz"
-```
-**2. In the Hopfield model, what does the network's system dynamics eventually settle into, which is interpreted as a "stored memory"?**
-
-* **A.** A magnetic field.
-* **B.** **A stable, low-energy attractor**. (**Correct**)
-* **C.** The exact initial input cue.
-* **D.** A Boltzmann distribution.
-
-```
+    **2. In the Hopfield model, what does the network's system dynamics eventually settle into, which is interpreted as a "stored memory"?**
+    
+    * **A.** A magnetic field.
+    * **B.** **A stable, low-energy attractor**. (**Correct**)
+    * **C.** The exact initial input cue.
+    * **D.** A Boltzmann distribution.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** The text describes the brain's computation as closer to a **thermodynamic computer** than a **digital computer**. Explain the difference in their computational processes.
-
-**Answer Strategy:**
-* **Digital Computer:** Computes by executing sequential, step-by-step instructions based on formal logic (like a Turing Machine). The output is determined by the program.
-* **Thermodynamic Computer (Hopfield/Brain):** Computes by **relaxing to equilibrium**. It starts in a high-energy state (the input cue) and evolves dynamically toward a stable, low-energy state (the memory attractor). The computation is the physical process of **energy minimization**.
-
-```
+    **Question:** The text describes the brain's computation as closer to a **thermodynamic computer** than a **digital computer**. Explain the difference in their computational processes.
+    
+    **Answer Strategy:**
+    * **Digital Computer:** Computes by executing sequential, step-by-step instructions based on formal logic (like a Turing Machine). The output is determined by the program.
+    * **Thermodynamic Computer (Hopfield/Brain):** Computes by **relaxing to equilibrium**. It starts in a high-energy state (the input cue) and evolves dynamically toward a stable, low-energy state (the memory attractor). The computation is the physical process of **energy minimization**.
+    
 ---
 
 ### 14.2 The Agents: Simplification to Integrate-and-Fire
@@ -800,36 +770,30 @@ The $\text{H-H}$ model, while biophysically accurate, is too intensive for large
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. The computational abstraction of the Hodgkin–Huxley neuron used for the Hopfield Network involves replacing the continuous voltage dynamics with:**
-
-* **A.** Continuous, stable potential $V_m$.
-* **B.** **A binary state $s_i \in \{+1, -1\}$**. (**Correct**)
-* **C.** Stochastic differential equations.
-* **D.** The full set of gating variables.
-
-```
+    **1. The computational abstraction of the Hodgkin–Huxley neuron used for the Hopfield Network involves replacing the continuous voltage dynamics with:**
+    
+    * **A.** Continuous, stable potential $V_m$.
+    * **B.** **A binary state $s_i \in \{+1, -1\}$**. (**Correct**)
+    * **C.** Stochastic differential equations.
+    * **D.** The full set of gating variables.
+    
 !!! note "Quiz"
-```
-**2. The single variable that encapsulates all the biophysical details of communication and influence between two simplified neurons, $i$ and $j$, in the Hopfield network is the:**
-
-* **A.** Neuron state $s_i$.
-* **B.** External current $I_i^{\text{ext}}$.
-* **C.** **Synaptic weight $w_{ij}$**. (**Correct**)
-* **D.** Membrane capacitance $C_m$.
-
-```
+    **2. The single variable that encapsulates all the biophysical details of communication and influence between two simplified neurons, $i$ and $j$, in the Hopfield network is the:**
+    
+    * **A.** Neuron state $s_i$.
+    * **B.** External current $I_i^{\text{ext}}$.
+    * **C.** **Synaptic weight $w_{ij}$**. (**Correct**)
+    * **D.** Membrane capacitance $C_m$.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** The local update rule for a neuron in the Hopfield network can be seen as a sign function: $s_i(t+1) = \text{sign}(\sum_j w_{ij} s_j(t) - \theta_i)$. How does this single rule capture the concept of **Integration and Firing** from the more complex biophysical model?
-
-**Answer Strategy:**
-* **Integration:** The term $\sum_j w_{ij} s_j(t)$ represents the **weighted sum** of all incoming signals from neighboring neurons. This is the computational equivalent of the neuron **integrating** its total synaptic current.
-* **Firing:** The **sign function** compares this total integrated input against the threshold ($\theta_i$). If the input exceeds the threshold, the output is positive ($\text{sign}>0 \to s_i = +1$), meaning the neuron **fires**; otherwise, it is negative ($\text{sign}\le 0 \to s_i = -1$), meaning it is silent.
-
-```
+    **Question:** The local update rule for a neuron in the Hopfield network can be seen as a sign function: $s_i(t+1) = \text{sign}(\sum_j w_{ij} s_j(t) - \theta_i)$. How does this single rule capture the concept of **Integration and Firing** from the more complex biophysical model?
+    
+    **Answer Strategy:**
+    * **Integration:** The term $\sum_j w_{ij} s_j(t)$ represents the **weighted sum** of all incoming signals from neighboring neurons. This is the computational equivalent of the neuron **integrating** its total synaptic current.
+    * **Firing:** The **sign function** compares this total integrated input against the threshold ($\theta_i$). If the input exceeds the threshold, the output is positive ($\text{sign}>0 \to s_i = +1$), meaning the neuron **fires**; otherwise, it is negative ($\text{sign}\le 0 \to s_i = -1$), meaning it is silent.
+    
 ---
 
 ### 14.3 The Physics Analogy: The Hopfield Network and Memory
@@ -843,34 +807,28 @@ The Hopfield Network guarantees convergence because the update rule ensures $\De
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. The primary rule used to encode desired patterns $\mathbf{s}^{(m)}$ as stable memories (attractors) in the Hopfield network is known as:**
-
-* **A.** The Boltzmann factor.
-* **B.** The Integrate-and-Fire rule.
-* **C.** **The Hebbian learning rule**. (**Correct**)
-* **D.** The BSM equation.
-
-```
+    **1. The primary rule used to encode desired patterns $\mathbf{s}^{(m)}$ as stable memories (attractors) in the Hopfield network is known as:**
+    
+    * **A.** The Boltzmann factor.
+    * **B.** The Integrate-and-Fire rule.
+    * **C.** **The Hebbian learning rule**. (**Correct**)
+    * **D.** The BSM equation.
+    
 !!! note "Quiz"
-```
-**2. The dynamics of memory retrieval is guaranteed to stop changing because the energy function $E(\mathbf{s})$ is:**
-
-* **A.** Proportional to the number of neurons, $N$.
-* **B.** **Bounced from below (has a minimum value) and cannot increase with any update**. (**Correct**)
-* **C.** Completely independent of the weights $w_{ij}$.
-* **D.** Always zero at the stable state.
-
-```
+    **2. The dynamics of memory retrieval is guaranteed to stop changing because the energy function $E(\mathbf{s})$ is:**
+    
+    * **A.** Proportional to the number of neurons, $N$.
+    * **B.** **Bounced from below (has a minimum value) and cannot increase with any update**. (**Correct**)
+    * **C.** Completely independent of the weights $w_{ij}$.
+    * **D.** Always zero at the stable state.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** The memory capacity limit of the Hopfield Network is empirically defined as $M_{\text{max}} \approx 0.138 N$. Explain what happens to the energy landscape and the stored memories when a network attempts to store more than this capacity.
-
-**Answer Strategy:** When capacity is exceeded, the **energy landscape becomes crowded**. The basins of attraction for the different stored memories begin to **overlap and interfere** with one another. This interference creates **spurious minima** (false memories) and makes the original memory attractors unstable or shallow. The network enters a **spin glass phase** where dynamics become chaotic, and recall is unreliable or results in a jumbled mixture of patterns.
-
-```
+    **Question:** The memory capacity limit of the Hopfield Network is empirically defined as $M_{\text{max}} \approx 0.138 N$. Explain what happens to the energy landscape and the stored memories when a network attempts to store more than this capacity.
+    
+    **Answer Strategy:** When capacity is exceeded, the **energy landscape becomes crowded**. The basins of attraction for the different stored memories begin to **overlap and interfere** with one another. This interference creates **spurious minima** (false memories) and makes the original memory attractors unstable or shallow. The network enters a **spin glass phase** where dynamics become chaotic, and recall is unreliable or results in a jumbled mixture of patterns.
+    
 ---
 
 ### 14.4 The Simulation: Storing and Retrieving Patterns
@@ -884,36 +842,30 @@ The update rule is $s_i(t+1) = \text{sign}(\sum_{j} w_{ij} s_j(t))$, with the it
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. During the memory retrieval phase of the Hopfield Network, the dynamics are simulated using which update scheme?**
-
-* **A.** Synchronous (all neurons update at once).
-* **B.** **Asynchronous (one neuron selected and updated at a time)**. (**Correct**)
-* **C.** Stochastic (Metropolis acceptance rule).
-* **D.** Continuous Runge-Kutta integration.
-
-```
+    **1. During the memory retrieval phase of the Hopfield Network, the dynamics are simulated using which update scheme?**
+    
+    * **A.** Synchronous (all neurons update at once).
+    * **B.** **Asynchronous (one neuron selected and updated at a time)**. (**Correct**)
+    * **C.** Stochastic (Metropolis acceptance rule).
+    * **D.** Continuous Runge-Kutta integration.
+    
 !!! note "Quiz"
-```
-**2. The process where the Hopfield Network is given a partial or corrupted input pattern and successfully reconstructs the full, correct stored pattern is known as:**
-
-* **A.** Orthogonalization.
-* **B.** **Pattern completion (or associative recall)**. (**Correct**)
-* **C.** Critical slowing down.
-* **D.** Volatility clustering.
-
-```
+    **2. The process where the Hopfield Network is given a partial or corrupted input pattern and successfully reconstructs the full, correct stored pattern is known as:**
+    
+    * **A.** Orthogonalization.
+    * **B.** **Pattern completion (or associative recall)**. (**Correct**)
+    * **C.** Critical slowing down.
+    * **D.** Volatility clustering.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** The simulation requires two separate time-like processes: the initial **encoding (learning)** phase and the subsequent **retrieval (recall)** phase. Explain the key difference in the role of the network's state vector $\mathbf{s}$ between these two processes.
-
-**Answer Strategy:**
-* **Encoding (Learning Phase):** The network state $\mathbf{s}$ represents a **target memory pattern** $\mathbf{s}^{(m)}$. The network is static during this phase, and $\mathbf{s}^{(m)}$ is used to *calculate and fix* the synaptic weights $w_{ij}$ (the shape of the landscape).
-* **Retrieval (Recall Phase):** The network state $\mathbf{s}$ is the **dynamical variable**. It represents the *current mental state* and is dynamically changed by the update rule. The goal is for $\mathbf{s}$ to *evolve* from a noisy starting cue until it equals a stored memory $\mathbf{s}^{(m)}$ (the final stable state).
-
-```
+    **Question:** The simulation requires two separate time-like processes: the initial **encoding (learning)** phase and the subsequent **retrieval (recall)** phase. Explain the key difference in the role of the network's state vector $\mathbf{s}$ between these two processes.
+    
+    **Answer Strategy:**
+    * **Encoding (Learning Phase):** The network state $\mathbf{s}$ represents a **target memory pattern** $\mathbf{s}^{(m)}$. The network is static during this phase, and $\mathbf{s}^{(m)}$ is used to *calculate and fix* the synaptic weights $w_{ij}$ (the shape of the landscape).
+    * **Retrieval (Recall Phase):** The network state $\mathbf{s}$ is the **dynamical variable**. It represents the *current mental state* and is dynamically changed by the update rule. The goal is for $\mathbf{s}$ to *evolve* from a noisy starting cue until it equals a stored memory $\mathbf{s}^{(m)}$ (the final stable state).
+    
 ---
 
 ## 💡 Hands-On Simulation Projects (Chapter Conclusion) 🛠️

@@ -1,4 +1,4 @@
-# **Chapter 10: Biology II: Neuroscience (Hodgkin-Huxley) () () () (Workbook)**
+# **Chapter 10: Biology II: Neuroscience (Hodgkin-Huxley) (Workbook)**
 
 The goal of this chapter is to model the neuron's electrical signal, the **action potential**, by applying deterministic physics and numerical ODE solvers to a **nonlinear feedback system**.
 
@@ -23,36 +23,30 @@ The Hodgkin–Huxley (H–H) model transformed neuroscience by expressing neural
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. The "action potential" is fundamentally a physical event caused by:**
-
-* **A.** Random fluctuations in the neural network.
-* **B.** **The controlled flow of ions ($\text{Na}^+, \text{K}^+$) through the cell membrane**. (**Correct**)
-* **C.** The gravitational force acting on neurons.
-* **D.** The diffusion of protein molecules.
-
-```
+    **1. The "action potential" is fundamentally a physical event caused by:**
+    
+    * **A.** Random fluctuations in the neural network.
+    * **B.** **The controlled flow of ions ($\text{Na}^+, \text{K}^+$) through the cell membrane**. (**Correct**)
+    * **C.** The gravitational force acting on neurons.
+    * **D.** The diffusion of protein molecules.
+    
 !!! note "Quiz"
-```
-**2. Which law governs the electrical behavior of the neuron's membrane, expressing charge conservation between current flow and voltage change?**
-
-* **A.** Fick's Law of Diffusion.
-* **B.** **Kirchhoff's Current Law** (or Charge Balance). (**Correct**)
-* **C.** Newton's Second Law.
-* **D.** The Arrhenius Rate Equation.
-
-```
+    **2. Which law governs the electrical behavior of the neuron's membrane, expressing charge conservation between current flow and voltage change?**
+    
+    * **A.** Fick's Law of Diffusion.
+    * **B.** **Kirchhoff's Current Law** (or Charge Balance). (**Correct**)
+    * **C.** Newton's Second Law.
+    * **D.** The Arrhenius Rate Equation.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** The text describes the H–H model as the "Kepler's laws of neuroscience." What is the conceptual similarity between H–H and Kepler's laws in terms of their origin and impact on their respective fields?
-
-**Answer Strategy:** Both represent a fundamental step in transforming an empirical, complex observation into a quantitative, predictive system.
-* **Kepler's laws** empirically described planetary orbits, which Newton later showed were consequences of deterministic physical laws ($\mathbf{F}=m\mathbf{a}$).
-* The **H–H model** empirically quantified the voltage traces of the action potential and showed they were also the deterministic consequences of simple physical laws (Kirchhoff’s law and molecular kinetics). Both systems successfully reduced complex phenomena to a universal set of governing equations.
-
-```
+    **Question:** The text describes the H–H model as the "Kepler's laws of neuroscience." What is the conceptual similarity between H–H and Kepler's laws in terms of their origin and impact on their respective fields?
+    
+    **Answer Strategy:** Both represent a fundamental step in transforming an empirical, complex observation into a quantitative, predictive system.
+    * **Kepler's laws** empirically described planetary orbits, which Newton later showed were consequences of deterministic physical laws ($\mathbf{F}=m\mathbf{a}$).
+    * The **H–H model** empirically quantified the voltage traces of the action potential and showed they were also the deterministic consequences of simple physical laws (Kirchhoff’s law and molecular kinetics). Both systems successfully reduced complex phenomena to a universal set of governing equations.
+    
 ---
 
 ### 10.2 The Neuron as an Electrical Circuit
@@ -66,34 +60,28 @@ The total ionic current ($I_{\text{total}}$) is the sum of Ohmic currents: $I_{\
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. In the electrical equivalent circuit of the neuron membrane, the ion concentration gradients (such as the high external $\text{Na}^+$ concentration) act as the functional equivalent of:**
-
-* **A.** The external stimulus current ($I_{\text{ext}}$).
-* **B.** The membrane capacitance ($C_m$).
-* **C.** **Batteries or reversal potentials ($E_X$)**. (**Correct**)
-* **D.** The fixed leak conductance ($g_L$).
-
-```
+    **1. In the electrical equivalent circuit of the neuron membrane, the ion concentration gradients (such as the high external $\text{Na}^+$ concentration) act as the functional equivalent of:**
+    
+    * **A.** The external stimulus current ($I_{\text{ext}}$).
+    * **B.** The membrane capacitance ($C_m$).
+    * **C.** **Batteries or reversal potentials ($E_X$)**. (**Correct**)
+    * **D.** The fixed leak conductance ($g_L$).
+    
 !!! note "Quiz"
-```
-**2. Which current equation forms the basis for modeling flow through the individual ion channels?**
-
-* **A.** Fick's Law.
-* **B.** The Nernst Equation.
-* **C.** **Ohm's Law ($I_X = g_X(V_m - E_X)$)**. (**Correct**)
-* **D.** The Boltzmann distribution.
-
-```
+    **2. Which current equation forms the basis for modeling flow through the individual ion channels?**
+    
+    * **A.** Fick's Law.
+    * **B.** The Nernst Equation.
+    * **C.** **Ohm's Law ($I_X = g_X(V_m - E_X)$)**. (**Correct**)
+    * **D.** The Boltzmann distribution.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** The $\text{Na}^+$ reversal potential ($E_{\text{Na}} \approx +50 \, \text{mV}$) is highly positive, while the resting potential is negative ($V_{\text{rest}} \approx -70 \, \text{mV}$). Explain what this large voltage difference ($V_m - E_{\text{Na}}$) implies about the $\text{Na}^+$ current when the channel is open.
-
-**Answer Strategy:** The difference $V_{\text{rest}} - E_{\text{Na}}$ is large and highly negative (e.g., $-70 \text{ mV} - 50 \text{ mV} = -120 \text{ mV}$). Since current $I_X$ is proportional to this driving force $I_X = g_X(V_m - E_X)$, a negative driving force and a high concentration of $\text{Na}^+$ outside the cell means that $\text{Na}^+$ will flow **strongly inward** (negative current). This large inward current is the precise event that drives the rapid **depolarization** and the positive feedback loop of the action potential.
-
-```
+    **Question:** The $\text{Na}^+$ reversal potential ($E_{\text{Na}} \approx +50 \, \text{mV}$) is highly positive, while the resting potential is negative ($V_{\text{rest}} \approx -70 \, \text{mV}$). Explain what this large voltage difference ($V_m - E_{\text{Na}}$) implies about the $\text{Na}^+$ current when the channel is open.
+    
+    **Answer Strategy:** The difference $V_{\text{rest}} - E_{\text{Na}}$ is large and highly negative (e.g., $-70 \text{ mV} - 50 \text{ mV} = -120 \text{ mV}$). Since current $I_X$ is proportional to this driving force $I_X = g_X(V_m - E_X)$, a negative driving force and a high concentration of $\text{Na}^+$ outside the cell means that $\text{Na}^+$ will flow **strongly inward** (negative current). This large inward current is the precise event that drives the rapid **depolarization** and the positive feedback loop of the action potential.
+    
 ---
 
 ### 10.3 The Conductance: Gating Variables and Coupled ODEs
@@ -107,36 +95,30 @@ The $\text{Na}^+$ channel requires three activation gates ($m$) and one inactiva
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. The primary role of the **inactivation gate ($h$)** in the $\text{Na}^+$ channel during the action potential is to:**
-
-* **A.** Provide the positive feedback for the initial spike rise.
-* **B.** Maintain the resting potential.
-* **C.** **Slowly close after depolarization, stopping the $\text{Na}^+$ influx and initiating repolarization**. (**Correct**)
-* **D.** Drive the hyperpolarization phase.
-
-```
+    **1. The primary role of the **inactivation gate ($h$)** in the $\text{Na}^+$ channel during the action potential is to:**
+    
+    * **A.** Provide the positive feedback for the initial spike rise.
+    * **B.** Maintain the resting potential.
+    * **C.** **Slowly close after depolarization, stopping the $\text{Na}^+$ influx and initiating repolarization**. (**Correct**)
+    * **D.** Drive the hyperpolarization phase.
+    
 !!! note "Quiz"
-```
-**2. The dynamics of a gating variable $x(t)$ (fraction of open gates) is governed by an ODE that describes the competition between which two kinetic rates?**
-
-* **A.** Translation and transcription rates.
-* **B.** The total current and the membrane capacitance.
-* **C.** **The voltage-dependent opening rate ($\alpha_x$) and the closing rate ($\beta_x$)**. (**Correct**)
-* **D.** The resting potential and the threshold potential.
-
-```
+    **2. The dynamics of a gating variable $x(t)$ (fraction of open gates) is governed by an ODE that describes the competition between which two kinetic rates?**
+    
+    * **A.** Translation and transcription rates.
+    * **B.** The total current and the membrane capacitance.
+    * **C.** **The voltage-dependent opening rate ($\alpha_x$) and the closing rate ($\beta_x$)**. (**Correct**)
+    * **D.** The resting potential and the threshold potential.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** In the context of the H–H model's differential equations, describe the key difference in the *speed* of the $\text{Na}^+$ activation gate ($m$) versus the $\text{K}^+$ activation gate ($n$), and explain how this difference creates the action potential's shape.
-
-**Answer Strategy:**
-* **$\text{Na}^+$ Activation ($m$):** This gate has a **very fast activation time constant** ($\tau_m$) upon depolarization. This speed creates a **rapid, surge-like influx of $\text{Na}^+$** that drives the quick, upward-sloping **depolarization (rising phase)** of the spike.
-* **$\text{K}^+$ Activation ($n$):** This gate has a **much slower activation time constant** ($\tau_n$). This delay ensures that the $\text{K}^+$ current only peaks *after* the $\text{Na}^+$ current has inactivated, allowing it to drive the **delayed, downward-sloping repolarization phase**. The different time scales are essential for the spike's waveform.
-
-```
+    **Question:** In the context of the H–H model's differential equations, describe the key difference in the *speed* of the $\text{Na}^+$ activation gate ($m$) versus the $\text{K}^+$ activation gate ($n$), and explain how this difference creates the action potential's shape.
+    
+    **Answer Strategy:**
+    * **$\text{Na}^+$ Activation ($m$):** This gate has a **very fast activation time constant** ($\tau_m$) upon depolarization. This speed creates a **rapid, surge-like influx of $\text{Na}^+$** that drives the quick, upward-sloping **depolarization (rising phase)** of the spike.
+    * **$\text{K}^+$ Activation ($n$):** This gate has a **much slower activation time constant** ($\tau_n$). This delay ensures that the $\text{K}^+$ current only peaks *after* the $\text{Na}^+$ current has inactivated, allowing it to drive the **delayed, downward-sloping repolarization phase**. The different time scales are essential for the spike's waveform.
+    
 ---
 
 ### 10.4 & 10.5 Simulation and Core Application: Generating the Action Potential
@@ -150,36 +132,30 @@ The RK4 integrator is used for its high accuracy in handling the stiff, nonlinea
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. The primary numerical tool chosen to integrate the four coupled, nonlinear Hodgkin–Huxley ODEs is the:**
-
-* **A.** Euler–Maruyama method.
-* **B.** Velocity–Verlet algorithm.
-* **C.** **Runge–Kutta 4th-order (RK4) method**. (**Correct**)
-* **D.** Finite Difference Method (FDM).
-
-```
+    **1. The primary numerical tool chosen to integrate the four coupled, nonlinear Hodgkin–Huxley ODEs is the:**
+    
+    * **A.** Euler–Maruyama method.
+    * **B.** Velocity–Verlet algorithm.
+    * **C.** **Runge–Kutta 4th-order (RK4) method**. (**Correct**)
+    * **D.** Finite Difference Method (FDM).
+    
 !!! note "Quiz"
-```
-**2. The brief dip of the membrane voltage *below* the resting potential during the action potential recovery phase (hyperpolarization) is primarily caused by:**
-
-* **A.** The failure of the voltage clamp.
-* **B.** The external stimulus current ($I_{\text{ext}}$) being negative.
-* **C.** **The delayed closure of the potassium activation gates ($n$)**. (**Correct**)
-* **D.** The Na$^+$ inactivation gate ($h$) remaining permanently closed.
-
-```
+    **2. The brief dip of the membrane voltage *below* the resting potential during the action potential recovery phase (hyperpolarization) is primarily caused by:**
+    
+    * **A.** The failure of the voltage clamp.
+    * **B.** The external stimulus current ($I_{\text{ext}}$) being negative.
+    * **C.** **The delayed closure of the potassium activation gates ($n$)**. (**Correct**)
+    * **D.** The Na$^+$ inactivation gate ($h$) remaining permanently closed.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** The action potential exhibits a key emergent property known as the "all-or-nothing" response. Explain the underlying feedback mechanism that forces the response to either fail completely or proceed to its full amplitude.
-
-**Answer Strategy:** The "all-or-nothing" response is a direct consequence of the **positive feedback loop** created by the $\text{Na}^+$ activation gate ($m$).
-* If a stimulus is **subthreshold**, the initial depolarization is too small to activate enough $m$ gates, and the system passively returns to rest.
-* If a stimulus is **suprathreshold**, the initial depolarization activates a critical mass of $m$ gates. This creates a massive $\text{Na}^+$ influx, which depolarizes the membrane further, which opens *more* $m$ gates (positive feedback). This runaway process is self-sustaining and forces the spike to reach the $\text{Na}^+$ reversal potential ($+50 \, \text{mV}$), independent of the size of the initial stimulus.
-
-```
+    **Question:** The action potential exhibits a key emergent property known as the "all-or-nothing" response. Explain the underlying feedback mechanism that forces the response to either fail completely or proceed to its full amplitude.
+    
+    **Answer Strategy:** The "all-or-nothing" response is a direct consequence of the **positive feedback loop** created by the $\text{Na}^+$ activation gate ($m$).
+    * If a stimulus is **subthreshold**, the initial depolarization is too small to activate enough $m$ gates, and the system passively returns to rest.
+    * If a stimulus is **suprathreshold**, the initial depolarization activates a critical mass of $m$ gates. This creates a massive $\text{Na}^+$ influx, which depolarizes the membrane further, which opens *more* $m$ gates (positive feedback). This runaway process is self-sustaining and forces the spike to reach the $\text{Na}^+$ reversal potential ($+50 \, \text{mV}$), independent of the size of the initial stimulus.
+    
 ---
 
 ## 💡 Hands-On Simulation Projects (Chapter Conclusion) 🛠️

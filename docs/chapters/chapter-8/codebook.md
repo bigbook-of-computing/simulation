@@ -2,7 +2,7 @@ Got it. I'll proceed with the hands-on simulation projects for Chapter 8, which 
 
 ---
 
-# **Chapter 8: Finance II: The Stochastic Calculus (SDEs) () () (Codebook)**
+# **Chapter 8: Finance II: The Stochastic Calculus (SDEs) (Codebook)**
 
 ## Project 1: Simulating and Testing the Wiener Process
 

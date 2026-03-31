@@ -120,38 +120,34 @@ $$
 the trace of the ordered product of link variables around a closed loop $\gamma$.
 
 !!! example "Computing a $2\times 2$ Wilson Loop"
-```
-Consider a simple $2 \times 2$ plaquette in the $xy$-plane starting at site $(0,0,0,0)$:
-
-$$
-W(2,2) = \frac{1}{3}\mathrm{Tr}\Bigl[ U_x(0,0) U_x(1,0) U_y(2,0) U_y(2,1) U_x^\dagger(1,2) U_x^\dagger(0,2) U_y^\dagger(0,1) U_y^\dagger(0,0) \Bigr]
-$$
-
-This involves 8 link multiplications around the rectangle. For large $R,T$, numerical stability requires careful ordering and sometimes logarithmic computation of traces.
-
-```
-For a large rectangular loop of spatial extent $R$ and temporal extent $T$, the expectation value behaves as:
-$$
-\langle W(R,T) \rangle \propto \exp\left[-V(R) T\right]
-$$
-where $V(R)$ is the static quark–antiquark potential.
-
-- **Confinement**:
-  $V(R) \sim \sigma R$ (linear potential) ⇒ **Area law**:
-  $$
-  \langle W(R,T) \rangle \sim e^{-\sigma R T}
-  $$
-
-- **Deconfined phase or Higgs phase**:
-  $V(R)$ saturates ⇒ **Perimeter law**
-
-Monte Carlo simulations on the lattice confirm the area law behavior—one of the most striking **non-perturbative validations** of quark confinement.
-
+    Consider a simple $2 \times 2$ plaquette in the $xy$-plane starting at site $(0,0,0,0)$:
+    
+    $$
+    W(2,2) = \frac{1}{3}\mathrm{Tr}\Bigl[ U_x(0,0) U_x(1,0) U_y(2,0) U_y(2,1) U_x^\dagger(1,2) U_x^\dagger(0,2) U_y^\dagger(0,1) U_y^\dagger(0,0) \Bigr]
+    $$
+    
+    This involves 8 link multiplications around the rectangle. For large $R,T$, numerical stability requires careful ordering and sometimes logarithmic computation of traces.
+    
+    For a large rectangular loop of spatial extent $R$ and temporal extent $T$, the expectation value behaves as:
+    $$
+    \langle W(R,T) \rangle \propto \exp\left[-V(R) T\right]
+    $$
+    where $V(R)$ is the static quark–antiquark potential.
+    
+    - **Confinement**:
+      $V(R) \sim \sigma R$ (linear potential) ⇒ **Area law**:
+      $$
+      \langle W(R,T) \rangle \sim e^{-\sigma R T}
+      $$
+    
+    - **Deconfined phase or Higgs phase**:
+      $V(R)$ saturates ⇒ **Perimeter law**
+    
+    Monte Carlo simulations on the lattice confirm the area law behavior—one of the most striking **non-perturbative validations** of quark confinement.
+    
 ??? question "Why Does the Area Law Imply Confinement?"
-```
-If $\langle W(R,T) \rangle \sim e^{-\sigma RT}$, the "energy" to separate quarks by distance $R$ is $E(R) = \sigma R$. This linear potential means infinite energy is required to separate quarks to infinity—they remain confined. In contrast, a perimeter law $e^{-bP}$ yields a saturating potential, allowing free quarks at large distances.
-
-```
+    If $\langle W(R,T) \rangle \sim e^{-\sigma RT}$, the "energy" to separate quarks by distance $R$ is $E(R) = \sigma R$. This linear potential means infinite energy is required to separate quarks to infinity—they remain confined. In contrast, a perimeter law $e^{-bP}$ yields a saturating potential, allowing free quarks at large distances.
+    
 ---
 
 ### **The Monte Carlo challenge**
@@ -167,15 +163,13 @@ Direct integration is hopeless. Instead:
  **Solution**: Interpret the Boltzmann weight $\exp[-S_W]$ as a **probability density**, and apply **Markov Chain Monte Carlo (MCMC)**.
 
 !!! tip "Exponential Complexity of Gauge Fields"
-```
-On a $32^4$ lattice with $SU(3)$ gauge theory, there are $4 \times 32^4 = 4{,}194{,}304$ link variables, each an $8$-parameter matrix. The configuration space has dimension $\sim 33$ million—far beyond direct integration. MCMC allows us to sample this vast space efficiently by focusing on high-probability regions weighted by $\exp[-S_W]$.
-
-```
-Requirements:
-- Respect **gauge invariance**
-- Satisfy **detailed balance**
-- Be **ergodic** in a continuous group manifold
-
+    On a $32^4$ lattice with $SU(3)$ gauge theory, there are $4 \times 32^4 = 4{,}194{,}304$ link variables, each an $8$-parameter matrix. The configuration space has dimension $\sim 33$ million—far beyond direct integration. MCMC allows us to sample this vast space efficiently by focusing on high-probability regions weighted by $\exp[-S_W]$.
+    
+    Requirements:
+    - Respect **gauge invariance**
+    - Satisfy **detailed balance**
+    - Be **ergodic** in a continuous group manifold
+    
 ---
 
 ### **Summary: The Non‑Perturbative Universe**

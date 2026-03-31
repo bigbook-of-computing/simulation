@@ -40,10 +40,8 @@ $$
 an astronomically large number. Enumerating or even iterating over all these configurations is therefore impossible.
 
 !!! tip "Exponential Growth Intuition"
-```
-Think of each new spin doubling the size of the state space—like a binary tree where each level represents one spin. After just 30 levels, you have over a billion configurations; after 900, the number exceeds all atoms in the universe.
-
-```
+    Think of each new spin doubling the size of the state space—like a binary tree where each level represents one spin. After just 30 levels, you have over a billion configurations; after 900, the number exceeds all atoms in the universe.
+    
 ---
 
 ### **Combinatorial Explosion**
@@ -191,10 +189,8 @@ $$
 Detailed balance implies global balance and has a physical interpretation: at equilibrium each elementary process is balanced by its reverse process. The detailed balance principle arises from microscopic reversibility in kinetic theory and is widely used in the design of Monte Carlo algorithms. Many chains used in statistical mechanics (including the Metropolis–Hastings algorithm) are **reversible** with respect to their target distribution because they are constructed to satisfy detailed balance.
 
 ??? question "Why is detailed balance stronger than global balance?"
-```
-Detailed balance requires that **each pair** of states is individually balanced ($\pi(\mathbf{s})T_{\mathbf{s}\mathbf{s}'} = \pi(\mathbf{s}')T_{\mathbf{s}'\mathbf{s}}$), whereas global balance only requires that the **total flow** into each state equals the outflow. Detailed balance is sufficient but not necessary for stationarity—some MCMC algorithms satisfy global balance without detailed balance.
-
-```
+    Detailed balance requires that **each pair** of states is individually balanced ($\pi(\mathbf{s})T_{\mathbf{s}\mathbf{s}'} = \pi(\mathbf{s}')T_{\mathbf{s}'\mathbf{s}}$), whereas global balance only requires that the **total flow** into each state equals the outflow. Detailed balance is sufficient but not necessary for stationarity—some MCMC algorithms satisfy global balance without detailed balance.
+    
 ---
 
 ### **Ergodicity: Reachability and Aperiodicity**
@@ -283,10 +279,8 @@ $$
 $$
 
 !!! tip "Metropolis Acceptance Intuition"
-```
-The Metropolis rule embodies thermal physics: **always** accept downhill moves (lower energy), but **occasionally** accept uphill moves with probability $\exp(-\beta \Delta E)$. This allows escape from local minima while respecting the Boltzmann distribution.
-
-```
+    The Metropolis rule embodies thermal physics: **always** accept downhill moves (lower energy), but **occasionally** accept uphill moves with probability $\exp(-\beta \Delta E)$. This allows escape from local minima while respecting the Boltzmann distribution.
+    
 ---
 
 ### **Algorithmic Pseudocode**

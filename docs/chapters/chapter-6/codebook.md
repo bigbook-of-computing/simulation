@@ -2,7 +2,7 @@ Certainly. We will proceed with the hands-on simulation projects for Chapter 6, 
 
 ---
 
-# **Chapter 6: Advanced Monte Carlo Methods () () (Codebook)**
+# **Chapter 6: Advanced Monte Carlo Methods (Codebook)**
 
 ## Project 1: Quantifying Critical Slowing Down
 

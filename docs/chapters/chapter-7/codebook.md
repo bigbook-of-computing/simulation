@@ -2,7 +2,7 @@ Excellent. We'll proceed with the hands-on simulation projects for Chapter 7, fo
 
 ---
 
-# **Chapter 7: Physics III: Molecular Dynamics (MD) () () (Codebook)**
+# **Chapter 7: Physics III: Molecular Dynamics (MD) (Codebook)**
 
 ## Project 1: Implementing the Velocity–Verlet Integrator (The Engine)
 

@@ -47,10 +47,8 @@ The primary challenge lies in coordination:
 This suggests that development is a process of **emergent computation**.
 
 !!! tip "Why Decentralized Computation?"
-```
-Centralized blueprints would require each cell to know its global position ("I am cell 47,293 at coordinates (x, y, z)") and execute a pre-programmed instruction set. This is computationally intractable for billions of cells and fragile to damage. Instead, evolution discovered **distributed algorithms**: each cell runs the same local rules (sense chemicals, respond), and global patterns emerge automatically. This is identical to how ant colonies build complex nests without architects—local pheromone following creates emergent architecture.
-
-```
+    Centralized blueprints would require each cell to know its global position ("I am cell 47,293 at coordinates (x, y, z)") and execute a pre-programmed instruction set. This is computationally intractable for billions of cells and fragile to damage. Instead, evolution discovered **distributed algorithms**: each cell runs the same local rules (sense chemicals, respond), and global patterns emerge automatically. This is identical to how ant colonies build complex nests without architects—local pheromone following creates emergent architecture.
+    
 ---
 
 ### **Computational Frameworks for Development**
@@ -125,16 +123,14 @@ This setup generates the "**local activation, long-range inhibition**" principle
 4.  This creates stable, periodic spacing where small "active" spots are surrounded by inhibitory "off" rings.
 
 !!! example "The Gray-Scott Model: A Computational Turing System"
-```
-The Gray-Scott model is a widely studied RD system with reactions:
-$$u + 2v \to 3v \quad (\text{autocatalytic})$$
-$$v \to P \quad (\text{decay})$$
-The PDEs are:
-$$\frac{\partial u}{\partial t} = D_u \nabla^2 u - uv^2 + F(1-u)$$
-$$\frac{\partial v}{\partial t} = D_v \nabla^2 v + uv^2 - (F+k)v$$
-where $F$ is the feed rate (replenishment of $u$) and $k$ is the kill rate (removal of $v$). By varying $(F, k)$ with $D_v/D_u \approx 2$, you can generate spots, stripes, or chaotic patterns—all from identical initial random noise.
-
-```
+    The Gray-Scott model is a widely studied RD system with reactions:
+    $$u + 2v \to 3v \quad (\text{autocatalytic})$$
+    $$v \to P \quad (\text{decay})$$
+    The PDEs are:
+    $$\frac{\partial u}{\partial t} = D_u \nabla^2 u - uv^2 + F(1-u)$$
+    $$\frac{\partial v}{\partial t} = D_v \nabla^2 v + uv^2 - (F+k)v$$
+    where $F$ is the feed rate (replenishment of $u$) and $k$ is the kill rate (removal of $v$). By varying $(F, k)$ with $D_v/D_u \approx 2$, you can generate spots, stripes, or chaotic patterns—all from identical initial random noise.
+    
 ---
 
 ### **Diffusion-Driven Instability**
@@ -254,10 +250,8 @@ To simulate the dynamics of decision-making within the GRN, genes are often simp
 The **genome** is thus viewed not as a static blueprint, but as a **dynamical system with multiple stable equilibria**. **Cell differentiation** is the computational process of transitioning from one attractor basin to another.
 
 ??? question "How Many Possible Cell Types Can a GRN Support?"
-```
-For a Boolean network with $N$ genes, there are $2^N$ possible states. However, only a tiny fraction become attractors—typically $O(\sqrt{N})$ for random networks (Kauffman's finding). In humans, ~20,000 genes could theoretically support $2^{20000}$ states, but only ~200-300 stable cell types exist. This massive reduction reflects highly structured, non-random GRN topology: most gene combinations are unstable and collapse into a few robust attractors, ensuring reproducible development.
-
-```
+    For a Boolean network with $N$ genes, there are $2^N$ possible states. However, only a tiny fraction become attractors—typically $O(\sqrt{N})$ for random networks (Kauffman's finding). In humans, ~20,000 genes could theoretically support $2^{20000}$ states, but only ~200-300 stable cell types exist. This massive reduction reflects highly structured, non-random GRN topology: most gene combinations are unstable and collapse into a few robust attractors, ensuring reproducible development.
+    
 ---
 
 ### **Continuous Models and Bistability**

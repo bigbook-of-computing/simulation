@@ -1,4 +1,4 @@
-# **Chapter 10: Biology II: Neuroscience (Hodgkin-Huxley) () () (Codebook)**
+# **Chapter 10: Biology II: Neuroscience (Hodgkin-Huxley) (Codebook)**
 
 ## Project 1: Defining the Gating Dynamics (Initial Setup)
 

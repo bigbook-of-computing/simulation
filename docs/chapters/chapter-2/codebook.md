@@ -1,4 +1,4 @@
-# **Chapter 2: Physics I – The Ising Model () () (Codebook)**
+# **Chapter 2: Physics I – The Ising Model (Codebook)**
 
 ---
 

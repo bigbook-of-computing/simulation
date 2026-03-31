@@ -46,10 +46,8 @@ The **mean-field assumption** posits that every element in a system interacts wi
 When heterogeneity and locality dominate, global averages **erase the very patterns** that define the system's dynamics, rendering traditional calculus-based models ineffective.
 
 !!! tip "When Mean-Field Theory Fails"
-```
-The mean-field assumption works beautifully for gases (where molecules interact randomly with many others) or well-mixed chemical reactions. It catastrophically fails for social networks (you interact with specific friends, not the population average), ecosystems (predators hunt nearby prey, not a uniform density field), and markets (traders copy visible neighbors, creating localized bubbles). When **who interacts with whom matters**, you need ABMs.
-
-```
+    The mean-field assumption works beautifully for gases (where molecules interact randomly with many others) or well-mixed chemical reactions. It catastrophically fails for social networks (you interact with specific friends, not the population average), ecosystems (predators hunt nearby prey, not a uniform density field), and markets (traders copy visible neighbors, creating localized bubbles). When **who interacts with whom matters**, you need ABMs.
+    
 ---
 
 ### **The Shift: The Agent-Based Model (ABM) Philosophy**
@@ -137,10 +135,8 @@ The components of the state vector depend on the model:
 Agents operate **autonomously**, following internal behavioral logic. An agent typically only possesses **local knowledge**, meaning it perceives only its immediate neighborhood and its own state; it does not have access to the global state of the system. The logic is encoded in conditional or probabilistic rules.
 
 !!! example "Agent Heterogeneity in Practice"
-```
-In a financial ABM, you might have 1000 trader agents where 70% are "fundamentalists" (buy when price < value, sell when price > value) and 30% are "chartists" (follow momentum trends). Each agent has identical logic structure but different parameter values (risk tolerance, memory length). This heterogeneity—impossible to capture in a single mean-field equation—generates realistic market dynamics like bubbles and crashes.
-
-```
+    In a financial ABM, you might have 1000 trader agents where 70% are "fundamentalists" (buy when price < value, sell when price > value) and 30% are "chartists" (follow momentum trends). Each agent has identical logic structure but different parameter values (risk tolerance, memory length). This heterogeneity—impossible to capture in a single mean-field equation—generates realistic market dynamics like bubbles and crashes.
+    
 ---
 
 ### **Pillar 2: The Environment (The World)**
@@ -205,10 +201,8 @@ Emergent behavior requires several computational ingredients to appear:
 3.  **Nonlinearity:** The aggregate effect of local decisions is often non-proportional to the magnitude of the inputs.
 
 ??? question "Can We Predict Emergence Analytically?"
-```
-Generally, no. Emergence is fundamentally a **computational phenomenon**—the pattern exists implicitly in the rules but cannot be deduced through algebraic manipulation or closed-form solutions. You must *run* the simulation to observe what emerges. This is why ABMs are essential: they reveal behaviors that even their creators didn't anticipate. However, post-hoc analysis (phase diagrams, order parameters) can quantify and classify emergent regimes.
-
-```
+    Generally, no. Emergence is fundamentally a **computational phenomenon**—the pattern exists implicitly in the rules but cannot be deduced through algebraic manipulation or closed-form solutions. You must *run* the simulation to observe what emerges. This is why ABMs are essential: they reveal behaviors that even their creators didn't anticipate. However, post-hoc analysis (phase diagrams, order parameters) can quantify and classify emergent regimes.
+    
 ---
 
 ### **The Schelling Segregation Model**

@@ -1,4 +1,4 @@
-# **Chapter 7: Physics III: Molecular Dynamics (MD) () () () (Workbook)**
+# **Chapter 7: Physics III: Molecular Dynamics (MD) (Workbook)**
 
 The goal of this chapter is to introduce the simulation of **real-time motion** by integrating Newton's equations, contrasting this dynamic approach with the equilibrium sampling of Monte Carlo (MC).
 
@@ -23,36 +23,30 @@ MD is a "different worldview" from Monte Carlo. While MC explores statistical eq
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. What is the fundamental driving mechanism for particle movement in a Molecular Dynamics simulation?**
-
-* **A.** Random acceptance/rejection rules based on Boltzmann probability.
-* **B.** **The force $\mathbf{F}_i$, derived from the gradient of the potential energy $E(\mathbf{r})$**. (**Correct**)
-* **C.** The autocorrelation function.
-* **D.** The time step $\Delta t$.
-
-```
+    **1. What is the fundamental driving mechanism for particle movement in a Molecular Dynamics simulation?**
+    
+    * **A.** Random acceptance/rejection rules based on Boltzmann probability.
+    * **B.** **The force $\mathbf{F}_i$, derived from the gradient of the potential energy $E(\mathbf{r})$**. (**Correct**)
+    * **C.** The autocorrelation function.
+    * **D.** The time step $\Delta t$.
+    
 !!! note "Quiz"
-```
-**2. The primary reason the Velocity–Verlet algorithm is preferred over the simpler Euler method for long-term MD simulations is that Velocity–Verlet is:**
-
-* **A.** Faster to compute.
-* **B.** Easier to code.
-* **C.** **Symplectic and time-reversible, leading to excellent long-term energy conservation**. (**Correct**)
-* **D.** A third-order accurate integrator.
-
-```
+    **2. The primary reason the Velocity–Verlet algorithm is preferred over the simpler Euler method for long-term MD simulations is that Velocity–Verlet is:**
+    
+    * **A.** Faster to compute.
+    * **B.** Easier to code.
+    * **C.** **Symplectic and time-reversible, leading to excellent long-term energy conservation**. (**Correct**)
+    * **D.** A third-order accurate integrator.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** Explain the core conceptual difference between the output of a standard Metropolis Monte Carlo simulation and a Molecular Dynamics simulation, even when both model the same system (e.g., liquid Argon).
-
-**Answer Strategy:**
-* **MC Output:** Provides a set of configurations weighted by $e^{-\beta E}$ (the **equilibrium ensemble**). The output is sufficient for calculating thermodynamic averages (like $\langle E \rangle$ or specific heat), but it has **no concept of time or dynamics**.
-* **MD Output:** Provides a **time-dependent trajectory** of positions and velocities $(\mathbf{r}(t), \mathbf{v}(t))$. This output allows calculation of **dynamic and transport properties** (like diffusion coefficients and correlation functions) that are completely inaccessible to MC.
-
-```
+    **Question:** Explain the core conceptual difference between the output of a standard Metropolis Monte Carlo simulation and a Molecular Dynamics simulation, even when both model the same system (e.g., liquid Argon).
+    
+    **Answer Strategy:**
+    * **MC Output:** Provides a set of configurations weighted by $e^{-\beta E}$ (the **equilibrium ensemble**). The output is sufficient for calculating thermodynamic averages (like $\langle E \rangle$ or specific heat), but it has **no concept of time or dynamics**.
+    * **MD Output:** Provides a **time-dependent trajectory** of positions and velocities $(\mathbf{r}(t), \mathbf{v}(t))$. This output allows calculation of **dynamic and transport properties** (like diffusion coefficients and correlation functions) that are completely inaccessible to MC.
+    
 ---
 
 ---
@@ -68,37 +62,31 @@ Velocity–Verlet discretizes Newton's equations by splitting the calculation in
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. The Velocity–Verlet algorithm uses which two physical quantities at the next time step $t+\Delta t$ to update the velocity $\mathbf{v}_i(t+\Delta t)$?**
-
-* **A.** Position $\mathbf{r}(t+\Delta t)$ and potential energy $U(t+\Delta t)$.
-* **B.** The total energy $E_{\text{tot}}(t)$ and the kinetic energy $K(t)$.
-* **C.** **The current force $\mathbf{F}(t)$ and the new force $\mathbf{F}(t+\Delta t)$**. (**Correct**)
-* **D.** The pressure $P(t)$ and the temperature $T(t)$.
-
-```
+    **1. The Velocity–Verlet algorithm uses which two physical quantities at the next time step $t+\Delta t$ to update the velocity $\mathbf{v}_i(t+\Delta t)$?**
+    
+    * **A.** Position $\mathbf{r}(t+\Delta t)$ and potential energy $U(t+\Delta t)$.
+    * **B.** The total energy $E_{\text{tot}}(t)$ and the kinetic energy $K(t)$.
+    * **C.** **The current force $\mathbf{F}(t)$ and the new force $\mathbf{F}(t+\Delta t)$**. (**Correct**)
+    * **D.** The pressure $P(t)$ and the temperature $T(t)$.
+    
 !!! note "Quiz"
-```
-**2. A large MD time step $\Delta t$ that fails to resolve the fastest oscillations in the system primarily leads to:**
-
-* **A.** Incorrect ensemble sampling.
-* **B.** **Numerical instability and energy drift**. (**Correct**)
-* **C.** High autocorrelation times.
-* **D.** Inaccurate pressure calculation.
-
-```
+    **2. A large MD time step $\Delta t$ that fails to resolve the fastest oscillations in the system primarily leads to:**
+    
+    * **A.** Incorrect ensemble sampling.
+    * **B.** **Numerical instability and energy drift**. (**Correct**)
+    * **C.** High autocorrelation times.
+    * **D.** Inaccurate pressure calculation.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** Briefly explain the "Kick-Drift-Kick" conceptual analogy for the Velocity–Verlet algorithm.
-
-**Answer Strategy:** The Velocity–Verlet algorithm can be viewed as splitting the movement into sequential steps:
-1.  **Kick (Half-Step Velocity):** The velocity is advanced by a half-step using the initial acceleration (force).
-2.  **Drift (Full-Step Position):** The position is advanced by a full step using this half-step velocity (the drift).
-3.  **Kick (Final Velocity):** The force is recalculated at the new position, and the velocity is given its final half-step kick using the average acceleration of the two steps.
-
-```
+    **Question:** Briefly explain the "Kick-Drift-Kick" conceptual analogy for the Velocity–Verlet algorithm.
+    
+    **Answer Strategy:** The Velocity–Verlet algorithm can be viewed as splitting the movement into sequential steps:
+    1.  **Kick (Half-Step Velocity):** The velocity is advanced by a half-step using the initial acceleration (force).
+    2.  **Drift (Full-Step Position):** The position is advanced by a full step using this half-step velocity (the drift).
+    3.  **Kick (Final Velocity):** The force is recalculated at the new position, and the velocity is given its final half-step kick using the average acceleration of the two steps.
+    
 ---
 
 ---
@@ -114,34 +102,28 @@ PBCs eliminate unphysical surface effects by making the simulation box topologic
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. The **Minimum Image Convention** is used in MD with PBCs to ensure that:**
-
-* **A.** All particles remain in the center of the box.
-* **B.** **Each particle interacts only with the nearest periodic image of every other particle**. (**Correct**)
-* **C.** The potential energy is always zero.
-* **D.** The temperature is constant.
-
-```
+    **1. The **Minimum Image Convention** is used in MD with PBCs to ensure that:**
+    
+    * **A.** All particles remain in the center of the box.
+    * **B.** **Each particle interacts only with the nearest periodic image of every other particle**. (**Correct**)
+    * **C.** The potential energy is always zero.
+    * **D.** The temperature is constant.
+    
 !!! note "Quiz"
-```
-**2. The primary reason for using **Neighbor Lists** in a short-range MD simulation is to reduce the computational complexity of the force calculation from $\mathcal{O}(N^2)$ to approximately:**
-
-* **A.** $\mathcal{O}(\log N)$.
-* **B.** $\mathcal{O}(N^3)$.
-* **C.** **$\mathcal{O}(N)$**. (**Correct**)
-* **D.** $\mathcal{O}(\Delta t)$.
-
-```
+    **2. The primary reason for using **Neighbor Lists** in a short-range MD simulation is to reduce the computational complexity of the force calculation from $\mathcal{O}(N^2)$ to approximately:**
+    
+    * **A.** $\mathcal{O}(\log N)$.
+    * **B.** $\mathcal{O}(N^3)$.
+    * **C.** **$\mathcal{O}(N)$**. (**Correct**)
+    * **D.** $\mathcal{O}(\Delta t)$.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** If you are simulating a system using a potential energy function that contains a long-range Coulombic ($1/r$) term, would you still use the simple Neighbor List optimization? Why or why not?
-
-**Answer Strategy:** **No**, the simple neighbor list optimization would be ineffective. The $1/r$ Coulombic potential decays too slowly with distance. Since the interaction cannot be cut off at a finite radius $r_c$ without introducing large errors, every particle still needs to interact with every other particle (and all their images). For long-range forces, specialized methods like the **Ewald summation** or **Particle Mesh Ewald (PME)**, which handle the summation over infinite images, must be used instead of simple cutoffs.
-
-```
+    **Question:** If you are simulating a system using a potential energy function that contains a long-range Coulombic ($1/r$) term, would you still use the simple Neighbor List optimization? Why or why not?
+    
+    **Answer Strategy:** **No**, the simple neighbor list optimization would be ineffective. The $1/r$ Coulombic potential decays too slowly with distance. Since the interaction cannot be cut off at a finite radius $r_c$ without introducing large errors, every particle still needs to interact with every other particle (and all their images). For long-range forces, specialized methods like the **Ewald summation** or **Particle Mesh Ewald (PME)**, which handle the summation over infinite images, must be used instead of simple cutoffs.
+    
 ---
 
 ---
@@ -159,34 +141,28 @@ PBCs eliminate unphysical surface effects by making the simulation box topologic
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. The goal of the **Nosé–Hoover thermostat** is to ensure the MD simulation correctly samples which thermodynamic ensemble?**
-
-* **A.** The Microcanonical (NVE) ensemble.
-* **B.** The Isobaric-Isothermal (NPT) ensemble.
-* **C.** **The Canonical (NVT) ensemble**. (**Correct**)
-* **D.** The Grand Canonical ($\mu V T$) ensemble.
-
-```
+    **1. The goal of the **Nosé–Hoover thermostat** is to ensure the MD simulation correctly samples which thermodynamic ensemble?**
+    
+    * **A.** The Microcanonical (NVE) ensemble.
+    * **B.** The Isobaric-Isothermal (NPT) ensemble.
+    * **C.** **The Canonical (NVT) ensemble**. (**Correct**)
+    * **D.** The Grand Canonical ($\mu V T$) ensemble.
+    
 !!! note "Quiz"
-```
-**2. To simulate a system at constant temperature ($T$) and constant pressure ($P$), which type of simulation must be run?**
-
-* **A.** Monte Carlo simulation.
-* **B.** NVE simulation.
-* **C.** **NPT simulation (Isothermal–Isobaric) using both a thermostat and a barostat**. (**Correct**)
-* **D.** NVT simulation.
-
-```
+    **2. To simulate a system at constant temperature ($T$) and constant pressure ($P$), which type of simulation must be run?**
+    
+    * **A.** Monte Carlo simulation.
+    * **B.** NVE simulation.
+    * **C.** **NPT simulation (Isothermal–Isobaric) using both a thermostat and a barostat**. (**Correct**)
+    * **D.** NVT simulation.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** Why is the simple Berendsen thermostat often only used for the **equilibration** phase of an MD simulation, and not for the final **production** (measurement) phase?
-
-**Answer Strategy:** The Berendsen thermostat achieves temperature control by non-physically rescaling velocities based on the difference between the instantaneous temperature and the target temperature. While this method is robust for quickly bringing the system to the target $T$ (equilibration), it does **not generate the statistically correct canonical ensemble**. Specifically, it suppresses energy fluctuations, which means observables calculated during the production phase (e.g., specific heat, which depends on energy fluctuations) will be inaccurate. For production, a method like Nosé–Hoover or Langevin is required.
-
-```
+    **Question:** Why is the simple Berendsen thermostat often only used for the **equilibration** phase of an MD simulation, and not for the final **production** (measurement) phase?
+    
+    **Answer Strategy:** The Berendsen thermostat achieves temperature control by non-physically rescaling velocities based on the difference between the instantaneous temperature and the target temperature. While this method is robust for quickly bringing the system to the target $T$ (equilibration), it does **not generate the statistically correct canonical ensemble**. Specifically, it suppresses energy fluctuations, which means observables calculated during the production phase (e.g., specific heat, which depends on energy fluctuations) will be inaccurate. For production, a method like Nosé–Hoover or Langevin is required.
+    
 ---
 
 ---
@@ -202,36 +178,30 @@ The MSD measures the average distance a particle travels from its origin, $\text
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. Which theorem is used in MD to calculate the system's pressure $P$, by including a contribution from the interparticle forces $\mathbf{F}_{ij}$?**
-
-* **A.** The Fluctuation-Dissipation Theorem.
-* **B.** The Equipartition Theorem.
-* **C.** **The Virial Theorem**. (**Correct**)
-* **D.** The Intermediate Value Theorem.
-
-```
+    **1. Which theorem is used in MD to calculate the system's pressure $P$, by including a contribution from the interparticle forces $\mathbf{F}_{ij}$?**
+    
+    * **A.** The Fluctuation-Dissipation Theorem.
+    * **B.** The Equipartition Theorem.
+    * **C.** **The Virial Theorem**. (**Correct**)
+    * **D.** The Intermediate Value Theorem.
+    
 !!! note "Quiz"
-```
-**2. Which two time-dependent functions are used to calculate the Diffusion Coefficient ($D$)?**
-
-* **A.** Total Energy $E(t)$ and Pressure $P(t)$.
-* **B.** The Pressure-Volume product $PV$ and $N k_B T$.
-* **C.** **The Mean-Squared Displacement (MSD) and the Velocity Autocorrelation Function (VACF)**. (**Correct**)
-* **D.** The potential energy $U(t)$ and the time step $\Delta t$.
-
-```
+    **2. Which two time-dependent functions are used to calculate the Diffusion Coefficient ($D$)?**
+    
+    * **A.** Total Energy $E(t)$ and Pressure $P(t)$.
+    * **B.** The Pressure-Volume product $PV$ and $N k_B T$.
+    * **C.** **The Mean-Squared Displacement (MSD) and the Velocity Autocorrelation Function (VACF)**. (**Correct**)
+    * **D.** The potential energy $U(t)$ and the time step $\Delta t$.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** A physicist simulates a liquid and measures the Velocity Autocorrelation Function, $C_v(t)$. They notice that $C_v(t)$ initially drops quickly but then becomes slightly negative before decaying to zero. Explain the physical origin of this negative correlation.
-
-**Answer Strategy:** A negative correlation in $C_v(t)$ means the particle, after a short time $\tau$, is more likely to be moving **in the opposite direction** ($\mathbf{v}(0) \cdot \mathbf{v}(\tau) < 0$).
-* This is characteristic of a **liquid** or dense fluid.
-* The negative value is caused by **caging effects**: a central particle, initially moving at $\mathbf{v}(0)$, collides with its dense, surrounding shell of neighbors. The particle "bounces" off the surrounding cage, reversing its initial velocity vector, causing the instantaneous velocity to correlate negatively with the initial velocity.
-
-```
+    **Question:** A physicist simulates a liquid and measures the Velocity Autocorrelation Function, $C_v(t)$. They notice that $C_v(t)$ initially drops quickly but then becomes slightly negative before decaying to zero. Explain the physical origin of this negative correlation.
+    
+    **Answer Strategy:** A negative correlation in $C_v(t)$ means the particle, after a short time $\tau$, is more likely to be moving **in the opposite direction** ($\mathbf{v}(0) \cdot \mathbf{v}(\tau) < 0$).
+    * This is characteristic of a **liquid** or dense fluid.
+    * The negative value is caused by **caging effects**: a central particle, initially moving at $\mathbf{v}(0)$, collides with its dense, surrounding shell of neighbors. The particle "bounces" off the surrounding cage, reversing its initial velocity vector, causing the instantaneous velocity to correlate negatively with the initial velocity.
+    
 ---
 
 ---

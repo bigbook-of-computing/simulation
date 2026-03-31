@@ -1,4 +1,4 @@
-# **Chapter 1: Foundations of Stochastic Simulation () () (Codebook)**
+# **Chapter 1: Foundations of Stochastic Simulation (Codebook)**
 
 ## Project 1: Implementing the Metropolis Rule
 

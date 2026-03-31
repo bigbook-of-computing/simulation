@@ -77,18 +77,16 @@ $$\text{If } (dt)^2 \approx 0, \quad \text{then } (dW_t)^2 \approx dt.$$
 This observation means that in any Taylor expansion of a function of a stochastic process, the second-order terms involving $(dW_t)^2$ **must be retained**, fundamentally invalidating the classical chain rule.
 
 !!! tip "The $(dW_t)^2 = dt$ Rule: Why Itō Calculus is Different"
-```
-The fundamental difference between classical and stochastic calculus comes down to one equation:
-
-$$\mathbb{E}[(dW_t)^2] = dt$$
-
-**Classical calculus**: $(dt)^2 \approx 0$ → discard all second-order terms in Taylor expansion
-
-**Stochastic calculus**: $(dW_t)^2 = dt$ → **must keep** second-order terms involving $dW_t$
-
-**Practical implication**: When computing $df(S_t)$ where $dS_t = \mu dt + \sigma dW_t$, the term $(dS_t)^2 = \sigma^2 dt$ survives and creates the Itō correction $\frac{1}{2}\sigma^2 f_{SS} dt$. This is not a small perturbation—it fundamentally changes the expected drift of any nonlinear function of $S_t$.
-
-```
+    The fundamental difference between classical and stochastic calculus comes down to one equation:
+    
+    $$\mathbb{E}[(dW_t)^2] = dt$$
+    
+    **Classical calculus**: $(dt)^2 \approx 0$ → discard all second-order terms in Taylor expansion
+    
+    **Stochastic calculus**: $(dW_t)^2 = dt$ → **must keep** second-order terms involving $dW_t$
+    
+    **Practical implication**: When computing $df(S_t)$ where $dS_t = \mu dt + \sigma dW_t$, the term $(dS_t)^2 = \sigma^2 dt$ survives and creates the Itō correction $\frac{1}{2}\sigma^2 f_{SS} dt$. This is not a small perturbation—it fundamentally changes the expected drift of any nonlinear function of $S_t$.
+    
 ---
 
 ### **The Introduction of Stochastic Differential Equations**
@@ -304,20 +302,18 @@ $$S_t = S_0 \exp\left[\left(\mu - \frac{1}{2}\sigma^2\right)t + \sigma W_t\right
 This expression shows that the expected logarithmic return is adjusted by the term $-\frac{1}{2}\sigma^2$, confirming that volatility subtracts deterministic growth from the average log-price path. This exact analytical solution is fundamental to the **Black–Scholes–Merton model**.
 
 !!! example "The $-\\frac{1}{2}\\sigma^2$ Correction in GBM: Why Volatility Reduces Average Growth"
-```
-Consider GBM with $\mu = 0.10$ (10% drift) and $\sigma = 0.20$ (20% volatility):
-
-**SDE form**: $dS_t = 0.10 S_t dt + 0.20 S_t dW_t$
-
-**Analytical solution**: $S_t = S_0 \exp[(0.10 - \frac{1}{2}(0.20)^2)t + 0.20 W_t] = S_0 \exp[0.08t + 0.20 W_t]$
-
-**Expected value**: $\mathbb{E}[S_t] = S_0 e^{0.10t}$ (drift term alone)
-
-**Median value**: $S_0 e^{0.08t}$ (reduced by $\frac{1}{2}\sigma^2 = 0.02$)
-
-**Interpretation**: Due to Jensen's inequality and the convexity of $\exp$, the median growth rate (0.08) is less than the mean growth rate (0.10). The Itō correction $-\frac{1}{2}\sigma^2$ accounts for this difference. Higher volatility → larger gap between mean and median → more "drag" on typical paths.
-
-```
+    Consider GBM with $\mu = 0.10$ (10% drift) and $\sigma = 0.20$ (20% volatility):
+    
+    **SDE form**: $dS_t = 0.10 S_t dt + 0.20 S_t dW_t$
+    
+    **Analytical solution**: $S_t = S_0 \exp[(0.10 - \frac{1}{2}(0.20)^2)t + 0.20 W_t] = S_0 \exp[0.08t + 0.20 W_t]$
+    
+    **Expected value**: $\mathbb{E}[S_t] = S_0 e^{0.10t}$ (drift term alone)
+    
+    **Median value**: $S_0 e^{0.08t}$ (reduced by $\frac{1}{2}\sigma^2 = 0.02$)
+    
+    **Interpretation**: Due to Jensen's inequality and the convexity of $\exp$, the median growth rate (0.08) is less than the mean growth rate (0.10). The Itō correction $-\frac{1}{2}\sigma^2$ accounts for this difference. Higher volatility → larger gap between mean and median → more "drag" on typical paths.
+    
 ---
 
 ## **8.4 The Euler–Maruyama Method**
@@ -370,22 +366,20 @@ The EM method is a **first-order weak** ($\mathcal{O}(\Delta t)$) and **half-ord
 In quantitative finance, the primary goal is often to find the **expected payoff** of a derivative, $\mathbb{E}[\text{Payoff}(S_T)]$. Since this task relies solely on **weak convergence**, the $\mathcal{O}(\Delta t)$ accuracy of the EM method is typically sufficient and widely favored due to its simplicity and robust stability.
 
 ??? question "Strong vs. Weak Convergence: Which Matters for Option Pricing?"
-```
-**Question**: If Euler–Maruyama only has strong convergence of $\mathcal{O}(\sqrt{\Delta t})$, why is it acceptable for pricing derivatives?
-
-**Answer**: Because derivative pricing requires **expectation accuracy**, not **path accuracy**:
-
-- **Strong convergence** measures: $\mathbb{E}[|S_T^{\text{true}} - S_T^{\text{sim}}|]$ (average path error)
-  - Needed for: Hedge ratios, path-dependent Greeks, control variates
-  - EM achieves: $\mathcal{O}(\sqrt{\Delta t})$ → slow convergence
-
-- **Weak convergence** measures: $|\mathbb{E}[g(S_T^{\text{true}})] - \mathbb{E}[g(S_T^{\text{sim}})]|$ (expectation error)
-  - Needed for: Option prices, expected payoffs, risk-neutral valuation
-  - EM achieves: $\mathcal{O}(\Delta t)$ → good convergence
-
-**Practical guideline**: For vanilla option pricing via Monte Carlo, use EM with $\Delta t = T/100$ (100 steps to maturity). For path-dependent derivatives (Asian options, barriers), consider Milstein or reduce $\Delta t$ to $T/1000$ if strong convergence matters.
-
-```
+    **Question**: If Euler–Maruyama only has strong convergence of $\mathcal{O}(\sqrt{\Delta t})$, why is it acceptable for pricing derivatives?
+    
+    **Answer**: Because derivative pricing requires **expectation accuracy**, not **path accuracy**:
+    
+    - **Strong convergence** measures: $\mathbb{E}[|S_T^{\text{true}} - S_T^{\text{sim}}|]$ (average path error)
+      - Needed for: Hedge ratios, path-dependent Greeks, control variates
+      - EM achieves: $\mathcal{O}(\sqrt{\Delta t})$ → slow convergence
+    
+    - **Weak convergence** measures: $|\mathbb{E}[g(S_T^{\text{true}})] - \mathbb{E}[g(S_T^{\text{sim}})]|$ (expectation error)
+      - Needed for: Option prices, expected payoffs, risk-neutral valuation
+      - EM achieves: $\mathcal{O}(\Delta t)$ → good convergence
+    
+    **Practical guideline**: For vanilla option pricing via Monte Carlo, use EM with $\Delta t = T/100$ (100 steps to maturity). For path-dependent derivatives (Asian options, barriers), consider Milstein or reduce $\Delta t$ to $T/1000$ if strong convergence matters.
+    
 ---
 
 ### **Application: Simulating GBM with Euler–Maruyama**

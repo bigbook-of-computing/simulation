@@ -59,18 +59,16 @@ $$
 which compares the variance to the mean. For a Poisson process (e.g., constant‑rate birth and death), $\eta = 1$; super‑Poissonian noise ($\eta > 1$) indicates bursty production or long‑tailed distributions, while sub‑Poissonian noise ($\eta < 1$) suggests feedback or cooperativity that suppresses fluctuations.
 
 !!! tip "Interpreting the Fano Factor"
-```
-The Fano factor $\eta = \mathrm{Var}(X)/\langle X \rangle$ provides a quick diagnostic for noise:
-
-- $\eta = 1$: Poisson-like noise (constitutive expression at constant rate)
-- $\eta > 1$: Super-Poissonian (bursting, heavy tails, cell-to-cell variability)
-- $\eta < 1$: Sub-Poissonian (feedback regulation, noise suppression)
-
-For example, if mRNA has $\langle m \rangle = 20$ and $\mathrm{Var}(m) = 60$, then $\eta = 3$, indicating strong bursting. The Fano factor is dimensionless and robust to measurement units, making it ideal for comparing experiments across systems.
-
-```
-In gene expression, bursting often leads to Fano factors greater than one, reflecting large excursions in mRNA or protein numbers.
-
+    The Fano factor $\eta = \mathrm{Var}(X)/\langle X \rangle$ provides a quick diagnostic for noise:
+    
+    - $\eta = 1$: Poisson-like noise (constitutive expression at constant rate)
+    - $\eta > 1$: Super-Poissonian (bursting, heavy tails, cell-to-cell variability)
+    - $\eta < 1$: Sub-Poissonian (feedback regulation, noise suppression)
+    
+    For example, if mRNA has $\langle m \rangle = 20$ and $\mathrm{Var}(m) = 60$, then $\eta = 3$, indicating strong bursting. The Fano factor is dimensionless and robust to measurement units, making it ideal for comparing experiments across systems.
+    
+    In gene expression, bursting often leads to Fano factors greater than one, reflecting large excursions in mRNA or protein numbers.
+    
 ---
 
 ### **Transcriptional bursting and phenotypic heterogeneity**
@@ -90,18 +88,16 @@ Traditional deterministic models, based on ordinary differential equations (ODEs
 - **Large fluctuations at low copy numbers.** When molecule numbers are small, the discrete nature of reactions leads to variance comparable to or larger than the mean, invalidating continuous approximations.
 
 ??? question "Why Can't We Just Add Noise to Deterministic ODEs?"
-```
-One might try to model noise by adding Gaussian white noise to deterministic ODEs (Langevin equations). However, this approach has limitations:
-
-1. **Continuous vs. discrete**: ODEs treat molecule counts as continuous, but mRNA/protein counts are integers. Gaussian noise can produce negative counts.
-2. **Incorrect noise structure**: The Chemical Master Equation dictates that noise should be Poisson-like (variance proportional to mean), not Gaussian with constant variance.
-3. **Missing correlations**: Discrete reaction events create specific correlations between species that Langevin approximations may not capture correctly.
-
-The Gillespie SSA respects the discrete, stochastic nature of reactions and is mathematically exact. Langevin approximations are useful for large copy numbers but break down in the low-copy regime where bursting matters most.
-
-```
-To accurately model gene expression in regimes where noise is consequential, we need **stochastic simulation algorithms**. These algorithms track individual reaction events and generate trajectories consistent with the underlying probability distribution. The **Gillespie Stochastic Simulation Algorithm (SSA)**, introduced in the next section, is a mathematically exact method for simulating coupled chemical reactions in well‑mixed systems with low copy numbers. It samples the waiting time to the next reaction and the reaction identity according to the system’s propensity functions. By generating many such trajectories, we can compute distributions, autocorrelation functions, and noise statistics that match experimental observations.
-
+    One might try to model noise by adding Gaussian white noise to deterministic ODEs (Langevin equations). However, this approach has limitations:
+    
+    1. **Continuous vs. discrete**: ODEs treat molecule counts as continuous, but mRNA/protein counts are integers. Gaussian noise can produce negative counts.
+    2. **Incorrect noise structure**: The Chemical Master Equation dictates that noise should be Poisson-like (variance proportional to mean), not Gaussian with constant variance.
+    3. **Missing correlations**: Discrete reaction events create specific correlations between species that Langevin approximations may not capture correctly.
+    
+    The Gillespie SSA respects the discrete, stochastic nature of reactions and is mathematically exact. Langevin approximations are useful for large copy numbers but break down in the low-copy regime where bursting matters most.
+    
+    To accurately model gene expression in regimes where noise is consequential, we need **stochastic simulation algorithms**. These algorithms track individual reaction events and generate trajectories consistent with the underlying probability distribution. The **Gillespie Stochastic Simulation Algorithm (SSA)**, introduced in the next section, is a mathematically exact method for simulating coupled chemical reactions in well‑mixed systems with low copy numbers. It samples the waiting time to the next reaction and the reaction identity according to the system’s propensity functions. By generating many such trajectories, we can compute distributions, autocorrelation functions, and noise statistics that match experimental observations.
+    
 ---
 
 ### **Outline of the chapter**
@@ -203,20 +199,18 @@ The total propensity is $a_0 = k_f x_A x_B + k_b x_C$. According to the SSA, the
 This example illustrates how propensities depend on reactant counts and how the SSA naturally captures reaction stochasticity. It also resembles gene expression reactions (e.g., binding/unbinding of transcription factors), which we will model in the next section.
 
 !!! example "Gillespie SSA for Simple Dimerization"
-```
-Consider $A + B \rightleftharpoons C$ with $k_f = k_b = 1$, starting with $x_A = x_B = 10$, $x_C = 0$.
-
-**Step 1**: Propensities $a_1 = 1 \times 10 \times 10 = 100$, $a_2 = 1 \times 0 = 0$, $a_0 = 100$.
-
-**Step 2**: Draw $r_1 = 0.5$, compute $\tau = \ln(1/0.5)/100 = 0.00693$ time units.
-
-**Step 3**: Draw $r_2 = 0.3$; since $r_2 a_0 = 30 < a_1 = 100$, reaction 1 fires (binding).
-
-**Step 4**: Update state to $x_A = 9$, $x_B = 9$, $x_C = 1$; advance $t \leftarrow t + 0.00693$.
-
-Repeat until desired time. After many steps, the system reaches equilibrium with fluctuating $C$ levels.
-
-```
+    Consider $A + B \rightleftharpoons C$ with $k_f = k_b = 1$, starting with $x_A = x_B = 10$, $x_C = 0$.
+    
+    **Step 1**: Propensities $a_1 = 1 \times 10 \times 10 = 100$, $a_2 = 1 \times 0 = 0$, $a_0 = 100$.
+    
+    **Step 2**: Draw $r_1 = 0.5$, compute $\tau = \ln(1/0.5)/100 = 0.00693$ time units.
+    
+    **Step 3**: Draw $r_2 = 0.3$; since $r_2 a_0 = 30 < a_1 = 100$, reaction 1 fires (binding).
+    
+    **Step 4**: Update state to $x_A = 9$, $x_B = 9$, $x_C = 1$; advance $t \leftarrow t + 0.00693$.
+    
+    Repeat until desired time. After many steps, the system reaches equilibrium with fluctuating $C$ levels.
+    
 ---
 
 ### **Algorithmic efficiency and variants**

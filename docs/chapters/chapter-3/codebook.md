@@ -1,4 +1,4 @@
-# **Chapter 3: Physics II: Lattice Gauge Theory () () (Codebook)**
+# **Chapter 3: Physics II: Lattice Gauge Theory (Codebook)**
 
 ## Project 1: The Area Law as an Exponential Fit
 

@@ -76,10 +76,8 @@ $$E_X = \frac{RT}{zF} \ln \left( \frac{[X]_{\text{out}}}{[X]_{\text{in}}} \right
 where $R$ is the gas constant, $T$ is temperature, $z$ is the ion charge, and $F$ is the Faraday constant. At rest, the membrane acts like a **capacitor** charged to its resting potential; when stimulated, **voltage-gated ion channels** open, allowing ions to flow down their electrochemical gradients and quickly discharge the capacitor, generating the spike.
 
 !!! tip "The Nernst Potential: Electrochemical Equilibrium"
-```
-The Nernst equation tells us the voltage at which electrical force exactly balances chemical diffusion for a given ion. For $\text{Na}^+$ (high outside), $E_{\text{Na}} \approx +50$ mV pulls the membrane positive when channels open. For $\text{K}^+$ (high inside), $E_{\text{K}} \approx -77$ mV pulls it negative. The action potential is the neuron rapidly switching between these two battery potentials by opening different channels.
-
-```
+    The Nernst equation tells us the voltage at which electrical force exactly balances chemical diffusion for a given ion. For $\text{Na}^+$ (high outside), $E_{\text{Na}} \approx +50$ mV pulls the membrane positive when channels open. For $\text{K}^+$ (high inside), $E_{\text{K}} \approx -77$ mV pulls it negative. The action potential is the neuron rapidly switching between these two battery potentials by opening different channels.
+    
 ---
 
 ### **The Hodgkin–Huxley Model: System of Coupled ODEs**
@@ -169,10 +167,8 @@ This ODE defines the voltage ($V_m$) as a function of the dynamic gating variabl
 The **resting potential** ($V_{\text{rest}}$), typically around $-65 \text{ mV}$ to $-70 \text{ mV}$, is the stable equilibrium state where the total ionic current is zero (assuming $I_{\text{ext}}=0$). At this voltage, the small outward leak and potassium currents are exactly balanced by the inward sodium leak, resulting in $\frac{dV_m}{dt} = 0$.
 
 !!! example "The Membrane as a Leaky Capacitor"
-```
-Think of the neuron as a water tank (capacitor) with three pipes (ion channels): a large $\text{Na}^+$ pipe filling it, a large $\text{K}^+$ pipe draining it, and a small leak pipe. At rest, the filling and draining balance perfectly at $-70$ mV. When you suddenly open the $\text{Na}^+$ valve (depolarization), the tank rapidly fills (voltage rises). Then the $\text{K}^+$ valve opens to drain it back down (repolarization). The leak ensures eventual return to equilibrium.
-
-```
+    Think of the neuron as a water tank (capacitor) with three pipes (ion channels): a large $\text{Na}^+$ pipe filling it, a large $\text{K}^+$ pipe draining it, and a small leak pipe. At rest, the filling and draining balance perfectly at $-70$ mV. When you suddenly open the $\text{Na}^+$ valve (depolarization), the tank rapidly fills (voltage rises). Then the $\text{K}^+$ valve opens to drain it back down (repolarization). The leak ensures eventual return to equilibrium.
+    
 ---
 
 ### **Typical Parameters**
@@ -251,12 +247,10 @@ The **coupling** is established through two loops:
 The $\text{Na}^+$ activation gate ($\mathbf{m}$) opens **very quickly** upon depolarization, generating a massive inward current that drives the spike's rapid rise (positive feedback). Conversely, the $\text{K}^+$ activation gate ($\mathbf{n}$) and the $\text{Na}^+$ inactivation gate ($\mathbf{h}$) are much **slower**, initiating the delayed repolarization and subsequent recovery (negative feedback). These different time scales are essential for creating the unique shape and timing of the action potential.
 
 ??? question "Why Is the Hodgkin-Huxley System Stiff?"
-```
-A stiff ODE system has components evolving on vastly different timescales. In H-H, the sodium activation gate $m$ responds in $\sim 0.1$ ms (very fast), while $h$ and $n$ evolve over $\sim 1-5$ ms (slower). This means explicit methods like Euler require prohibitively small time steps to remain stable. RK4 handles this better with its four-stage predictor-corrector approach, though fully implicit methods (like backward Euler) would be even more stable for extreme stiffness.
-
-```
-The full H-H model is thus a **four-dimensional nonlinear dynamical system** that requires numerical methods like Runge-Kutta (Section 10.4) for its solution.
-
+    A stiff ODE system has components evolving on vastly different timescales. In H-H, the sodium activation gate $m$ responds in $\sim 0.1$ ms (very fast), while $h$ and $n$ evolve over $\sim 1-5$ ms (slower). This means explicit methods like Euler require prohibitively small time steps to remain stable. RK4 handles this better with its four-stage predictor-corrector approach, though fully implicit methods (like backward Euler) would be even more stable for extreme stiffness.
+    
+    The full H-H model is thus a **four-dimensional nonlinear dynamical system** that requires numerical methods like Runge-Kutta (Section 10.4) for its solution.
+    
 ---
 
 ## **10.4 The Simulation Strategy: Runge–Kutta for Hodgkin–Huxley**

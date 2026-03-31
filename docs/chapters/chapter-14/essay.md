@@ -45,10 +45,8 @@ Memory is not stored in a centralized file system; it is **reconstructed** by th
 This perspective leads directly to the **Hopfield Network**, a model that unifies physics and cognition.
 
 !!! tip "Why Energy Functions for Memory?"
-```
-Energy functions provide a natural framework for understanding stability. In physics, stable states (like a ball at the bottom of a valley) are energy minima—small perturbations don't change the state. Similarly, memories must be stable against noise (forgetting). By mapping memory to energy minima, Hopfield guaranteed that corrupted inputs naturally flow downhill to the nearest stored pattern, implementing error correction through pure physics.
-
-```
+    Energy functions provide a natural framework for understanding stability. In physics, stable states (like a ball at the bottom of a valley) are energy minima—small perturbations don't change the state. Similarly, memories must be stable against noise (forgetting). By mapping memory to energy minima, Hopfield guaranteed that corrupted inputs naturally flow downhill to the nearest stored pattern, implementing error correction through pure physics.
+    
 ---
 
 ### **The Hopfield Insight: Energy Minimization**
@@ -127,12 +125,10 @@ Where:
 The **Firing** event occurs when $V_i(t)$ exceeds the threshold $\theta$, after which $V_i$ is reset.
 
 !!! example "The McCulloch-Pitts Neuron: The Original Binary Model"
-```
-In 1943, McCulloch and Pitts proposed the first mathematical neuron model with binary output:
-$$y = \begin{cases} 1 & \text{if } \sum_j w_j x_j \geq \theta \\\\ 0 & \text{otherwise} \end{cases}$$
-This showed that networks of such units could implement any logical function (AND, OR, NOT), proving that neural circuits are universal computers. Hopfield extended this by adding dynamics (temporal evolution) and energy functions (global stability), transforming static logic gates into dynamical memory systems.
-
-```
+    In 1943, McCulloch and Pitts proposed the first mathematical neuron model with binary output:
+    $$y = \begin{cases} 1 & \text{if } \sum_j w_j x_j \geq \theta \\\\ 0 & \text{otherwise} \end{cases}$$
+    This showed that networks of such units could implement any logical function (AND, OR, NOT), proving that neural circuits are universal computers. Hopfield extended this by adding dynamics (temporal evolution) and energy functions (global stability), transforming static logic gates into dynamical memory systems.
+    
 ---
 
 ### **Binary Simplification: The Agent as a Spin**
@@ -214,10 +210,8 @@ The Hopfield Energy Function is mathematically equivalent to the Hamiltonian of 
 This means that the process of **thinking** (network evolution) is physically equivalent to a disordered magnetic material **relaxing to its ground state**.
 
 ??? question "Why Does Asynchronous Update Guarantee Energy Descent?"
-```
-When neuron $i$ flips from $s_i$ to $-s_i$, the energy change is $\Delta E = -2s_i(\sum_j w_{ij}s_j - \theta_i)$. The update rule flips $s_i$ only when $\text{sign}(\sum_j w_{ij}s_j - \theta_i) \neq s_i$, which means the product $s_i \cdot (\sum_j w_{ij}s_j - \theta_i) < 0$. Therefore $\Delta E = -2 \times (\text{negative}) = \text{negative}$, guaranteeing energy always decreases or stays constant. This is why asynchronous (one neuron at a time) updates are crucial—synchronous updates can create oscillations.
-
-```
+    When neuron $i$ flips from $s_i$ to $-s_i$, the energy change is $\Delta E = -2s_i(\sum_j w_{ij}s_j - \theta_i)$. The update rule flips $s_i$ only when $\text{sign}(\sum_j w_{ij}s_j - \theta_i) \neq s_i$, which means the product $s_i \cdot (\sum_j w_{ij}s_j - \theta_i) < 0$. Therefore $\Delta E = -2 \times (\text{negative}) = \text{negative}$, guaranteeing energy always decreases or stays constant. This is why asynchronous (one neuron at a time) updates are crucial—synchronous updates can create oscillations.
+    
 ---
 
 ### **Memory as a Stable Attractor**

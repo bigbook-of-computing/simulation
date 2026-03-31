@@ -1,4 +1,4 @@
-# **Chapter 5: Biology I: Stochastic Systems Biology () () (Codebook)**
+# **Chapter 5: Biology I: Stochastic Systems Biology (Codebook)**
 
 ---
 

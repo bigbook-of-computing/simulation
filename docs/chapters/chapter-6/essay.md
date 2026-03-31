@@ -128,15 +128,13 @@ $$
 This exponential dependence is what causes *critical slowing down*: as temperature drops or barriers rise, the simulation takes exponentially longer to equilibrate.
 
 !!! tip "Barrier Crossing Rates and Temperature"
-```
-The Arrhenius-like escape rate $k \sim e^{-\beta \Delta E}$ explains why simulations slow down dramatically at low temperatures:
-
-- At $T = 0.5\Delta E/k_B$: escape rate $\sim e^{-2} \approx 0.14$ (moderate)
-- At $T = 0.1\Delta E/k_B$: escape rate $\sim e^{-10} \approx 4.5 \times 10^{-5}$ (very slow)
-
-This exponential scaling means that halving the temperature can increase equilibration time by orders of magnitude. Advanced methods overcome this by either: (1) flipping collective degrees of freedom (clusters), (2) borrowing mobility from high-T replicas (parallel tempering), or (3) flattening the landscape artificially (Wang-Landau).
-
-```
+    The Arrhenius-like escape rate $k \sim e^{-\beta \Delta E}$ explains why simulations slow down dramatically at low temperatures:
+    
+    - At $T = 0.5\Delta E/k_B$: escape rate $\sim e^{-2} \approx 0.14$ (moderate)
+    - At $T = 0.1\Delta E/k_B$: escape rate $\sim e^{-10} \approx 4.5 \times 10^{-5}$ (very slow)
+    
+    This exponential scaling means that halving the temperature can increase equilibration time by orders of magnitude. Advanced methods overcome this by either: (1) flipping collective degrees of freedom (clusters), (2) borrowing mobility from high-T replicas (parallel tempering), or (3) flattening the landscape artificially (Wang-Landau).
+    
 ---
 
 ### **Looking Ahead**
@@ -305,28 +303,26 @@ You’ll see the lattice reorganize quickly — the entire configuration decorre
 The Wolff update satisfies **detailed balance** because the probability of forming a specific cluster and flipping it is symmetric between the old and new configurations.
 
 !!! example "Cluster Size Near the Critical Point"
-```
-In the 2D Ising model at $T_c \approx 2.269J/k_B$, clusters grow dramatically:
-
-- **Below $T_c$**: Small clusters (typical size $\sim 10$ spins) because domains are stable
-- **At $T_c$**: Fractal clusters spanning the system (size $\sim L^{d_f}$ with $d_f \approx 1.9$)
-- **Above $T_c$**: Small clusters again (disordered phase)
-
-The Wolff algorithm's power comes from flipping these large critical clusters in one move, sidestepping the correlation time divergence $\tau \sim \xi^2$ that plagues Metropolis. Cluster autocorrelation times remain $\mathcal{O}(1)$ even at $T_c$.
-
-```
-Cluster addition mimics correlated fluctuations:
-$$
-P(\text{bond}) = 1 - e^{-2\beta J},
-$$
-ensuring that connected aligned spins tend to flip together.
-
-As a result, the autocorrelation time $\tau$ scales as
-$$
-\tau \sim L^z,
-$$
-with a dynamic exponent $z \approx 0$–1, much smaller than $z \approx 2$ for single-spin Metropolis updates — hence the dramatic speed-up.
-
+    In the 2D Ising model at $T_c \approx 2.269J/k_B$, clusters grow dramatically:
+    
+    - **Below $T_c$**: Small clusters (typical size $\sim 10$ spins) because domains are stable
+    - **At $T_c$**: Fractal clusters spanning the system (size $\sim L^{d_f}$ with $d_f \approx 1.9$)
+    - **Above $T_c$**: Small clusters again (disordered phase)
+    
+    The Wolff algorithm's power comes from flipping these large critical clusters in one move, sidestepping the correlation time divergence $\tau \sim \xi^2$ that plagues Metropolis. Cluster autocorrelation times remain $\mathcal{O}(1)$ even at $T_c$.
+    
+    Cluster addition mimics correlated fluctuations:
+    $$
+    P(\text{bond}) = 1 - e^{-2\beta J},
+    $$
+    ensuring that connected aligned spins tend to flip together.
+    
+    As a result, the autocorrelation time $\tau$ scales as
+    $$
+    \tau \sim L^z,
+    $$
+    with a dynamic exponent $z \approx 0$–1, much smaller than $z \approx 2$ for single-spin Metropolis updates — hence the dramatic speed-up.
+    
 ---
 
 ### **Comparison with Metropolis**
@@ -560,16 +556,14 @@ $$
 and the swap acceptance rule ensures symmetry under $(i \leftrightarrow j)$.
 
 ??? question "How Do You Choose the Temperature Ladder?"
-```
-The temperature ladder design is critical for efficient replica exchange. Key principles:
-
-1. **Overlap criterion**: Adjacent replicas' energy distributions should overlap significantly (typically 20-40% acceptance rate for swaps)
-2. **Geometric spacing**: $T_{i+1}/T_i \approx$ constant works well for many systems
-3. **Rule of thumb**: For system with heat capacity $C_V$, spacing $\Delta \beta \approx 1/\sqrt{C_V}$
-
-**Example**: For a 100-spin Ising model near $T_c$, use 8-12 replicas spanning $0.8T_c$ to $2T_c$. Too few replicas → poor acceptance; too many → wasted computation. Monitor swap rates and adjust!
-
-```
+    The temperature ladder design is critical for efficient replica exchange. Key principles:
+    
+    1. **Overlap criterion**: Adjacent replicas' energy distributions should overlap significantly (typically 20-40% acceptance rate for swaps)
+    2. **Geometric spacing**: $T_{i+1}/T_i \approx$ constant works well for many systems
+    3. **Rule of thumb**: For system with heat capacity $C_V$, spacing $\Delta \beta \approx 1/\sqrt{C_V}$
+    
+    **Example**: For a 100-spin Ising model near $T_c$, use 8-12 replicas spanning $0.8T_c$ to $2T_c$. Too few replicas → poor acceptance; too many → wasted computation. Monitor swap rates and adjust!
+    
 ---
 
 ### **Tuning and Practical Notes**

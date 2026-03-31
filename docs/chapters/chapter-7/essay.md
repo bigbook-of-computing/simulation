@@ -265,16 +265,14 @@ When run over many steps, the total energy $E_{\text{tot}} = \frac{1}{2}m v^2 + 
 The choice of the time step $\Delta t$ is a practical consideration balancing speed and accuracy. A time step that is too large will lead to **numerical instability and energy drift** because it fails to resolve the fastest oscillations in the system, such as high-frequency bond stretching vibrations. A common rule of thumb suggests that $\Delta t$ should be at least 50 times smaller than the period of the fastest oscillation.
 
 !!! tip "Choosing the Right Time Step"
-```
-The time step $\Delta t$ must resolve the fastest motion in your system. Practical guidelines:
-
-- **Bonded systems** (e.g., water molecules): $\Delta t \approx 1$ fs (femtosecond) to capture O-H bond vibrations (~10 fs period)
-- **Constraint algorithms** (e.g., SHAKE/RATTLE): Allow $\Delta t \approx 2$ fs by freezing fastest bonds
-- **Soft potentials** (e.g., coarse-grained models): Can use $\Delta t \approx 10-50$ fs
-
-**Test**: Run short NVE simulation and monitor total energy drift. Acceptable drift: $\Delta E/E < 10^{-4}$ over 1 ns. If energy drifts significantly, halve $\Delta t$ and retest.
-
-```
+    The time step $\Delta t$ must resolve the fastest motion in your system. Practical guidelines:
+    
+    - **Bonded systems** (e.g., water molecules): $\Delta t \approx 1$ fs (femtosecond) to capture O-H bond vibrations (~10 fs period)
+    - **Constraint algorithms** (e.g., SHAKE/RATTLE): Allow $\Delta t \approx 2$ fs by freezing fastest bonds
+    - **Soft potentials** (e.g., coarse-grained models): Can use $\Delta t \approx 10-50$ fs
+    
+    **Test**: Run short NVE simulation and monitor total energy drift. Acceptable drift: $\Delta E/E < 10^{-4}$ over 1 ns. If energy drifts significantly, halve $\Delta t$ and retest.
+    
 ---
 
 ### **Summary**
@@ -311,18 +309,16 @@ where $L$ is the box length and the $\text{round}$ operation rounds to the neare
 The MIC imposes a necessary constraint: to correctly capture all nearest-neighbor interactions, the interaction cutoff radius $r_c$ (discussed below) must be no greater than half the box length, $r_c \le L/2$. If this condition is violated, a particle could interact simultaneously with the same image particle through two different boundaries, leading to non-physical, double interactions.
 
 !!! example "Minimum Image Convention in Practice"
-```
-Consider a cubic box with $L = 10$ Å and two particles at positions:
-- Particle A: $\mathbf{r}_A = (1.0, 5.0, 5.0)$ Å
-- Particle B: $\mathbf{r}_B = (9.5, 5.0, 5.0)$ Å
-
-**Naive distance**: $|\mathbf{r}_A - \mathbf{r}_B| = 8.5$ Å (along x-axis)
-
-**MIC distance**: The nearest image of B is actually at $(-0.5, 5.0, 5.0)$ through periodic wrapping, giving true distance $|1.0 - (-0.5)| = 1.5$ Å.
-
-This 6× reduction dramatically affects force calculations! Always apply MIC before computing $r_{ij}$ for forces.
-
-```
+    Consider a cubic box with $L = 10$ Å and two particles at positions:
+    - Particle A: $\mathbf{r}_A = (1.0, 5.0, 5.0)$ Å
+    - Particle B: $\mathbf{r}_B = (9.5, 5.0, 5.0)$ Å
+    
+    **Naive distance**: $|\mathbf{r}_A - \mathbf{r}_B| = 8.5$ Å (along x-axis)
+    
+    **MIC distance**: The nearest image of B is actually at $(-0.5, 5.0, 5.0)$ through periodic wrapping, giving true distance $|1.0 - (-0.5)| = 1.5$ Å.
+    
+    This 6× reduction dramatically affects force calculations! Always apply MIC before computing $r_{ij}$ for forces.
+    
 ---
 
 ### **Computational Efficiency: The $\mathcal{O}(N^2)$ Problem**
@@ -391,22 +387,20 @@ where $\tau_T$ is a characteristic relaxation time. If the system is too hot ($T
 While effective for **equilibration**—quickly achieving the target temperature $T_0$—the Berendsen thermostat does **not** generate the correct canonical ensemble. It artificially suppresses large fluctuations in kinetic energy, leading to incorrect calculations of fluctuation-dependent observables (e.g., specific heat).
 
 ??? question "When Should You Use Berendsen vs. Nosé–Hoover Thermostats?"
-```
-The choice depends on your simulation phase and what you're measuring:
-
-**Use Berendsen for**:
-- Initial equilibration (first 10-100 ps)
-- Quickly bringing system to target temperature
-- When you only care about structural properties (not fluctuations)
-
-**Use Nosé–Hoover for**:
-- Production runs where you extract thermodynamic data
-- Computing heat capacity, energy fluctuations, or free energies
-- Any ensemble-sensitive observable
-
-**Best practice**: Equilibrate with Berendsen ($\tau_T \approx 0.1$ ps), then switch to Nosé–Hoover ($Q \approx Nk_BT\tau^2$ with $\tau \approx 1$ ps) for production. Monitor temperature distribution—should match canonical $P(T) \propto \sqrt{T} e^{-\beta(E-\langle E \rangle)^2/2k_B T^2}$.
-
-```
+    The choice depends on your simulation phase and what you're measuring:
+    
+    **Use Berendsen for**:
+    - Initial equilibration (first 10-100 ps)
+    - Quickly bringing system to target temperature
+    - When you only care about structural properties (not fluctuations)
+    
+    **Use Nosé–Hoover for**:
+    - Production runs where you extract thermodynamic data
+    - Computing heat capacity, energy fluctuations, or free energies
+    - Any ensemble-sensitive observable
+    
+    **Best practice**: Equilibrate with Berendsen ($\tau_T \approx 0.1$ ps), then switch to Nosé–Hoover ($Q \approx Nk_BT\tau^2$ with $\tau \approx 1$ ps) for production. Monitor temperature distribution—should match canonical $P(T) \propto \sqrt{T} e^{-\beta(E-\langle E \rangle)^2/2k_B T^2}$.
+    
 #### The Nosé–Hoover Thermostat
 
 The **Nosé–Hoover thermostat** is a deterministic method that explicitly generates the statistically correct **canonical ensemble**. It achieves this by modifying the equations of motion to include a dynamic friction term $\xi \mathbf{v}_i$, effectively introducing an auxiliary thermostat variable ($\xi$) and an associated thermal inertia ($Q$):

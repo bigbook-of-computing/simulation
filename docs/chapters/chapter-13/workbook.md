@@ -1,4 +1,4 @@
-# **Chapter 13: Biology III: Collective Behavior & Pattern Formation () () () (Workbook)**
+# **Chapter 13: Biology III: Collective Behavior & Pattern Formation (Workbook)**
 
 The goal of this chapter is to explore **morphogenesis**, the biological emergence of structured patterns, by modeling how local rules and chemical diffusion give rise to global geometry and function.
 
@@ -18,37 +18,31 @@ The goal of this chapter is to explore **morphogenesis**, the biological emergen
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. The primary challenge that morphogenesis models address is:**
-
-* **A.** How gravitational forces shape the organism.
-* **B.** How to sequence the DNA of a cell.
-* **C.** **How a uniform group of cells spontaneously produces complex, ordered spatial patterns**. (**Correct**)
-* **D.** How to solve the Nernst equation for ion gradients.
-
-```
+    **1. The primary challenge that morphogenesis models address is:**
+    
+    * **A.** How gravitational forces shape the organism.
+    * **B.** How to sequence the DNA of a cell.
+    * **C.** **How a uniform group of cells spontaneously produces complex, ordered spatial patterns**. (**Correct**)
+    * **D.** How to solve the Nernst equation for ion gradients.
+    
 !!! note "Quiz"
-```
-**2. In the computational model of tissue development, the continuous field of chemical concentrations is typically modeled using which mathematical framework?**
-
-* **A.** Ordinary Differential Equations (ODEs).
-* **B.** Graph Theory.
-* **C.** **Partial Differential Equations (PDEs)**. (**Correct**)
-* **D.** Boolean Logic.
-
-```
+    **2. In the computational model of tissue development, the continuous field of chemical concentrations is typically modeled using which mathematical framework?**
+    
+    * **A.** Ordinary Differential Equations (ODEs).
+    * **B.** Graph Theory.
+    * **C.** **Partial Differential Equations (PDEs)**. (**Correct**)
+    * **D.** Boolean Logic.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** The text suggests that the process of morphogenesis (development) is essentially a **distributed computation**. Explain what constitutes the "processors," the "rules," and the "output" in this biological computation.
-
-**Answer Strategy:**
-* **Processors:** The individual **cells** (genetically identical descendants of the zygote).
-* **Rules:** The **local molecular kinetics** and signaling logic (e.g., sense local chemical concentrations $\to$ decide $\to$ secrete new chemicals).
-* **Output:** The final **complex geometry and functional structure** (e.g., stripes, limbs, organs) — the emergent form.
-
-```
+    **Question:** The text suggests that the process of morphogenesis (development) is essentially a **distributed computation**. Explain what constitutes the "processors," the "rules," and the "output" in this biological computation.
+    
+    **Answer Strategy:**
+    * **Processors:** The individual **cells** (genetically identical descendants of the zygote).
+    * **Rules:** The **local molecular kinetics** and signaling logic (e.g., sense local chemical concentrations $\to$ decide $\to$ secrete new chemicals).
+    * **Output:** The final **complex geometry and functional structure** (e.g., stripes, limbs, organs) — the emergent form.
+    
 ---
 
 ### 13.2 Reaction–Diffusion Models (Turing Patterns)
@@ -62,34 +56,28 @@ The reaction terms $f(u, v)$ and $g(u, v)$ provide the **nonlinear feedback** ne
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. The core requirement for generating stable Turing patterns is that:**
-
-* **A.** Both the activator and inhibitor must diffuse at the same slow rate.
-* **B.** The activator must be constantly removed from the system.
-* **C.** **The inhibitor must diffuse significantly faster and farther than the activator** ($D_v \gg D_u$). (**Correct**)
-* **D.** The system must remain entirely homogeneous.
-
-```
+    **1. The core requirement for generating stable Turing patterns is that:**
+    
+    * **A.** Both the activator and inhibitor must diffuse at the same slow rate.
+    * **B.** The activator must be constantly removed from the system.
+    * **C.** **The inhibitor must diffuse significantly faster and farther than the activator** ($D_v \gg D_u$). (**Correct**)
+    * **D.** The system must remain entirely homogeneous.
+    
 !!! note "Quiz"
-```
-**2. The spontaneous formation of patterns from a uniform background is fundamentally a mechanism of:**
-
-* **A.** Simple random walk (Brownian motion).
-* **B.** **Symmetry breaking**. (**Correct**)
-* **C.** Linear stability analysis.
-* **D.** Conservation of energy.
-
-```
+    **2. The spontaneous formation of patterns from a uniform background is fundamentally a mechanism of:**
+    
+    * **A.** Simple random walk (Brownian motion).
+    * **B.** **Symmetry breaking**. (**Correct**)
+    * **C.** Linear stability analysis.
+    * **D.** Conservation of energy.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** Explain, using the RD model analogy, why the stripes on a zebra are always roughly the same width (or characteristic spacing), rather than being randomly thin or thick.
-
-**Answer Strategy:** The spacing of the stripes is determined by the **characteristic wavelength** of the diffusion-driven instability. This wavelength is set by the ratio of the diffusion rates, $D_v / D_u$. Since $D_v$ (inhibitor spread) sets the maximum distance an activation center can influence its neighbors, the pattern is forced to emerge periodically at a specific separation. This creates the reproducible, uniform distance between stripes (or spots), regardless of minor random fluctuations in the initial cell field.
-
-```
+    **Question:** Explain, using the RD model analogy, why the stripes on a zebra are always roughly the same width (or characteristic spacing), rather than being randomly thin or thick.
+    
+    **Answer Strategy:** The spacing of the stripes is determined by the **characteristic wavelength** of the diffusion-driven instability. This wavelength is set by the ratio of the diffusion rates, $D_v / D_u$. Since $D_v$ (inhibitor spread) sets the maximum distance an activation center can influence its neighbors, the pattern is forced to emerge periodically at a specific separation. This creates the reproducible, uniform distance between stripes (or spots), regardless of minor random fluctuations in the initial cell field.
+    
 ---
 
 ### 13.3 Graph Theory for Regulatory Networks
@@ -103,36 +91,30 @@ The GRN approach shifts the focus from **spatial pattern** to **logical pattern*
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. In the context of a Gene Regulatory Network (GRN), a recurring sub-network structure where Gene A activates Gene B, and Gene B activates Gene A, is known as:**
-
-* **A.** A Boolean logic gate.
-* **B.** **A Positive Feedback Loop**. (**Correct**)
-* **C.** A Feed-Forward Loop.
-* **D.** A diffusion-driven instability.
-
-```
+    **1. In the context of a Gene Regulatory Network (GRN), a recurring sub-network structure where Gene A activates Gene B, and Gene B activates Gene A, is known as:**
+    
+    * **A.** A Boolean logic gate.
+    * **B.** **A Positive Feedback Loop**. (**Correct**)
+    * **C.** A Feed-Forward Loop.
+    * **D.** A diffusion-driven instability.
+    
 !!! note "Quiz"
-```
-**2. In the simulation of a Boolean Gene Regulatory Network, a stable, repeating cycle of gene expression states is known as an **attractor**. Biologically, this attractor is often interpreted as representing:**
-
-* **A.** A temporary phase transition.
-* **B.** The chemical concentration of a morphogen.
-* **C.** **A distinct cell type (e.g., a neuron or muscle cell)**. (**Correct**)
-* **D.** A single activation gate.
-
-```
+    **2. In the simulation of a Boolean Gene Regulatory Network, a stable, repeating cycle of gene expression states is known as an **attractor**. Biologically, this attractor is often interpreted as representing:**
+    
+    * **A.** A temporary phase transition.
+    * **B.** The chemical concentration of a morphogen.
+    * **C.** **A distinct cell type (e.g., a neuron or muscle cell)**. (**Correct**)
+    * **D.** A single activation gate.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** Compare and contrast the stability mechanisms of the **Reaction–Diffusion** model versus the **Gene Regulatory Network** model.
-
-**Answer Strategy:**
-* **RD Model (Physical Stability):** Stability is achieved through **long-range inhibition**. The pattern's size and spacing are physically stable because the fast-diffusing inhibitor suppresses fluctuations in the surrounding space, locking the activator into a fixed location.
-* **GRN Model (Logical Stability):** Stability is achieved through **positive feedback loops**. Once a set of genes enters an ON state, the positive feedback forces it to remain ON, creating an informational memory (the attractor) that is robust against small changes, essentially stabilizing a "logical decision" (the cell type).
-
-```
+    **Question:** Compare and contrast the stability mechanisms of the **Reaction–Diffusion** model versus the **Gene Regulatory Network** model.
+    
+    **Answer Strategy:**
+    * **RD Model (Physical Stability):** Stability is achieved through **long-range inhibition**. The pattern's size and spacing are physically stable because the fast-diffusing inhibitor suppresses fluctuations in the surrounding space, locking the activator into a fixed location.
+    * **GRN Model (Logical Stability):** Stability is achieved through **positive feedback loops**. Once a set of genes enters an ON state, the positive feedback forces it to remain ON, creating an informational memory (the attractor) that is robust against small changes, essentially stabilizing a "logical decision" (the cell type).
+    
 ---
 
 ### 💡 Hands-On Simulation Projects (Chapter Conclusion) 🛠️

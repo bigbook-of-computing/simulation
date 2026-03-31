@@ -1,4 +1,4 @@
-# **Chapter 12: Finance IV: Agent-Based Market Models () () () (Workbook)**
+# **Chapter 12: Finance IV: Agent-Based Market Models (Workbook)**
 
 The goal of this chapter is to apply the **Agent-Based Model (ABM)** framework (Chapter 11) to financial markets, demonstrating how collective, realistic phenomena like **crashes, bubbles, and fat tails** **emerge** from the local interaction and psychology of heterogeneous traders.
 
@@ -23,36 +23,30 @@ The failure of efficient market models in reality is primarily due to emergent p
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. Which of the following is considered an emergent, real-world phenomenon that is **not** successfully captured by the continuous, Gaussian assumptions of the Geometric Brownian Motion (GBM) model?**
-
-* **A.** Continuous log-normal price movement.
-* **B.** Constant volatility.
-* **C.** **Fat tails (excessive frequency of extreme crashes/spikes)**. (**Correct**)
-* **D.** Prices remaining positive.
-
-```
+    **1. Which of the following is considered an emergent, real-world phenomenon that is **not** successfully captured by the continuous, Gaussian assumptions of the Geometric Brownian Motion (GBM) model?**
+    
+    * **A.** Continuous log-normal price movement.
+    * **B.** Constant volatility.
+    * **C.** **Fat tails (excessive frequency of extreme crashes/spikes)**. (**Correct**)
+    * **D.** Prices remaining positive.
+    
 !!! note "Quiz"
-```
-**2. The primary cause of bubbles and crashes in Agent-Based Market Models (ABMs) is often attributed to:**
-
-* **A.** External, unmodeled political events.
-* **B.** The deterministic drift term ($\mu$) in the SDE.
-* **C.** **Local interactions like herding and panic among human traders**. (**Correct**)
-* **D.** The elimination of the random term via hedging.
-
-```
+    **2. The primary cause of bubbles and crashes in Agent-Based Market Models (ABMs) is often attributed to:**
+    
+    * **A.** External, unmodeled political events.
+    * **B.** The deterministic drift term ($\mu$) in the SDE.
+    * **C.** **Local interactions like herding and panic among human traders**. (**Correct**)
+    * **D.** The elimination of the random term via hedging.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** The BSM model views market randomness as **exogenous noise** (external to the system), while the ABM views it as **endogenous noise**. Explain the distinction and why it is critical for market modeling.
-
-**Answer Strategy:**
-* **Exogenous Noise (BSM):** Assumes randomness (like the $dW_t$ term) comes from unpredictable external forces that cannot be modeled (e.g., truly random news). This leads to a stable, smooth, Gaussian output.
-* **Endogenous Noise (ABM):** Assumes randomness and extreme events **emerge from the internal dynamics** of the system itself. For example, the decision of one trader influences their neighbor, leading to a synchronized **herding event** that *generates* a massive price fluctuation (the "noise") that is much larger than any external random shock. ABMs can capture this feedback loop, while BSM cannot.
-
-```
+    **Question:** The BSM model views market randomness as **exogenous noise** (external to the system), while the ABM views it as **endogenous noise**. Explain the distinction and why it is critical for market modeling.
+    
+    **Answer Strategy:**
+    * **Exogenous Noise (BSM):** Assumes randomness (like the $dW_t$ term) comes from unpredictable external forces that cannot be modeled (e.g., truly random news). This leads to a stable, smooth, Gaussian output.
+    * **Endogenous Noise (ABM):** Assumes randomness and extreme events **emerge from the internal dynamics** of the system itself. For example, the decision of one trader influences their neighbor, leading to a synchronized **herding event** that *generates* a massive price fluctuation (the "noise") that is much larger than any external random shock. ABMs can capture this feedback loop, while BSM cannot.
+    
 ---
 
 ---
@@ -75,36 +69,30 @@ The Ising market model uses the same Hamiltonian as statistical physics, $E(\mat
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. In the Ising Model analogy for financial markets, the **Net Order Flow** (the total buying minus the total selling) is analogous to which physical observable?**
-
-* **A.** The total energy $E$.
-* **B.** The inverse temperature $\beta$.
-* **C.** **The magnetization $M$**. (**Correct**)
-* **D.** The coupling constant $J$.
-
-```
+    **1. In the Ising Model analogy for financial markets, the **Net Order Flow** (the total buying minus the total selling) is analogous to which physical observable?**
+    
+    * **A.** The total energy $E$.
+    * **B.** The inverse temperature $\beta$.
+    * **C.** **The magnetization $M$**. (**Correct**)
+    * **D.** The coupling constant $J$.
+    
 !!! note "Quiz"
-```
-**2. The coupling constant $J$ in the Ising Market Model represents the economic phenomenon of:**
-
-* **A.** Market volatility.
-* **B.** **Herding Behavior** (the tendency to follow local neighbors). (**Correct**)
-* **C.** The risk-free rate.
-* **D.** The stock's fundamental value.
-
-```
+    **2. The coupling constant $J$ in the Ising Market Model represents the economic phenomenon of:**
+    
+    * **A.** Market volatility.
+    * **B.** **Herding Behavior** (the tendency to follow local neighbors). (**Correct**)
+    * **C.** The risk-free rate.
+    * **D.** The stock's fundamental value.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** How does the concept of **temperature ($T$)** in the Ising Hamiltonian, when applied to a financial market, relate to **investor rationality or chaos**?
-
-**Answer Strategy:** Temperature in the Ising model ($T=1/k_B\beta$) controls the level of **thermal disorder**.
-* **Low Temperature (Small $T$):** The system's decisions are dominated by the **ferromagnetic coupling $J$** (herding) and the **field $H$** (news). The system is **rational/stable** in that it aligns to fundamental forces or social pressures.
-* **High Temperature (Large $T$):** The system is dominated by **random fluctuations** (chaotic thermal noise). Traders act randomly, independent of herding or news. This represents a **chaotic or highly uncertain** market where decisions are largely random noise.
-
-```
+    **Question:** How does the concept of **temperature ($T$)** in the Ising Hamiltonian, when applied to a financial market, relate to **investor rationality or chaos**?
+    
+    **Answer Strategy:** Temperature in the Ising model ($T=1/k_B\beta$) controls the level of **thermal disorder**.
+    * **Low Temperature (Small $T$):** The system's decisions are dominated by the **ferromagnetic coupling $J$** (herding) and the **field $H$** (news). The system is **rational/stable** in that it aligns to fundamental forces or social pressures.
+    * **High Temperature (Large $T$):** The system is dominated by **random fluctuations** (chaotic thermal noise). Traders act randomly, independent of herding or news. This represents a **chaotic or highly uncertain** market where decisions are largely random noise.
+    
 ---
 
 ---
@@ -120,36 +108,30 @@ Fundamentalists are **rational** agents, while Chartists (also called technical 
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. In the Santa Fe Artificial Stock Market (ASM), which type of agent introduces the **psychological, non-fundamental** component (e.g., herding and imitation) into the market dynamics?**
-
-* **A.** The Market Maker.
-* **B.** **The Chartists (Technical Traders)**. (**Correct**)
-* **C.** The Fundamentalists.
-* **D.** The Regulators.
-
-```
+    **1. In the Santa Fe Artificial Stock Market (ASM), which type of agent introduces the **psychological, non-fundamental** component (e.g., herding and imitation) into the market dynamics?**
+    
+    * **A.** The Market Maker.
+    * **B.** **The Chartists (Technical Traders)**. (**Correct**)
+    * **C.** The Fundamentalists.
+    * **D.** The Regulators.
+    
 !!! note "Quiz"
-```
-**2. How is the market price $P_{t+1}$ determined in the Santa Fe ASM simulation?**
-
-* **A.** By the Black–Scholes–Merton formula.
-* **B.** By the simple average of all agents' wealth.
-* **C.** **It is updated based on the Net Order Flow ($O_t$) submitted by all agents**. (**Correct**)
-* **D.** It is set equal to the fundamental value $P_{\text{fund}}$.
-
-```
+    **2. How is the market price $P_{t+1}$ determined in the Santa Fe ASM simulation?**
+    
+    * **A.** By the Black–Scholes–Merton formula.
+    * **B.** By the simple average of all agents' wealth.
+    * **C.** **It is updated based on the Net Order Flow ($O_t$) submitted by all agents**. (**Correct**)
+    * **D.** It is set equal to the fundamental value $P_{\text{fund}}$.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** In the Santa Fe ASM, Fundamentalists act as the **stabilizing force**, while Chartists act as the **destabilizing force**. Explain why.
-
-**Answer Strategy:**
-* **Fundamentalists (Stabilizing):** These agents act as a **negative feedback loop**. If the price $P$ moves far from the fundamental value ($P_{\text{fund}}$), they trade to push it back (Sell if $P > P_{\text{fund}}$, Buy if $P < P_{\text{fund}}$). This stabilizes the market around its intrinsic worth.
-* **Chartists (Destabilizing):** These agents act as a **positive feedback loop**. They trade based on trend extrapolation (Buy if rising, Sell if falling). This imitative behavior amplifies small price movements, creating **herding and momentum**, which can lead to bubbles and crashes, destabilizing the market.
-
-```
+    **Question:** In the Santa Fe ASM, Fundamentalists act as the **stabilizing force**, while Chartists act as the **destabilizing force**. Explain why.
+    
+    **Answer Strategy:**
+    * **Fundamentalists (Stabilizing):** These agents act as a **negative feedback loop**. If the price $P$ moves far from the fundamental value ($P_{\text{fund}}$), they trade to push it back (Sell if $P > P_{\text{fund}}$, Buy if $P < P_{\text{fund}}$). This stabilizes the market around its intrinsic worth.
+    * **Chartists (Destabilizing):** These agents act as a **positive feedback loop**. They trade based on trend extrapolation (Buy if rising, Sell if falling). This imitative behavior amplifies small price movements, creating **herding and momentum**, which can lead to bubbles and crashes, destabilizing the market.
+    
 ---
 
 ---
@@ -165,37 +147,31 @@ Fundamentalists are **rational** agents, while Chartists (also called technical 
 #### Quiz Questions
 
 !!! note "Quiz"
-```
-**1. The extreme, large fluctuations that create **Fat Tails** in the distribution of market returns are computationally generated in ABMs by:**
-
-* **A.** Random errors in the SDE solver.
-* **B.** **Synchronized, massive order flows from Chartists (herding events)**. (**Correct**)
-* **C.** The constant activity of Fundamentalists.
-* **D.** Setting the volatility $\sigma$ to zero.
-
-```
+    **1. The extreme, large fluctuations that create **Fat Tails** in the distribution of market returns are computationally generated in ABMs by:**
+    
+    * **A.** Random errors in the SDE solver.
+    * **B.** **Synchronized, massive order flows from Chartists (herding events)**. (**Correct**)
+    * **C.** The constant activity of Fundamentalists.
+    * **D.** Setting the volatility $\sigma$ to zero.
+    
 !!! note "Quiz"
-```
-**2. **Volatility Clustering** is the emergent phenomenon where large price changes are followed by other large price changes. This behavior arises in ABMs due to:**
-
-* **A.** The independence of all agents.
-* **B.** **Agent memory and internal rules for strategy switching**. (**Correct**)
-* **C.** The risk-free rate being too high.
-* **D.** The failure of the BSM formula.
-
-```
+    **2. **Volatility Clustering** is the emergent phenomenon where large price changes are followed by other large price changes. This behavior arises in ABMs due to:**
+    
+    * **A.** The independence of all agents.
+    * **B.** **Agent memory and internal rules for strategy switching**. (**Correct**)
+    * **C.** The risk-free rate being too high.
+    * **D.** The failure of the BSM formula.
+    
 ---
 
 !!! question "Interview Practice"
-```
-**Question:** The output of the ABM for returns often follows a **Power Law** ($P(x) \sim x^{-\alpha}$) rather than a **Gaussian (Normal) distribution**. Explain the financial risk implication of this difference.
-
-**Answer Strategy:** The difference lies in the **tails** of the distribution.
-* **Gaussian:** The probability of extreme events (outliers in the tails) decays exponentially, meaning events like a 5-standard deviation crash are mathematically almost impossible.
-* **Power Law (Fat Tail):** The probability of extreme events decays much slower.
-The risk implication is that **real-world crashes and spikes (the fat tails) are vastly more probable** than predicted by Gaussian models. This failure leads to the underestimation of market risk in traditional quantitative models. ABMs correctly generate this **endogenous** risk.
-
-```
+    **Question:** The output of the ABM for returns often follows a **Power Law** ($P(x) \sim x^{-\alpha}$) rather than a **Gaussian (Normal) distribution**. Explain the financial risk implication of this difference.
+    
+    **Answer Strategy:** The difference lies in the **tails** of the distribution.
+    * **Gaussian:** The probability of extreme events (outliers in the tails) decays exponentially, meaning events like a 5-standard deviation crash are mathematically almost impossible.
+    * **Power Law (Fat Tail):** The probability of extreme events decays much slower.
+    The risk implication is that **real-world crashes and spikes (the fat tails) are vastly more probable** than predicted by Gaussian models. This failure leads to the underestimation of market risk in traditional quantitative models. ABMs correctly generate this **endogenous** risk.
+    
 ---
 
 ## 💡 Hands-On Simulation Projects (Chapter Conclusion) 🛠️
